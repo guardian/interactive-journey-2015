@@ -1,0 +1,123 @@
+/**
+ * Project: Project name 
+ * File:    Main SCSS
+ */
+
+$guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
+
+@import 'bower_components/pasteup-palette/src/_palette';
+@import 'bower_components/guss-webfonts/src/_webfonts.scss';
+@import 'bower_components/guss-typography/_typography.scss';
+
+@import 'modules/sample';
+@include guss-webfonts();
+@include guss-typography-defaults;
+
+
+$maxInnerWidth: 620px;
+$maxOuterWidth: 1300px;
+$outerColumnWidth: ($maxOuterWidth - $maxInnerWidth) / 2;
+
+body,
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+.interactive * {
+    box-sizing: border-box;
+}
+
+.interactive {
+    margin: 0;
+}
+
+.gusto-header {
+    background-size: cover;
+    height: 100vh;
+    padding: 3rem 10px 1rem 10px;
+    background-position: 50%;
+    color: #FFF;
+}
+
+.gusto-restrict-inner {
+    max-width: $maxInnerWidth;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.gusto-restrict-outer {
+    max-width: $maxOuterWidth;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.gusto-headline {
+    margin-top: 0;
+}
+
+.gusto-photo-fullwidth {
+    width: 100%;
+}
+
+.gusto-video-fullwidth {
+    width: 100%;
+}
+
+
+.gusto-fullheight-centered {
+    height: 100vh;
+    background-size: cover;
+    background-position: 50%;
+}
+
+
+
+.gusto-section {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+    
+.gusto-section-showcase .gusto-photo-showcase {
+    display: none;
+}
+
+.gusto-caption {
+    font-family: 'Guardian Text Sans Web';
+    font-size: 0.8rem;
+}
+
+.gusto-pull {
+    max-width: $outerColumnWidth;
+    font-family: 'Guardian Text Sans Web';
+    font-size: 0.8rem;
+}
+.gusto-pull-left {
+    float: left;
+    margin-left: $outerColumnWidth * -1;
+}
+
+.gusto-pull-right {
+    float: right;
+    margin-right: $outerColumnWidth * -1;
+}
+
+.gusto-section-gallery {
+    clear: both;
+}
+
+.gusto-gallary-photo {
+    width: 33.3%;
+    padding: 2px;
+    float: left;
+    box-sizing: border-box;
+}
+
+.gusto-author-photo {
+  float: left;
+  margin: 0 10px 10px 0; 
+}
+
+.gusto-author-copy {
+    margin: 0;
+}
