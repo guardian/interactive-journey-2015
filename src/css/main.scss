@@ -2,26 +2,40 @@
  * Project: Project name 
  * File:    Main SCSS
  */
-
 $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
-
 @import 'bower_components/pasteup-palette/src/_palette';
 @import 'bower_components/guss-webfonts/src/_webfonts.scss';
 @import 'bower_components/guss-typography/_typography.scss';
-
 @import 'modules/sample';
 @include guss-webfonts();
 @include guss-typography-defaults;
 
+// From https://github.com/guardian/frontend/blob/master/static/src/stylesheets/_vars.scss
+$breakpoints: (
+    mobile:           320px,
+    mobileLandscape:  480px,
+    phablet:          660px,
+    tablet:           740px,
+    desktop:          980px,
+    leftCol:          1140px,
+    wide:             1300px
+);
 
-$maxInnerWidth: 620px;
-$maxOuterWidth: 1300px;
-$outerColumnWidth: ($maxOuterWidth - $maxInnerWidth) / 2;
+$outerColumnWidth: (map-get($breakpoints, 'wide') - map-get($breakpoints, 'phablet')) / 2;
 
+// Reset
 body,
 figure {
     margin: 0;
     padding: 0;
+    
+    // Aspect ratio breakpoints
+    @media screen and (max-aspect-ratio: 16/9) { 
+          background: rgb(240, 255, 255) !important;
+    }
+    @media screen and (min-aspect-ratio: 16/9) { 
+          background: rgb(255, 245, 255) !important;
+    }
 }
 
 .interactive * {
@@ -41,13 +55,13 @@ figure {
 }
 
 .gusto-restrict-inner {
-    max-width: $maxInnerWidth;
+    max-width:  map-get($breakpoints, 'phablet');
     margin: 0 auto;
     padding: 0 10px;
 }
 
 .gusto-restrict-outer {
-    max-width: $maxOuterWidth;
+    max-width: map-get($breakpoints, 'wide');
     margin: 0 auto;
     padding: 0 10px;
 }
@@ -56,53 +70,115 @@ figure {
     margin-top: 0;
 }
 
-.gusto-photo-fullwidth {
-    width: 100%;
-}
-
 .gusto-video-fullwidth {
     width: 100%;
-}
-
-
-.gusto-fullheight-centered {
     height: 100vh;
-    background-size: cover;
-    background-position: 50%;
+    background: #000;
 }
-
-
 
 .gusto-section {
     margin-top: 2rem;
     margin-bottom: 2rem;
 }
+
+
+// Edge-2-edge
+.gusto-edge-noclip {
+    height: auto;
+    width: 100vw;
+    margin: 0 auto;
+    display: block;
     
-.gusto-section-showcase .gusto-photo-showcase {
-    display: none;
+    @media screen and (min-aspect-ratio: 16/9) {
+        height: 100vh;
+        width: auto;
+    }
 }
 
+.gusto-edge-clip {
+    height: 100vh;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    
+    transform: translateX(-50%);
+    left: 50%;
+    position: relative;
+    
+    @media screen and (min-aspect-ratio: 16/9) {
+        height: auto;
+        width: 100vw;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+    }
+}
+.gusto-edge-clip-container {
+    overflow: hidden;
+    
+    @media screen and (min-aspect-ratio: 16/9) {
+        height: 100vh;
+        width: auto;
+    }
+}
+
+
+@keyframes photoPanAnimation {
+  0%   { transform: translateX(-50%); }
+  50%  { transform: translateX(-100%); }
+  0%   { transform: translateX(-50%); }
+}
+.gusto-edge-clip-anim {
+//    left: 100%;
+//    animation: photoPanAnimation calc(2*60s) infinite; 
+//    transition-timing-function: ease-in-out;  
+}
+
+
+// Figure caption
 .gusto-caption {
     font-family: 'Guardian Text Sans Web';
     font-size: 0.8rem;
 }
 
+// Pull blocks
 .gusto-pull {
-    max-width: $outerColumnWidth;
     font-family: 'Guardian Text Sans Web';
     font-size: 0.8rem;
+    overflow: hidden;
+    width: auto;
+        
+    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
+        width: calc((100vw - 660px )/ 2);
+    }
+    @media only screen and (min-width: map-get($breakpoints, 'wide')) {        
+        max-width: $outerColumnWidth;
+    }
+    
 }
 .gusto-pull-left {
-    float: left;
-    margin-left: $outerColumnWidth * -1;
+    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
+        float: left;
+        margin-left: calc(((100vw - 660px) /2) * -1);
+    }
+    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
+        margin-left: $outerColumnWidth * -1;
+    }
 }
-
 .gusto-pull-right {
-    float: right;
-    margin-right: $outerColumnWidth * -1;
-}
+    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
+        float: right;
+        margin-right: calc(((100vw - 660px) /2) * -1);
+    }
+    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
+        margin-right: $outerColumnWidth * -1;
+    }
+ }
 
+
+// Gallery
 .gusto-section-gallery {
+    overflow: hidden;
     clear: both;
 }
 
@@ -113,6 +189,7 @@ figure {
     box-sizing: border-box;
 }
 
+// Author meta
 .gusto-author-photo {
   float: left;
   margin: 0 10px 10px 0; 
