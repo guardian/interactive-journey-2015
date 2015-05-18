@@ -65,7 +65,8 @@ module.exports = function(grunt) {
         files: [
             'Gruntfile.js',
             'src/**/*.js',
-            '!src/js/require.js'
+            '!src/js/require.js',
+            '!src/js/libs/**/*js'
         ]
     },
 
@@ -96,7 +97,8 @@ module.exports = function(grunt) {
         files: [
           'src/**/*.js',
           'src/**/*.json',
-          'src/js/templates/*.html'
+          'src/js/templates/*.html',
+          'src/js/data/*.txt'
         ],
         tasks: ['jshint', 'requirejs', 'replace:local'],
         options: {
