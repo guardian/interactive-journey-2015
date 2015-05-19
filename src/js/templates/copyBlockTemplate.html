@@ -1,5 +1,5 @@
 <!-- Section: text example. Start. -->
 <div class="gusto-section gusto-section-text gusto-restrict-inner">    
-		<%= copy %>
+		{{{ copy.replace(/[\r\n]+/g, '\n\n').trim() }}}
 </div>
 <!-- Section: text example. End. -->

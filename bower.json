@@ -20,6 +20,8 @@
     "requirejs-plugins": "1.0.3",
     "text": "2.0.10",
     "reqwest": "~1.1.5",
-    "underscore": "~1.8.3"
+    "underscore": "~1.8.3",
+    "rvc": "~0.3.1",
+    "ractive": "~0.7.3"
   }
 }

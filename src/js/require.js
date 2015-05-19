@@ -19,7 +19,8 @@ require.config({
     "Markdown.Converter": "../../bower_components/requirejs-plugins/lib/Markdown.Converter",
     text: "../../bower_components/text/text",
     reqwest: "../../bower_components/reqwest/reqwest",
-    underscore: "../../bower_components/underscore/underscore"
+    underscore: "../../bower_components/underscore/underscore",
+    rvc: "../../bower_components/rvc/dist/rvc"
   },
   packages: [
 

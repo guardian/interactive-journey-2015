@@ -1,27 +1,42 @@
 /*global archieml */
 define([
     'reqwest',
-    'underscore',
-    'json!data/sampleData.json',
-    'text!templates/appTemplate.html',
-    'text!templates/imageBlockTemplate.html',
-    'text!templates/copyBlockTemplate.html',
-    'text!templates/leadBlockTemplate.html',
+    'ractive',
+    'rvc!templates/appTemplate',
+    'rvc!templates/imageBlockTemplate',
+    'rvc!templates/copyBlockTemplate',
+    'rvc!templates/leadBlockTemplate',
     'text!data/pageData.txt',
     'libs/archieml'
 ], function(
     reqwest,
-    _,
-    sampleData,
-    templateHTML,
+    Ractive,
+    appTemplate,
     imageBlockHTML,
     copyBlockHTML,
     leadBlockHTML,
     pageDataText
 ) {
-   'use strict';
-   
-   var ele;
+    'use strict';
+    Ractive.DEBUG = false;
+
+    var ele;
+    var base;
+
+    function launchApp(el, archieData){
+        //initialize the ractive base, add data, and comonent modules
+        base = new appTemplate({
+                    el: el,
+                    components: {
+                        copyBlock: copyBlockHTML,
+                        imageBlock: imageBlockHTML,
+                        leadBlock: leadBlockHTML
+                    },
+                    data: {
+                        pageBlocks: archieData.blocks
+                    }
+                });
+    }
 
     function logResponse(resp) {
         console.log(resp);
@@ -34,12 +49,6 @@ define([
     function afterRequest(resp) {
         console.log('Finished', resp);
     }
-    
-    function addBlock(blockData, templateHTML) {
-        var compiled = _.template(templateHTML);
-        var html = compiled(blockData);
-        ele.innerHTML += html;
-    }
 
     function init(el, context, config, mediator) {
         ele = el;
@@ -47,27 +56,9 @@ define([
         // DEBUG: What we get given on boot
         console.log(el, context, config, mediator);
 
-        // DOM template example
-        el.innerHTML = templateHTML;
-
-        // Load local archieml data
+        // Load local archieml data and pass data to ractive templating
         var pageBlocks = archieml.load(pageDataText);
-        pageBlocks.blocks.forEach(function(block) {
-            console.log(block);
-            switch (block.block) {
-                case 'image':
-                    addBlock(block, imageBlockHTML);
-                    break;
-                case 'copy':
-                    addBlock(block, copyBlockHTML);
-                    break;
-                case 'lead':
-                    addBlock(block, leadBlockHTML);
-                    break;
-                default: 
-                    return;
-            }
-        });
+        launchApp(el,pageBlocks);
 
         // Load remote JSON data
         var key = '1hy65wVx-pjwjSt2ZK7y4pRDlX9wMXFQbwKN0v3XgtXM';

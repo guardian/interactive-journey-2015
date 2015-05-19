@@ -144,14 +144,14 @@
     <video
         class="gusto-video gusto-video-fullwidth"
         poster="//i.guim.co.uk/static/w-640/h-360/q-95/sys-images/Guardian/Pix/pictures/2015/3/18/1426688410783/Cucumber-001.jpg" data-duration="334" data-media-id="gu-video-456024387" data-end-slate="/video/end-slate/series/travel/series/singapore-city-guide.json?shortUrl=http://gu.com/p/46mah"
-		preload="auto"
+        preload="auto"
         controls="controls"
     >
-    	<source src="http://cdn.theguardian.tv/HLS/2015/03/18/150317SingaporeStreetFood.m3u8" type="video/m3u8">
-    	<source src="http://cdn.theguardian.tv/mainwebsite/2015/03/18/150317SingaporeStreetFood_desk.mp4" type="video/mp4">
-    	<source src="http://cdn.theguardian.tv/3gp/large/2015/03/18/150317SingaporeStreetFood_large.3gp" type="video/3gp:large">
-    	<source src="http://cdn.theguardian.tv/3gp/small/2015/03/18/150317SingaporeStreetFood_small.3gp" type="video/3gp:small">
-    	<source src="http://cdn.theguardian.tv/webM/2015/03/18/150317SingaporeStreetFood_synd_768k_vp8.webm" type="video/webm">
+        <source src="http://cdn.theguardian.tv/HLS/2015/03/18/150317SingaporeStreetFood.m3u8" type="video/m3u8">
+        <source src="http://cdn.theguardian.tv/mainwebsite/2015/03/18/150317SingaporeStreetFood_desk.mp4" type="video/mp4">
+        <source src="http://cdn.theguardian.tv/3gp/large/2015/03/18/150317SingaporeStreetFood_large.3gp" type="video/3gp:large">
+        <source src="http://cdn.theguardian.tv/3gp/small/2015/03/18/150317SingaporeStreetFood_small.3gp" type="video/3gp:small">
+        <source src="http://cdn.theguardian.tv/webM/2015/03/18/150317SingaporeStreetFood_synd_768k_vp8.webm" type="video/webm">
     </video>
     
     <figcaption class="gusto-caption gusto-restrict-outer">
@@ -267,3 +267,12 @@
 <h1>~~ END OF DUMMY CONTENT ~~</h1>
 <hr />
 <h1>~~ ArchieML content ~~</h1>
+
+
+{{#pageBlocks}}
+    
+    {{#block == 'copy'}}<copyBlock />{{/block}}
+    {{#block == 'image'}}<imageBlock />{{/block}}
+    {{#block == 'lead'}}<leadBlock />{{/block}}
+
+{{/pageBlocks}}
