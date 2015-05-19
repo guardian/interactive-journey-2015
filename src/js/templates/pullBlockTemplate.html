@@ -1,15 +1,19 @@
 <!-- Section: Pull. Start. -->
-<div class="gusto-pull gusto-pull-{{direction}}">
-    {{#heading}}
-    <h3 class="gusto-headline gusto-headline-small">
-        {{heading}}
-    </h3>
-    {{/heading}}
-    
-    {{ #each copy.replace(/[\r\n]+/g, '\n').split('\n') }}
-    <p>
-        {{{ this.trim() }}}
-    </p>
-    {{/each}}
+<div class="gusto-section gusto-section-text gusto-restrict-inner">
+    <div class="gusto-pull gusto-pull-{{direction}} {{ extraClasses }}">
+        {{#heading}}
+        <h3 class="gusto-headline gusto-headline-small">
+            {{heading}}
+        </h3>
+        {{/heading}}
+        
+        {{ #src }}
+            <img class="gusto-photo gusto-photo-pull" alt="{{ alt }}" src="{{ src }}" />
+        {{ /src}}        
+        
+        {{ #each copy.replace(/[\r\n]+/g, '\n').split('\n') }}
+            <p>{{{ this.trim() }}}</p>
+        {{/each}}
+    </div>
 </div>
 <!-- Section: Pull. end. -->

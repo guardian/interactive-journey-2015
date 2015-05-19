@@ -7,6 +7,9 @@ define([
     'rvc!templates/copyBlockTemplate',
     'rvc!templates/leadBlockTemplate',
     'rvc!templates/pullBlockTemplate',
+    'rvc!templates/galleryBlockTemplate',
+    'rvc!templates/videoBlockTemplate',
+    'rvc!templates/headerBlockTemplate',
     'text!data/pageData.txt',
     'libs/archieml'
 ], function(
@@ -17,6 +20,9 @@ define([
     copyBlockHTML,
     leadBlockHTML,
     pullBlockHTML,
+    galleryBlockHTML,
+    videoBlockHTML,
+    headerBlockHTML,
     pageDataText
 ) {
     'use strict';
@@ -24,7 +30,7 @@ define([
     var base;
 
     function launchApp(el, archieData){
-
+        console.log(archieData.blocks);
         //initialize the ractive base, add data, and comonent modules
         base = new AppTemplate({
                     el: el,
@@ -32,7 +38,10 @@ define([
                         copyBlock: copyBlockHTML,
                         imageBlock: imageBlockHTML,
                         leadBlock: leadBlockHTML,
-                        pullBlock: pullBlockHTML
+                        pullBlock: pullBlockHTML,
+                        galleryBlock: galleryBlockHTML,
+                        videoBlock: videoBlockHTML,
+                        headerBlock: headerBlockHTML
                     },
                     data: {
                         pageBlocks: archieData.blocks

@@ -1,0 +1,22 @@
+<!-- Section: Video showcase example. Start. -->
+<figure class="gusto-section gusto-section-full gusto-section-video">
+    <!--    <img class="gusto-video gusto-video-fullwidth" src="http://placehold.it/1920x1080?text=video" />-->
+        
+    <video
+        class="gusto-video {{ #fullwidth }} gusto-video-fullwidth {{ /fullwidth }}"
+        poster="{{ poster }}"
+        preload="auto"
+        controls="controls"
+    >
+        <source src="{{ m3u8}}" type="video/m3u8">
+        <source src="{{ mp4 }}" type="video/mp4">
+        <source src="{{ webm }}" type="video/webm">
+    </video>
+    
+	{{ #caption }}
+    <figcaption class="gusto-caption gusto-restrict-outer">
+        {{{ caption }}}
+    </figcaption>
+	{{ /caption }}
+</figure>
+<!-- Section: Photo gallert example. End. -->
