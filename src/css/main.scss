@@ -144,6 +144,7 @@ figure {
 .gusto-caption {
     font-family: 'Guardian Text Sans Web';
     font-size: 0.8rem;
+    text-align: left;
 }
 
 // Pull blocks
@@ -209,11 +210,11 @@ figure {
 }
 
 .gusto-gallary-photo {
-    width: 33.3%;
     padding: 2px;
     box-sizing: border-box;
     display: inline-block;
     line-height: 0;
+    vertical-align: middle;
 }
 
 // Author meta

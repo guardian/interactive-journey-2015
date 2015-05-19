@@ -102,6 +102,29 @@ src: http://placehold.it/300&text=3
 alt: image 3
 []
 
+
+block: copy
+copy:TEST
+
+block: gallery
+caption: Gallery caption text
+columns: 2
+[.photos]
+src: http://placehold.it/300&text=1
+alt: image 1
+src: http://placehold.it/300&text=2
+alt: image 2
+src: http://placehold.it/300&text=3
+alt: image 3
+src: http://placehold.it/300&text=4
+alt: image 4
+src: http://placehold.it/300&text=5
+alt: image 5
+src: http://placehold.it/300&text=6
+alt: image 6
+[]
+class: gusto-restrict-inner
+
 block: lead
 headline: Chapter Two – The Odyssey Begins
 standfirst: 6pm – Sunday, 15 April 2012
