@@ -29,12 +29,6 @@ copy:
 At around noon on Monday 20 April 2015, in the middle of the Mediterranean sea, a man on a boat puts a phone to his ear and listens to the dialling tone. It’s about the only sound he can hear. The boat’s engine has stopped, and though there are hundreds of other people huddling on the deck beside him, they are mostly straining to hear what he is about to say.
 The dialling tone ends. A woman picks up, an activist based in Sicily, and the Syrian begins to talk. “We’re in the middle of the Mediterranean,” he blurts out. “We’re about 600 people – 200 women, 100 children. We’ve been without water for three days.”
 The activist keeps calm. Nawal Soufi has become a point of contact for Syrians trying to get to Italy by boat, and she takes several of these calls a week. Once migrant boats approach Italian waters, its passengers often call Soufi, and she then calls the coastguards.
-The Syrian continues: “The captain that was with us left us and ran away.”
-It’s a small lie, designed to help the crew escape punishment if and when the boat is rescued. But now is not the moment to quibble. On the day these refugees left Egypt, 400 fellow migrants drowned south of Italy. Yesterday, 800 more people died in what was the Mediterranean’s most deadly modern-day shipwreck. There is a real risk that this boat will be the next to sink.
-“For the love of god,” says the Syrian. “There are women and children on the boat, we don’t know what to do with them.”
-Soufi begins to take charge. “You’re going to really concentrate on what I’m saying,” she says. She tells him to forget the coordinates the crew have told him to give her – they’re often wrong. Instead Soufi asks him to look inside the phone’s settings, once they’ve ended the call, and then to text her the GPS location it gives. Once she’s got that, she can call the coastguards.
-“I want from you one thing,” she says. “I want you to make sure that everyone on the boat wears a lifejacket now, and whoever doesn’t have one should open up someone else’s lifejacket and fit two people inside. Don’t think that the sea is safe and that there’s no problem. Drowning can happen at any moment, even when the boat is being rescued.”
-For the hundreds crowding the deck, this is one of the defining moments of their lives. They left Egypt five days ago, but their journeys began far further afield. There are families from Africa here, others from across the Middle East. Palestinians, Sudanese, Somalians – and Syrians, like the man holding a satellite phone in the middle of the deck. Some of them have been on the move for years, and now they are finally within striking distance of Italy. This phone-call is the moment they discover whether it was all worth it.
 :end
 
 block: pull
@@ -46,11 +40,35 @@ Another line.
 And another.
 :end
 
+block: copy
+copy:
+The Syrian continues: “The captain that was with us left us and ran away.”
+It’s a small lie, designed to help the crew escape punishment if and when the boat is rescued. But now is not the moment to quibble. On the day these refugees left Egypt, 400 fellow migrants drowned south of Italy. Yesterday, 800 more people died in what was the Mediterranean’s most deadly modern-day shipwreck. There is a real risk that this boat will be the next to sink.
+“For the love of god,” says the Syrian. “There are women and children on the boat, we don’t know what to do with them.”
+Soufi begins to take charge. “You’re going to really concentrate on what I’m saying,” she says. She tells him to forget the coordinates the crew have told him to give her – they’re often wrong. Instead Soufi asks him to look inside the phone’s settings, once they’ve ended the call, and then to text her the GPS location it gives. Once she’s got that, she can call the coastguards.
+“I want from you one thing,” she says. “I want you to make sure that everyone on the boat wears a lifejacket now, and whoever doesn’t have one should open up someone else’s lifejacket and fit two people inside. Don’t think that the sea is safe and that there’s no problem. Drowning can happen at any moment, even when the boat is being rescued.”
+For the hundreds crowding the deck, this is one of the defining moments of their lives. They left Egypt five days ago, but their journeys began far further afield. There are families from Africa here, others from across the Middle East. Palestinians, Sudanese, Somalians – and Syrians, like the man holding a satellite phone in the middle of the deck. Some of them have been on the move for years, and now they are finally within striking distance of Italy. This phone-call is the moment they discover whether it was all worth it.
+:end
+
 
 block: image
 src: http://placehold.it/1920x1080?text=full-screen
 alt: Some alt text
 caption: Some caption text goes in here
+
+block: image
+src: http://placehold.it/1920x1080?text=full-screen
+alt: Some alt text
+caption: Some caption text goes in here
+class: gusto-restrict-outer
+
+
+block: image
+src: http://placehold.it/1920x1080?text=full-screen
+alt: Some alt text
+caption: Some caption text goes in here
+class: gusto-edge-clip-container
+imgclass: gusto-edge-clip
 
 block: copy
 copy:
@@ -74,6 +92,7 @@ caption: Video caption goes in here
 
 block: gallery
 caption: Gallery caption text
+columns: 3
 [.photos]
 src: http://placehold.it/300&text=1
 alt: image 1
@@ -100,7 +119,8 @@ And now, as Hashem is shoved into the back of a van, his children watching from 
 
 block: image
 src: http://placehold.it/1920x1080?text=full-screen
-alt: Some alt text
+alt: Some alt textss
+restrictInner: true
 caption: Some caption text goes in here
 
 block: copy

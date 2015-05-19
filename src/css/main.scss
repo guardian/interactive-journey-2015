@@ -70,6 +70,10 @@ figure {
     margin-top: 0;
 }
 
+.gusto-video {
+    width: 100%;
+}
+
 .gusto-video-fullwidth {
     width: 100%;
     height: 100vh;
@@ -97,7 +101,7 @@ figure {
 
 .gusto-edge-clip {
     height: 100vh;
-    width: auto;
+    width: 100%;
     margin: 0 auto;
     display: block;
     
@@ -115,10 +119,10 @@ figure {
 }
 .gusto-edge-clip-container {
     overflow: hidden;
+    width: 100%;
     
     @media screen and (min-aspect-ratio: 16/9) {
         height: 100vh;
-        width: auto;
     }
 }
 
@@ -128,6 +132,7 @@ figure {
   50%  { transform: translateX(-100%); }
   0%   { transform: translateX(-50%); }
 }
+
 .gusto-edge-clip-anim {
 //    left: 100%;
 //    animation: photoPanAnimation calc(2*60s) infinite; 
@@ -142,6 +147,10 @@ figure {
 }
 
 // Pull blocks
+.gusto-section-pull {
+    margin: 0 auto;    
+}
+
 .gusto-pull {
     font-family: 'Guardian Text Sans Web';
     font-size: 0.8rem;
@@ -157,6 +166,7 @@ figure {
     
 }
 .gusto-pull-left {
+    padding-right: 10px;
     @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
         float: left;
         margin-left: calc(((100vw - 660px) /2) * -1);
@@ -166,6 +176,7 @@ figure {
     }
 }
 .gusto-pull-right {
+    padding-left: 10px;
     @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
         float: right;
         margin-right: calc(((100vw - 660px) /2) * -1);
@@ -181,18 +192,28 @@ figure {
     margin: 0 4px 4px 0;
 }
 
+.gusto-section-photo .gusto-photo {
+    width: 100%;
+}
+
+.gusto-section-photo .gusto-photo.gusto-edge-clip {
+    width: auto;
+}
+
 
 // Gallery
 .gusto-section-gallery {
     overflow: hidden;
     clear: both;
+    text-align: center;
 }
 
 .gusto-gallary-photo {
     width: 33.3%;
     padding: 2px;
-    float: left;
     box-sizing: border-box;
+    display: inline-block;
+    line-height: 0;
 }
 
 // Author meta
