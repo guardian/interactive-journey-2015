@@ -1,7 +1,10 @@
 [blocks]
+
 block: lead
 headline: Chapter 1 – SOS
 standfirst: 12pm – Monday, 20 April 2015
+
+
 block: copy
 copy:
 At around noon on Monday 20 April 2015, in the middle of the Mediterranean sea, a man on a boat puts a phone to his ear and listens to the dialling tone. It’s about the only sound he can hear. The boat’s engine has stopped, and though there are hundreds of other people huddling on the deck beside him, they are mostly straining to hear what he is about to say.
@@ -13,6 +16,16 @@ It’s a small lie, designed to help the crew escape punishment if and when the 
 Soufi begins to take charge. “You’re going to really concentrate on what I’m saying,” she says. She tells him to forget the coordinates the crew have told him to give her – they’re often wrong. Instead Soufi asks him to look inside the phone’s settings, once they’ve ended the call, and then to text her the GPS location it gives. Once she’s got that, she can call the coastguards.
 “I want from you one thing,” she says. “I want you to make sure that everyone on the boat wears a lifejacket now, and whoever doesn’t have one should open up someone else’s lifejacket and fit two people inside. Don’t think that the sea is safe and that there’s no problem. Drowning can happen at any moment, even when the boat is being rescued.”
 For the hundreds crowding the deck, this is one of the defining moments of their lives. They left Egypt five days ago, but their journeys began far further afield. There are families from Africa here, others from across the Middle East. Palestinians, Sudanese, Somalians – and Syrians, like the man holding a satellite phone in the middle of the deck. Some of them have been on the move for years, and now they are finally within striking distance of Italy. This phone-call is the moment they discover whether it was all worth it.
+:end
+
+block: pull
+direction: right
+heading: Test heading edit
+copy:
+Some stuff goes in here.
+Another line.
+And another.
+:end
 
 
 block: image
@@ -30,9 +43,11 @@ Forty years old and his country destroyed, Hashem’s reckons his hopes and drea
 He thinks especially of Osama, the oldest. The day Hashem left Egypt, 15 April 2015, was Osama’s birthday. And early that morning, Osama’s fourteenth year began with his father crying, apologising for his imminent departure, and then leaving in the knowledge that the pair might never speak again.
 “I’m going to disappear for a long time, maybe forever,” Hashem explains in his diary later that night, as the boat chugs westwards towards Italy. “There is no safety at sea.”
 :end	ends chapter 1 content
+
 block: lead
 headline: Chapter Two – The Odyssey Begins
 standfirst: 6pm – Sunday, 15 April 2012
+
 block: copy
 copy:
 Three years ago to the day, Hashem’s journey begins. It’s 15 April 2012, and again it’s Osama’s birthday. And again, it is a birthday interrupted.
@@ -42,6 +57,7 @@ But today, all that won’t matter. The regime is going from house to house, rou
 Hashem’s children watch him as he goes to open the door. Outside stand 20 men. Whether they’re from the army, the police, or a pro-regime militia, he doesn’t really know. But they’re for him, and half the people on his street.
 Till now, the war has largely avoided Haran al-Awamid, a place of around 15,000 a few miles south-east of Damascus. It’s a quiet town with a lot of government employees. But in recent days, tensions have been raised. The regime killed two young men, tied their corpses to a car, and dragged them around town. Not everyone dared to react, but the pair’s friends and family did – they protested and chanted in the street.
 And now, as Hashem is shoved into the back of a van, his children watching from their front-room, the regime is getting its revenge. It’s a long revenge, too. First Hashem and his neighbours are taken to a secret network of cells, dug deep beneath the nearby Damascus airport. They’re run by the powerful air-force intelligence, whose tentacles spread far beyond both aviation, and civilian oversight. No prosecutor asks after Hashem’s whereabouts, and neither he nor the others are charged or even interrogated. They’re simply beaten, and kept locked up until enough men have been rounded up from the surrounding villages. Three days later, they’re moved on – to the headquarters of aviation intelligence in Damascus itself.
+:end
 
 block: image
 src: http://placehold.it/1920x1080?text=full-screen
@@ -66,9 +82,13 @@ Every seat on Hashem’s family’s bus is taken, and their drive to Jordan is l
 Every checkpoint is an ordeal. At each one, each passenger has to haul his luggage from the bus, and present it for inspection. The process takes hours. The worst is at the last checkpoint: Nasib, on the border with Jordan. It’s 3am by the time they arrive, and the border officials want to check their details. But the computer system is down, and they must wait on the bus till it reboots.
 The sun rises, and six hours later so does the computer. Mid-morning, they cross finally into Jordan. By the evening they’re in the port of Aqaba on the Red Sea. Their ferry leaves at midnight, and at around 4am on 27 June they arrive in the harbour of Nuweiba, a little town in Egypt’s Sinai peninsular. The boys are so tired that they sleep on the pavement.
 :end	ends chapter 2 content
+
+
 block: lead
 headline: Chapter Three – The Sea
 standfirst: 11pm – Wednesday, 15 April 2015
+
+
 block: copy
 copy:
 In the darkness far out to sea, Hashem can’t see his neighbours but he can hear them scream. It’s partly his fault. They are two African women – perhaps from Somalia, but now is not the time to ask – and Hashem is spread-eagled on top of them. His limbs dig into theirs. They want to him to move, fast, and so would he. But he can’t – several people are sprawled on top of him, and there’s possibly another layer above them.
@@ -85,10 +105,14 @@ After arriving in Sinai, they spent their remaining savings on a series of taxis
 Hayam couldn’t find work as a teacher in 10 Ramadan City, and there were no computing jobs for Hashem. So he joined a food company in the next town, wrapping vegetables, and later moved to a charcoal factory. He earnt about $100 dollars a month.
 It was a pretty dismal experience. After the rise of Islamic State, the owner of the local supermarket started to berate Hashem – as if the rise of the extremist group was all his fault. “You’re bringing Daesh here, you’re from the Muslim Brotherhood,” he shouted, referencing both the local nickname for Isis, and then Morsi’s political movement. “Go back to your own country.”
 Then, in the summer of 2014, came a stroke of luck. A friend in Germany offered to put the money up for the family to go by boat to Europe – around $7,000 for the five of them. A smuggler was called. Their numbers are easy to come by in the Syrian community, and Hashem was put in touch with the lieutenants of one called Fouad al-Jamal, a Palestinian-Syrian nicknamed Abu Hamada. A former engineer in his early 60s, Abu Hamada now makes millions as the kingpin of a key Egyptian people-smuggling network. A deal with Abu Hamada’s men was struck, and on 20 August Hashem’s family arrived by arrangement in Alexandria, Egypt’s main Mediterranean port.
+:end
+
 block: image
 src: http://placehold.it/1920x1080?text=full-screen
 alt: Some alt text
 caption: Some caption text goes in here
+
+
 block: copy
 copy:
 The centre of Alex, as it’s nicknamed, is one of fading fin-de-siecle grandeur – villas and ruins, crowding an ancient harbour. But its poorer residents mostly live in the high-rise suburbs at its perimeter: forests of tower-blocks, euphemistically called names like Miami and Palm Beach. They bare little resemblance to their namesakes. Hashem, Hayam, Osama, Mohamed and Milad came to Miami, where Abu Hamada’s men hustled them and hundreds of others into a set of gloomy flats, block-booked for the summer.
@@ -126,11 +150,14 @@ With no momentum of its own, the boat rocks in the heaving waves. People scream,
 He’s shaken awake the next day to the news he’s waited for all week: the Italians have arrived. He blinks, and peers over the side. Sure enough, four huge red inflatable boats are circling their ship. Each has a white cabin painted with the words: “Guardia Costiera”. He smiles. They’re still a day from Italy, but they’re almost there. It’s over. The journey is over.
 Two of the Italian boats draw alongside, and they begin to transfer people to a larger steel-hulled ship. It’s women and children and first, and the process takes a couple of hours, but no one minds. The atmosphere is joyous. People clap and chant with gratitude. “Italia!” they cheer. “Italia, Italia, Italia!”
 :end	ends chapter 3 content
+
+
 block: lead
 headline: Chapter 4 – Through Europe
 standfirst: 11:30am – Sunday, 26 April 2015
+
 block: copy
-copy: 
+copy:
 A kilometre inside the French border, Hashem Alsouki wonders whether he can leave the toilet yet. He went there to escape the police, but that was ten minutes ago. Have they left yet? And if not, will they bother to check this bathroom?
 Hashem hasn’t planned for this. The hard bit of the journey was supposed to be the boat, not the onwards odyssey through Europe. But five days after getting off the ship, he now finds himself having to overcome yet more hurdles that he hadn’t really thought about until he arrived in Italy. Train timetables. Border crossings. Policemen.
 Right now, the police are the most pressing concern. A group of French gendarmes entered this train at Menton, the first station inside France. They’re looking for people like Hashem – refugees trying to leave Italy. As he ducks into the toilet, just in time, they arrest two Eritreans in the same carriage. They’d been sitting only a few seats away. They’ll be sent back to Milan, where they’ll be fingerprinted by the police there – a formal process that means they’ll have to claim asylum in Italy.
@@ -194,9 +221,13 @@ At 11:30, the train scuds over the German border, and slows down as it approache
 The train crosses a bridge over a river that cuts through a lush bit of greenery. It’s a pretty sight, and Hashem momentarily loses himself. “Manzar gameel,” he says loudly, over the top of the music blaring in his ears. “Lovely view.”
 The whole carriage flinches. A few people turn and stare. And then the train stops in Saarbrucken.
 :end	ends chapter 4 content
+
+
 block: lead
 headline: Chapter 5 – To Sweden?
 standfirst: 11:50am – Monday, 27 April 2015
+
+
 block: copy
 copy:
 Has he blown it? The train has come to a halt inside the German border, and with his sudden outburst, Hashem wonders if he’s just given the game away. What if the police get on, and someone rats on him? What if one of them is a policeman in the first place?
@@ -232,4 +263,5 @@ It’s too soon to take in what he’s just achieved, and he has yet to official
 “When I was in Egypt,” smiles Hashem, just as the sun begins to rise, “I said that if I sank I would just be losing one person. But if I succeeded I’d be offering the chance of success to three people – my kids, Osama, Mohamed and Milad. Well, thank god, I secured a beautiful future for them.”
 He gets on this final train just moments before it departs. As it pulls out of the station, Hashem is still searching for his seat, just as he still searches for his place in the world. At least now, as the train disappears into a glistening new dawn, he’s in the right carriage.
 :end	ends chapter 5 content
+
 [] this ends the array of blocks

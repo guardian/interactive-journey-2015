@@ -6,31 +6,33 @@ define([
     'rvc!templates/imageBlockTemplate',
     'rvc!templates/copyBlockTemplate',
     'rvc!templates/leadBlockTemplate',
+    'rvc!templates/pullBlockTemplate',
     'text!data/pageData.txt',
     'libs/archieml'
 ], function(
     reqwest,
     Ractive,
-    appTemplate,
+    AppTemplate,
     imageBlockHTML,
     copyBlockHTML,
     leadBlockHTML,
+    pullBlockHTML,
     pageDataText
 ) {
     'use strict';
     Ractive.DEBUG = false;
-
-    var ele;
     var base;
 
     function launchApp(el, archieData){
+
         //initialize the ractive base, add data, and comonent modules
-        base = new appTemplate({
+        base = new AppTemplate({
                     el: el,
                     components: {
                         copyBlock: copyBlockHTML,
                         imageBlock: imageBlockHTML,
-                        leadBlock: leadBlockHTML
+                        leadBlock: leadBlockHTML,
+                        pullBlock: pullBlockHTML
                     },
                     data: {
                         pageBlocks: archieData.blocks
@@ -50,9 +52,7 @@ define([
         console.log('Finished', resp);
     }
 
-    function init(el, context, config, mediator) {
-        ele = el;
-        
+    function init(el, context, config, mediator) {       
         // DEBUG: What we get given on boot
         console.log(el, context, config, mediator);
 
