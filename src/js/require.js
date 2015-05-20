@@ -20,7 +20,8 @@ require.config({
     text: "../../bower_components/text/text",
     reqwest: "../../bower_components/reqwest/reqwest",
     underscore: "../../bower_components/underscore/underscore",
-    rvc: "../../bower_components/rvc/dist/rvc"
+    rvc: "../../bower_components/rvc/dist/rvc",
+    swiper: "../../bower_components/swiper/dist/js/swiper"
   },
   packages: [
 

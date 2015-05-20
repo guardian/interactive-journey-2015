@@ -7,6 +7,7 @@ $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
 @import 'bower_components/guss-webfonts/src/_webfonts.scss';
 @import 'bower_components/guss-typography/_typography.scss';
 @import 'modules/sample';
+@import 'modules/swiper';
 @include guss-webfonts();
 @include guss-typography-defaults;
 
@@ -73,7 +74,7 @@ figure {
 .gusto-video {
     width: 100%;
     display: block;
-    backgroud: #000;
+    background: #000;
 }
 
 .gusto-section {
@@ -211,6 +212,10 @@ figure {
     display: inline-block;
     line-height: 0;
     vertical-align: middle;
+}
+
+.swipe .gusto-gallary-photo {
+    width: 100%;
 }
 
 // Author meta

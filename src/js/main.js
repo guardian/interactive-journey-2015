@@ -1,6 +1,7 @@
 /*global archieml */
 define([
     'reqwest',
+    'swiper',
     'ractive',
     'rvc!templates/appTemplate',
     'rvc!templates/imageBlockTemplate',
@@ -14,6 +15,7 @@ define([
     'libs/archieml'
 ], function(
     reqwest,
+    swiper,
     Ractive,
     AppTemplate,
     imageBlockHTML,

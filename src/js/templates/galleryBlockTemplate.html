@@ -1,16 +1,62 @@
 <!-- Section: Photo gallert example. Start. -->
-<figure class="gusto-section gusto-section-gallery {{ class }} {{^class}}gusto-restrict-outer{{/class}}">
-    {{ #photos }}
-        <img class="gusto-photo gusto-gallary-photo"
-             src="{{ src }}"
-             alt="{{ alt }}"
-             style="width: {{ 100 / columns }}%;" />
-    {{ /photos }}
+<figure class="gusto-section gusto-section-gallery {{ class }} {{^class}}gusto-restrict-outer{{/class}} {{#swipe}} swipe {{/swipe}}">
+    <!-- Slider main container -->
+    <div class="swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            
+                
+            {{ #photos }}
+                <div class="swiper-slide">
+                    <img class="gusto-photo gusto-gallary-photo"
+                         src="{{ src }}"
+                         alt="{{ alt }}"
+                         style="{{^swipe}} width: {{ 100 / columns }}%; {{/swipe}}" />
+                </div>
+            {{ /photos }}
+                
+        	
         
-	{{ #caption }}
+        </div>
+     
+        
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+     
+    </div>
+
+    {{ #caption }}
     <figcaption class="gusto-caption gusto-restrict-outer">
         {{{ caption }}}
     </figcaption>
 	{{ /caption }}
+    
+    
 </figure>
 <!-- Section: Photo gallert example. End. -->
+
+
+
+
+<script>
+  component.exports = {
+      oncomplete : function(){
+        console.log();
+        var el = this.fragment.items[0].node;
+        if (!this.get().swipe) {
+          return;
+        }          
+        var swipEl = el.querySelector('.swiper-container');
+        
+        var mySwiper = new Swiper(swipEl, {
+          direction: 'horizontal',
+          loop: false,
+          // pagination: '.swiper-pagination',
+          nextButton: el.querySelector('.swiper-button-next'),
+          prevButton: el.querySelector('.swiper-button-prev')
+        });
+    }
+  };
+  
+  </script>

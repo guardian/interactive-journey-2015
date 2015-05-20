@@ -129,7 +129,7 @@ block: gallery
 caption: Gallery caption text
 columns: 3
 [.photos]
-src: http://placehold.it/300&text=1
+src: http://placehold.it/360&text=1
 alt: image 1
 src: http://placehold.it/300&text=2
 alt: image 2
@@ -138,12 +138,10 @@ alt: image 3
 []
 
 
-block: copy
-copy:TEST
-
 block: gallery
-caption: Gallery caption text
-columns: 2
+caption: Gallery caption text test
+columns: 3
+class: gusto-restrict-inner
 [.photos]
 src: http://placehold.it/300&text=1
 alt: image 1
@@ -156,9 +154,48 @@ alt: image 4
 src: http://placehold.it/300&text=5
 alt: image 5
 src: http://placehold.it/300&text=6
-alt: image 6
 []
+
+block: gallery
+caption: Gallery caption text test
+columns: 3
+swipe: true
 class: gusto-restrict-inner
+[.photos]
+src: http://placehold.it/300&text=1
+alt: image 1
+src: http://placehold.it/300&text=2
+alt: image 2
+src: http://placehold.it/300&text=3
+alt: image 3
+src: http://placehold.it/300&text=4
+alt: image 4
+src: http://placehold.it/300&text=5
+alt: image 5
+src: http://placehold.it/300&text=6
+[]
+
+
+block: copy
+copy:TEST
+
+block: gallery
+caption: Gallery caption swipe text
+columns: 2
+class: gusto-restrict-inner
+[.photos]
+src: http://placehold.it/300&text=1
+alt: image 1
+src: http://placehold.it/300&text=2
+alt: image 2
+src: http://placehold.it/300&text=3
+alt: image 3
+src: http://placehold.it/300&text=4
+alt: image 4
+src: http://placehold.it/300&text=5
+alt: image 5
+src: http://placehold.it/300&text=6
+[]
 
 block: lead
 headline: Chapter Two – The Odyssey Begins
