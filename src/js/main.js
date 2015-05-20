@@ -10,9 +10,10 @@ define([
     'rvc!templates/galleryBlockTemplate',
     'rvc!templates/videoBlockTemplate',
     'rvc!templates/headerBlockTemplate',
-    'rvc!templates/windowBlockTemplate',
+    'rvc!templates/mapBlockTemplate',
     'text!data/pageData.txt',
-    'libs/archieml'
+    'libs/archieml',
+    'ractive-touch'
 ], function(
     reqwest,
     Ractive,
@@ -24,7 +25,7 @@ define([
     galleryBlockHTML,
     videoBlockHTML,
     headerBlockHTML,
-    windowBlockHTML,
+    mapBlockHTML,
     pageDataText
 ) {
     'use strict';
@@ -44,7 +45,7 @@ define([
                         galleryBlock: galleryBlockHTML,
                         videoBlock: videoBlockHTML,
                         headerBlock: headerBlockHTML,
-                        windowBlock: windowBlockHTML
+                        mapBlock: mapBlockHTML
                     },
                     data: {
                         pageBlocks: archieData.blocks,
@@ -55,8 +56,8 @@ define([
 
         window.addEventListener('scroll', debounce(function() {
             //throttle the scroll handler
-            var top = (window.pageYOffset || document.scrollTop);
-            base.set('scrollTop', (top)? top: 0);
+            var top = (window.pageYOffset || document.documentElement.scrollTop);
+            base.set('scrollTop', (top) ? top: 0);
 
         }, 100));
     }

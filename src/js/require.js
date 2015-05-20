@@ -20,7 +20,9 @@ require.config({
     text: "../../bower_components/text/text",
     reqwest: "../../bower_components/reqwest/reqwest",
     underscore: "../../bower_components/underscore/underscore",
-    rvc: "../../bower_components/rvc/dist/rvc"
+    rvc: "../../bower_components/rvc/dist/rvc",
+    "ractive-touch": "../../bower_components/ractive-touch/index",
+    hammerjs: "../../bower_components/hammerjs/hammer"
   },
   packages: [
 
