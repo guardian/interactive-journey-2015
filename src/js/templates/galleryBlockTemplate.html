@@ -2,7 +2,7 @@
 <figure class="gusto-section gusto-section-gallery {{ class }} {{^class}}gusto-restrict-outer{{/class}}">
     {{ #photos }}
         <img class="gusto-photo gusto-gallary-photo"
-             src="{{ src }}"
+             decorator='lazyload:{src:{{src}},imgSizes:[] }'
              alt="{{ alt }}"
              style="width: {{ 100 / columns }}%;" />
     {{ /photos }}

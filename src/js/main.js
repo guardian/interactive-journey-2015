@@ -12,6 +12,7 @@ define([
     'rvc!templates/headerBlockTemplate',
     'rvc!templates/mapBlockTemplate',
     'text!data/pageData.txt',
+    'libs/assetManager',
     'libs/archieml',
     'ractive-touch'
 ], function(
@@ -26,7 +27,8 @@ define([
     videoBlockHTML,
     headerBlockHTML,
     mapBlockHTML,
-    pageDataText
+    pageDataText,
+    assetManager
 ) {
     'use strict';
     //Ractive.DEBUG = false;
@@ -51,15 +53,33 @@ define([
                         pageBlocks: archieData.blocks,
                         scrollTop: 0,
                         windowHeight: window.innerHeight
+                    },
+                    decorators: {
+                        lazyload: function ( node, options ) {
+                            assetManager.addPhoto( node, options.src, options.imgSizes );
+
+                            return {
+                                teardown: function () {}
+                            };
+                        }
+                    },
+                    onrender: function(){
+                        this.observe( 'scrollTop windowHeight', function(){
+                            assetManager.updateScreen( this.get('scrollTop'), this.get('windowHeight') );
+                        });
+                        this.set( measureScreen() );
+                        window.addEventListener('scroll', debounce( function() { 
+                            base.set( measureScreen() ); 
+                        }, 100));
                     }
                 });
 
-        window.addEventListener('scroll', debounce(function() {
-            //throttle the scroll handler
-            var top = (window.pageYOffset || document.documentElement.scrollTop);
-            base.set('scrollTop', (top) ? top: 0);
+       
+    }
 
-        }, 100));
+    function measureScreen(){
+        var top = (window.pageYOffset || document.documentElement.scrollTop);
+        return { scrollTop: top, windowHeight: window.innerHeight};
     }
 
     function logResponse(resp) {
@@ -88,7 +108,7 @@ define([
             timeout = setTimeout(later, wait);
             if (callNow) func.apply(context, args);
         };
-    };
+    }
 
     function init(el, context, config, mediator) {       
         // DEBUG: What we get given on boot
