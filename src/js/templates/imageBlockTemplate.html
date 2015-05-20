@@ -2,7 +2,7 @@
 <figure class="gusto-section gusto-section-photo">
 	<div class=" {{ class }}">
     	<img class="gusto-photo {{ elmclass }}"
-			 src="{{ src }}"
+			 decorator='lazyload:{src:{{src}},imgSizes:[] }'
 			 alt="{{ alt }}" />
 	</div>
     <figcaption class="gusto-caption gusto-restrict-inner">

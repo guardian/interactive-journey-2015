@@ -9,14 +9,11 @@
             {{ #photos }}
                 <div class="swiper-slide">
                     <img class="gusto-photo gusto-gallary-photo"
-                         src="{{ src }}"
+                         decorator='lazyload:{src:{{src}},imgSizes:[] }'
                          alt="{{ alt }}"
                          style="{{^swipe}} width: {{ 100 / columns }}%; {{/swipe}}" />
                 </div>
-            {{ /photos }}
-                
-        	
-        
+            {{ /photos }}        
         </div>
      
         

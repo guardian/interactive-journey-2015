@@ -21,7 +21,9 @@ require.config({
     reqwest: "../../bower_components/reqwest/reqwest",
     underscore: "../../bower_components/underscore/underscore",
     rvc: "../../bower_components/rvc/dist/rvc",
-    swiper: "../../bower_components/swiper/dist/js/swiper"
+    swiper: "../../bower_components/swiper/dist/js/swiper",
+    "ractive-touch": "../../bower_components/ractive-touch/index",
+    hammerjs: "../../bower_components/hammerjs/hammer"
   },
   packages: [
 

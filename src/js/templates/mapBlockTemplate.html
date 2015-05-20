@@ -1,0 +1,130 @@
+<div style='width: 100%; height: 10vh;'>hi</div>
+
+
+<div class="gusto-section gusto-section-flex mode-{{mode}}">
+
+	<div class='map-annotation annotation-1'>
+		hello
+	</div>
+
+	<div class='map-annotation annotation-2'>
+		hello
+	</div>
+
+	<div class='map-content' on-mousemove='mousemove' on-panend='swipe'>
+		<img class='gusto-origin-map' src='@@assetPath@@/imgs/map_origin_full.jpg'>
+
+		<h1 class="gusto-headline gusto-restrict-inner gusto-headline-big">Big headline title here</h1>
+	    
+	    <p class="gusto-sub-heading gusto-restrict-inner">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec quis tortor orci. Curabitur et hendrerit quam, ut condimentum felis. Aliquam erat volutpat.</p>
+	</div>
+
+
+</div>
+
+<style>
+
+.gusto-section-flex {
+
+    position: relative;
+    background: #757575;
+	overflow: hidden;
+    width: 100%;
+}
+
+
+.gusto-origin-map {
+	width: 100%;
+}
+
+.map-content {
+	width: 100%;
+	z-index: 1;
+	transition: all 500ms;
+	position: relative;
+	line-height: 0;
+}
+
+.map-annotation {
+	width: 25%;
+	position: absolute;
+	top: 0;
+	z-index: 0;
+}
+
+.annotation-1 {
+	left: 0;
+}
+.annotation-2 {
+	right: 0;
+}
+
+.mode-0 .map-content{
+	margin-left: 25vw;
+}
+
+.mode-2 .map-content{
+	margin-left: -25vw;
+}
+
+
+
+</style>
+
+
+<script>
+
+var oldX = 0;
+var oldY = 0;
+
+component.exports = {
+
+	onrender: function(){
+		this.on({
+
+			mousemove: function(e){
+				var x = e.original.layerX;
+            	var y = e.original.layerY;
+				
+				if(Math.abs(y - oldY) < 20){
+						if(e.original.layerX < e.node.offsetWidth/3){
+							this.set('mode', 0)
+						} else if(e.original.layerX > 2*e.node.offsetWidth/3){
+							this.set('mode', 2)
+						} else {
+							this.set('mode', 1)
+						}
+				}
+				
+
+				oldX = x;
+            	oldY = y;
+			},
+			swipe: function(e){
+			
+				var mode = this.get('mode');
+				if(mode < 2 && e.original.deltaX < 0){
+					this.set('mode', mode +1)
+				} else if(mode > 0 && e.original.deltaX > 0){
+					this.set('mode', mode -1)
+				}
+			}
+		})
+	},
+	data: {
+		mode: 1
+
+		
+
+	}
+	
+
+
+
+
+}
+
+
+
+
+</script>
