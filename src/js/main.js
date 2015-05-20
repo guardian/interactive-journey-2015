@@ -10,6 +10,7 @@ define([
     'rvc!templates/galleryBlockTemplate',
     'rvc!templates/videoBlockTemplate',
     'rvc!templates/headerBlockTemplate',
+    'rvc!templates/windowBlockTemplate',
     'text!data/pageData.txt',
     'libs/archieml'
 ], function(
@@ -23,10 +24,11 @@ define([
     galleryBlockHTML,
     videoBlockHTML,
     headerBlockHTML,
+    windowBlockHTML,
     pageDataText
 ) {
     'use strict';
-    Ractive.DEBUG = false;
+    //Ractive.DEBUG = false;
     var base;
 
     function launchApp(el, archieData){
@@ -41,12 +43,22 @@ define([
                         pullBlock: pullBlockHTML,
                         galleryBlock: galleryBlockHTML,
                         videoBlock: videoBlockHTML,
-                        headerBlock: headerBlockHTML
+                        headerBlock: headerBlockHTML,
+                        windowBlock: windowBlockHTML
                     },
                     data: {
-                        pageBlocks: archieData.blocks
+                        pageBlocks: archieData.blocks,
+                        scrollTop: 0,
+                        windowHeight: window.innerHeight
                     }
                 });
+
+        window.addEventListener('scroll', debounce(function() {
+            //throttle the scroll handler
+            var top = (window.pageYOffset || document.scrollTop);
+            base.set('scrollTop', (top)? top: 0);
+
+        }, 100));
     }
 
     function logResponse(resp) {
@@ -60,6 +72,22 @@ define([
     function afterRequest(resp) {
         console.log('Finished', resp);
     }
+
+    //standard debounce function as taken from underscore
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    };
 
     function init(el, context, config, mediator) {       
         // DEBUG: What we get given on boot
