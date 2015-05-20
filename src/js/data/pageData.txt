@@ -51,10 +51,13 @@ For the hundreds crowding the deck, this is one of the defining moments of their
 :end
 
 
+
+
 block: image
 src: http://placehold.it/1920x1080?text=full-screen
 alt: Some alt text
 caption: Some caption text goes in here
+class: gusto-restrict-inner
 
 block: image
 src: http://placehold.it/1920x1080?text=full-screen
@@ -62,13 +65,17 @@ alt: Some alt text
 caption: Some caption text goes in here
 class: gusto-restrict-outer
 
-
 block: image
 src: http://placehold.it/1920x1080?text=full-screen
 alt: Some alt text
 caption: Some caption text goes in here
 class: gusto-edge-clip-container
-imgclass: gusto-edge-clip
+elmclass: gusto-edge-clip
+
+block: image
+src: http://placehold.it/1920x1080?text=full-screen
+alt: Some alt text
+caption: Some caption text goes in here
 
 block: copy
 copy:
@@ -88,7 +95,35 @@ m3u8: http://cdn.theguardian.tv/HLS/2015/03/18/150317SingaporeStreetFood.m3u8
 mp4: http://cdn.theguardian.tv/mainwebsite/2015/03/18/150317SingaporeStreetFood_desk.mp4
 webm: http://cdn.theguardian.tv/webM/2015/03/18/150317SingaporeStreetFood_synd_768k_vp8.webm
 caption: Video caption goes in here
+class: gusto-restrict-inner
 
+
+block: video
+poster: http://i.guim.co.uk/static/w-640/h-360/q-95/sys-images/Guardian/Pix/pictures/2015/3/18/1426688410783/Cucumber-001.jpg
+m3u8: http://cdn.theguardian.tv/HLS/2015/03/18/150317SingaporeStreetFood.m3u8
+mp4: http://cdn.theguardian.tv/mainwebsite/2015/03/18/150317SingaporeStreetFood_desk.mp4
+webm: http://cdn.theguardian.tv/webM/2015/03/18/150317SingaporeStreetFood_synd_768k_vp8.webm
+caption: Video caption goes in here
+class: gusto-restrict-outer
+
+
+block: video
+poster: http://i.guim.co.uk/static/w-640/h-360/q-95/sys-images/Guardian/Pix/pictures/2015/3/18/1426688410783/Cucumber-001.jpg
+m3u8: http://cdn.theguardian.tv/HLS/2015/03/18/150317SingaporeStreetFood.m3u8
+mp4: http://cdn.theguardian.tv/mainwebsite/2015/03/18/150317SingaporeStreetFood_desk.mp4
+webm: http://cdn.theguardian.tv/webM/2015/03/18/150317SingaporeStreetFood_synd_768k_vp8.webm
+caption: Video caption goes in here
+
+
+
+block: video
+poster: http://i.guim.co.uk/static/w-640/h-360/q-95/sys-images/Guardian/Pix/pictures/2015/3/18/1426688410783/Cucumber-001.jpg
+m3u8: http://cdn.theguardian.tv/HLS/2015/03/18/150317SingaporeStreetFood.m3u8
+mp4: http://cdn.theguardian.tv/mainwebsite/2015/03/18/150317SingaporeStreetFood_desk.mp4
+webm: http://cdn.theguardian.tv/webM/2015/03/18/150317SingaporeStreetFood_synd_768k_vp8.webm
+caption: Video caption goes in here
+class: gusto-edge-clip-container
+elmclass: gusto-edge-clip
 
 block: gallery
 caption: Gallery caption text

@@ -38,12 +38,12 @@ figure {
     }
 }
 
-.interactive * {
-    box-sizing: border-box;
-}
-
 .interactive {
     margin: 0;
+}
+
+.interactive * {
+    box-sizing: border-box;
 }
 
 .gusto-header {
@@ -72,12 +72,8 @@ figure {
 
 .gusto-video {
     width: 100%;
-}
-
-.gusto-video-fullwidth {
-    width: 100%;
-    height: 100vh;
-    background: #000;
+    display: block;
+    backgroud: #000;
 }
 
 .gusto-section {
@@ -142,7 +138,7 @@ figure {
 
 // Figure caption
 .gusto-caption {
-    font-family: 'Guardian Text Sans Web';
+    font-family: 'Guardian Text Sans Web', sans-serif;
     font-size: 0.8rem;
     text-align: left;
 }
@@ -153,7 +149,7 @@ figure {
 }
 
 .gusto-pull {
-    font-family: 'Guardian Text Sans Web';
+    font-family: 'Guardian Text Sans Web', sans-serif;
     font-size: 0.8rem;
     overflow: hidden;
     width: auto;
