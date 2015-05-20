@@ -1,7 +1,16 @@
 <!-- Section: Photo gallert example. Start. -->
-<div class="gusto-section gusto-section-gallery gusto-restrict-outer">
+<figure class="gusto-section gusto-section-gallery {{ class }} {{^class}}gusto-restrict-outer{{/class}}">
     {{ #photos }}
-        <img class="gusto-photo gusto-gallary-photo" src="{{ src }}" alt="{{ alt }}" />
+        <img class="gusto-photo gusto-gallary-photo"
+             src="{{ src }}"
+             alt="{{ alt }}"
+             style="width: {{ 100 / columns }}%;" />
     {{ /photos }}
-</div>
+        
+	{{ #caption }}
+    <figcaption class="gusto-caption gusto-restrict-outer">
+        {{{ caption }}}
+    </figcaption>
+	{{ /caption }}
+</figure>
 <!-- Section: Photo gallert example. End. -->
