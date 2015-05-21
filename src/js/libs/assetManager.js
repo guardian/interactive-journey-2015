@@ -51,13 +51,15 @@ define([], function () {
 		if (isGlobalPaused) { return; }
 		
 		mediaColltion.forEach(function(node) {
-			if ( (node.offsetTop - scrollTop) <  windowHeight/5  &&
-				 (node.offsetTop + node.getBoundingClientRect().height) - scrollTop > 0 )
-			 {
-				return node.play({ sdf: 'sd'});		 
-			 }
+			var nodeHeight = node.getBoundingClientRect().height;
+			
+			if ((node.offsetTop - scrollTop) <  windowHeight / 5  &&
+				(node.offsetTop + nodeHeight) - scrollTop > 0 )
+			{
+				return node.play();		 
+			}
 			 
-			 if (node.paused === false) {
+			if (node.paused === false) {
 				 node.pause();
 				 // Hacky delay to differentiate user pause vs. scroll pause 
 				 setTimeout(function() { isGlobalPaused = false; }, 100);
@@ -68,7 +70,6 @@ define([], function () {
 	function setupAutoPlay(el) {
 		mediaColltion.push(el);
 		el.addEventListener('pause', function(evt) {
-			console.log(arguments);
 			isGlobalPaused = true; 
 		}, false);
 	}
