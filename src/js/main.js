@@ -63,6 +63,13 @@ define([
                             return {
                                 teardown: function () {}
                             };
+                        },
+                        autoPlay: function ( node ) {
+                            assetManager.setupAutoPlay( node );
+
+                            return {
+                                teardown: function () {}
+                            };
                         }
                     },
                     onrender: function(){

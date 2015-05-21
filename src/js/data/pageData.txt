@@ -98,6 +98,14 @@ caption: Video caption goes in here
 class: gusto-restrict-inner
 
 
+block: copy
+copy:
+Here, hundreds of men are crammed into single cells, deep underground. Every day, four or five of them are dragged to torture rooms. Single men are electrocuted with shocks to their genitals. Husbands like Hashem are sometimes spared that humiliation, but instead are hung from their wrists. Hashem spends 12 hours like this, the cords cutting into his skin. Others spend even longer and their hands later have to be amputated.
+After about three months, he’s moved to some kind of airport hangar. For now, he doesn’t know where it is, though it later turns out to be Mazzeh airport, a military base used by the Assad family. The hangar is a vast space, capable of fitting a few planes. But there are so many prisoners crammed in here that they have to take it in turns to lie down.
+It isn’t clear who rests by night, and who by day. They were robbed of their watches when they were first arrested. There is no natural light in this echoing space, so time’s passage can’t be measured. Months pass. Maybe seasons, but who knows. Ramadan comes and goes, but the prisoners are none the wiser. All that’s clear is that the beatings have decreased, as the guards grow bored of their 
+:end
+
+
 block: video
 poster: http://i.guim.co.uk/static/w-640/h-360/q-95/sys-images/Guardian/Pix/pictures/2015/3/18/1426688410783/Cucumber-001.jpg
 m3u8: http://cdn.theguardian.tv/HLS/2015/03/18/150317SingaporeStreetFood.m3u8
