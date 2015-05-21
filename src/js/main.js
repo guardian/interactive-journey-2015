@@ -14,6 +14,7 @@ define([
     'rvc!templates/mapBlockTemplate',
     'text!data/pageData.txt',
     'libs/assetManager',
+    'libs/bandwidth',
     'libs/archieml',
     'ractive-touch'
 ], function(
@@ -30,7 +31,8 @@ define([
     headerBlockHTML,
     mapBlockHTML,
     pageDataText,
-    assetManager
+    assetManager,
+    bandwidth
 ) {
     'use strict';
     //Ractive.DEBUG = false;
@@ -85,6 +87,11 @@ define([
 
        
     }
+    
+    bandwidth.getSpeed(function(speed) {
+        console.log('bandwidth speed in bits per second = ', speed);
+    });
+
 
     function measureScreen(){
         var top = (window.pageYOffset || document.documentElement.scrollTop);
@@ -110,12 +117,12 @@ define([
             var context = this, args = arguments;
             var later = function() {
                 timeout = null;
-                if (!immediate) func.apply(context, args);
+                if (!immediate) { func.apply(context, args); }
             };
             var callNow = immediate && !timeout;
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
-            if (callNow) func.apply(context, args);
+            if (callNow) { func.apply(context, args); }
         };
     }
 
