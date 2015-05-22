@@ -1,0 +1,119 @@
+<div class="gusto-section gusto-section-600">
+	<div class='mapBorder'></div>
+	<div class='mapBorder nextBorder'></div>
+	<div class='mapBorderLine'></div>
+	<div class='mapContentWrapper' >
+			
+			<div class='map'>
+				
+				<div class='mapVisual'>
+					<img src='@@assetPath@@/imgs/map_temp.png'>
+				</div>
+			</div>
+	</div>
+</div>
+
+<style>
+
+.gusto-section-600 {
+	height: 640px;
+	background: #f1f1f1;
+	overflow: hidden;
+	padding: 20px 0;
+	position: relative;
+}
+
+.mapBorder {
+	width: 100%;
+	height: 50%;
+	position: absolute;
+	top: 0;
+	
+}
+
+.mapBorderLine {
+	position: absolute;
+	top: 275px;
+	width: 110%;
+	left: -5%;
+	border-top: 25px #333 dotted;
+	border-bottom: 25px #333 dotted;
+}
+
+.mapBorder.nextBorder {
+	top: 50%;
+
+}
+
+.mapContentWrapper {
+	max-width: 1300px;
+	margin: 0 auto;
+	position: relative;
+	height: inherit;
+
+
+
+}
+
+.mapInfo {
+	width: 220px;
+	float: left;
+}
+
+.mapVisual {
+	width: 640px;
+	float: left;
+}
+
+.map {
+	margin-left: 300px;
+	width: 760px;
+	height: 600px;
+	border-radius: 5px;
+	padding: 20px;
+	background: #fff;
+	overflow: hidden;
+	border: 1px solid #ccc;
+
+
+}
+
+.mapVisual img {
+	height: 100%;
+	width: 100%;
+}
+
+
+
+
+</style>
+
+<script>
+
+component.exports = {
+	onrender: function(){
+		var el = this.find('.mapContentWrapper');
+
+		this.observe('scrollTop', function(){
+			// var scrollTop = this.get('scrollTop');
+			// var windowHeight = this.get('windowHeight');
+			// var elTop = el.offsetTop;
+			// console.log(elTop, scrollTop, windowHeight)
+
+			// if(elTop < scrollTop + windowHeight && elTop > scrollTop + (windowHeight/2) ){
+			// 	var pos = elTop - scrollTop -  windowHeight/2;
+	
+			// 	var pct = pos/ (windowHeight/2);
+			// //	console.log(pct, pct * 600)
+			// 	this.set('position', pct * 600)
+
+			// } else {
+			// 	this.set('position', 0)
+			// }
+		})
+	}
+
+
+}
+
+</script>

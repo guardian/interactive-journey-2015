@@ -12,6 +12,7 @@ define([
     'rvc!templates/videoBlockTemplate',
     'rvc!templates/headerBlockTemplate',
     'rvc!templates/mapBlockTemplate',
+    'rvc!templates/mapScrollBlockTemplate',
     'text!data/pageData.txt',
     'libs/assetManager',
     'libs/archieml',
@@ -29,6 +30,7 @@ define([
     videoBlockHTML,
     headerBlockHTML,
     mapBlockHTML,
+    mapScrollBlockHTML,
     pageDataText,
     assetManager
 ) {
@@ -49,7 +51,8 @@ define([
                         galleryBlock: galleryBlockHTML,
                         videoBlock: videoBlockHTML,
                         headerBlock: headerBlockHTML,
-                        mapBlock: mapBlockHTML
+                        mapBlock: mapBlockHTML,
+                        mapScrollBlock: mapScrollBlockHTML
                     },
                     data: {
                         pageBlocks: archieData.blocks,

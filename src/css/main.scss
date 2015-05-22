@@ -32,10 +32,10 @@ figure {
     
     // Aspect ratio breakpoints
     @media screen and (max-aspect-ratio: 16/9) { 
-          background: rgb(240, 255, 255) !important;
+          //background: rgb(240, 255, 255) !important;
     }
     @media screen and (min-aspect-ratio: 16/9) { 
-          background: rgb(255, 245, 255) !important;
+          //background: rgb(255, 245, 255) !important;
     }
 }
 
