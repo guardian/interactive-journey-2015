@@ -23,7 +23,9 @@ require.config({
     rvc: "../../bower_components/rvc/dist/rvc",
     swiper: "../../bower_components/swiper/dist/js/swiper",
     "ractive-touch": "../../bower_components/ractive-touch/index",
-    hammerjs: "../../bower_components/hammerjs/hammer"
+    hammerjs: "../../bower_components/hammerjs/hammer",
+    "viewport-units-buggyfill": "../../bower_components/viewport-units-buggyfill/viewport-units-buggyfill",
+    "viewport-units-buggyfill.hacks": "../../bower_components/viewport-units-buggyfill/viewport-units-buggyfill.hacks"
   },
   packages: [
 

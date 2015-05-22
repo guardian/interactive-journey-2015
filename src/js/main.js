@@ -15,6 +15,8 @@ define([
     'text!data/pageData.txt',
     'libs/assetManager',
     'libs/bandwidth',
+    'viewport-units-buggyfill',
+    'viewport-units-buggyfill.hacks',
     'libs/archieml',
     'ractive-touch'
 ], function(
@@ -32,12 +34,14 @@ define([
     mapBlockHTML,
     pageDataText,
     assetManager,
-    bandwidth
+    bandwidth,
+    viewportUnitsBuggyfill,
+    viewportUnitsBuggyfillHacks
 ) {
     'use strict';
     //Ractive.DEBUG = false;
     var base;
-
+    
     function launchApp(el, archieData){
         console.log(archieData.blocks);
         //initialize the ractive base, add data, and comonent modules
@@ -147,6 +151,12 @@ define([
         .then(logResponse)
         .fail(handleRequestError)
         .always(afterRequest);
+        
+        // Fix iOS and ie9+ viewport units
+        viewportUnitsBuggyfill.init({
+            hacks: viewportUnitsBuggyfillHacks,
+            refreshDebounceWait: 250
+        });
     }
 
     return {
