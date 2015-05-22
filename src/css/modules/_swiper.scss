@@ -1,8 +1,12 @@
 .swiper-slide {
     display: inline;
-}
-        
+}       
+
 .swipe {
+    
+    .swiper-slide {
+        display: inline-block;
+    }
         
     .swiper-container {
         margin:0 auto;

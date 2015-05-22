@@ -15,6 +15,9 @@ define([
     'rvc!templates/mapScrollBlockTemplate',
     'text!data/pageData.txt',
     'libs/assetManager',
+    'libs/bandwidth',
+    'viewport-units-buggyfill',
+    'viewport-units-buggyfill.hacks',
     'libs/archieml',
     'ractive-touch'
 ], function(
@@ -32,12 +35,15 @@ define([
     mapBlockHTML,
     mapScrollBlockHTML,
     pageDataText,
-    assetManager
+    assetManager,
+    bandwidth,
+    viewportUnitsBuggyfill,
+    viewportUnitsBuggyfillHacks
 ) {
     'use strict';
     //Ractive.DEBUG = false;
     var base;
-
+    
     function launchApp(el, archieData){
         console.log(archieData.blocks);
         //initialize the ractive base, add data, and comonent modules
@@ -66,6 +72,13 @@ define([
                             return {
                                 teardown: function () {}
                             };
+                        },
+                        autoPlay: function ( node ) {
+                            assetManager.setupAutoPlay( node );
+
+                            return {
+                                teardown: function () {}
+                            };
                         }
                     },
                     onrender: function(){
@@ -81,6 +94,11 @@ define([
 
        
     }
+    
+    bandwidth.getSpeed(function(speed) {
+        console.log('bandwidth speed in bits per second = ', speed);
+    });
+
 
     function measureScreen(){
         var top = (window.pageYOffset || document.documentElement.scrollTop);
@@ -106,12 +124,12 @@ define([
             var context = this, args = arguments;
             var later = function() {
                 timeout = null;
-                if (!immediate) func.apply(context, args);
+                if (!immediate) { func.apply(context, args); }
             };
             var callNow = immediate && !timeout;
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
-            if (callNow) func.apply(context, args);
+            if (callNow) { func.apply(context, args); }
         };
     }
 
@@ -136,6 +154,12 @@ define([
         .then(logResponse)
         .fail(handleRequestError)
         .always(afterRequest);
+        
+        // Fix iOS and ie9+ viewport units
+        viewportUnitsBuggyfill.init({
+            hacks: viewportUnitsBuggyfillHacks,
+            refreshDebounceWait: 250
+        });
     }
 
     return {

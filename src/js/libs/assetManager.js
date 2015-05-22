@@ -14,6 +14,7 @@ define([], function () {
 		scrollTop = top;
 		windowHeight = height;
 		lazyLoad();
+		autoPlay();
 	}
 
 	var addPhoto = function ( node, src, imgSizes ) {
@@ -41,6 +42,36 @@ define([], function () {
 			}
 		}
 		
+	}
+	
+	var isGlobalPaused = false;
+	var mediaColltion = [];
+	
+	function autoPlay() {
+		if (isGlobalPaused) { return; }
+		
+		mediaColltion.forEach(function(node) {
+			var nodeHeight = node.getBoundingClientRect().height;
+			
+			if ((node.offsetTop - scrollTop) <  windowHeight / 5  &&
+				(node.offsetTop + nodeHeight) - scrollTop > 0 )
+			{
+				return node.play();		 
+			}
+			 
+			if (node.paused === false) {
+				 node.pause();
+				 // Hacky delay to differentiate user pause vs. scroll pause 
+				 setTimeout(function() { isGlobalPaused = false; }, 100);
+			 }
+		});	
+	}
+	
+	function setupAutoPlay(el) {
+		mediaColltion.push(el);
+		el.addEventListener('pause', function(evt) {
+			isGlobalPaused = true; 
+		}, false);
 	}
 	
 
@@ -86,7 +117,8 @@ define([], function () {
 
 	return {
 			updateScreen: updateScreen,
-			addPhoto: addPhoto
-		}
+			addPhoto: addPhoto,
+			setupAutoPlay: setupAutoPlay
+	};
 
 });
