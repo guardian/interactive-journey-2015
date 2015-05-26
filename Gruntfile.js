@@ -226,6 +226,32 @@ module.exports = function(grunt) {
             ]
         }
     },
+    
+    'compile-handlebars': {
+      facebookInstant: {
+          templateData: 'temp/pageData.json',
+          partials: 'src/facebook-instant/partials/*.html',
+          helpers: ['src/facebook-instant/helpers/partial.js'],
+          files: [{
+            src: 'src/facebook-instant/facebook-instant-base.html',
+            dest: 'build/fb.html'
+          }]
+      }
+    },
+    
+    archieml: {
+      options: {
+        // Task-specific options go here.
+      },
+      your_target: {
+        options: {
+          // Targer-specific options go here.
+        },
+        files: {
+          'temp/pageData.json': 'src/js/data/pageData.txt'
+        }
+      },
+    },
 
   });
 
@@ -244,6 +270,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-rename');
   grunt.loadNpmTasks('grunt-bower-requirejs');
   grunt.loadNpmTasks('grunt-newer');
+  grunt.loadNpmTasks('grunt-compile-handlebars');
+  grunt.loadNpmTasks('grunt-archieml');
 
   // Tasks
   grunt.registerTask('build', [
@@ -270,4 +298,11 @@ module.exports = function(grunt) {
       'replace:prod',
       's3'
   ]);
+  
+  grunt.registerTask('facebook-instant', [
+      'archieml',
+      'compile-handlebars'
+  ]);
+  
+  
 };

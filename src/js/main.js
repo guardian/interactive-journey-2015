@@ -79,6 +79,13 @@ define([
                             return {
                                 teardown: function () {}
                             };
+                        },
+                        scrollChange: function ( node ) {
+                            //assetManager.setupScrollChange( node );
+
+                            return {
+                                teardown: function () {}
+                            };
                         }
                     },
                     onrender: function(){
