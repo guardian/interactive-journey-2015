@@ -1,29 +1,3 @@
-<header>
-<!-- Article description goes here -->
-<h1>Article Title</h1>
-<h2>Article Subtitle</h2>
-<details>
-    <summary>Feed Story Description</summary> 
-    A short description (will appear as the description in News Feed) 
-</details>
-<time datetime="2014-12-11T04:44:16Z" class="op-published">December 11th, 4:44 PM</time>
-<figure>
-  <video autoplay>
-     <!-- Media element to be shown in the News Feed preview -->
-    <source src="http://example.com/NFVideo.mp4" type="video/mpeg" />
-  </video>
-</figure>
-<address>
-    <a href="http://facebook.com/brandon.diamond" rel="facebook">
-    Author name
-    </a>
-    <span>Author description / bio </span>
-</address>
-<address>
-    <a href="http://facebook.com/holly.ormseth" rel="facebook">
-    Author 2 name
-    </a>
-    <span>Author 2 description / bio </span>
-</address>
-</header>
-
+<!-- header block -->
+<h1 class="">{{ this.headline }}</h1>
+{{> copy this }}
