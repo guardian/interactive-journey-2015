@@ -5,15 +5,15 @@
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
             
-                
-            {{ #photos }}
+          
+            {{ #images }}
                 <div class="swiper-slide">
                     <img class="gusto-photo gusto-gallary-photo"
-                         decorator='lazyload:{src:{{src}},imgSizes:[] }'
+                         decorator='lazyload:{src:{{src}},imgSizes:{{size}},srcAlt:{{src_alt}} }'
                          alt="{{ alt }}"
                          style="{{^swipe}} width: {{ 100 / columns }}%; {{/swipe}}" />
                 </div>
-            {{ /photos }}        
+            {{ /images }}        
         </div>
      
         
@@ -39,7 +39,7 @@
 <script>
   component.exports = {
       oncomplete : function(){
-        console.log();
+
         var el = this.fragment.items[0].node;
         if (!this.get().swipe) {
           return;

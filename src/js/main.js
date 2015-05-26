@@ -45,7 +45,9 @@ define([
     var base;
     
     function launchApp(el, archieData){
-        console.log(archieData.blocks);
+
+        
+    
         //initialize the ractive base, add data, and comonent modules
         base = new AppTemplate({
                     el: el,
@@ -62,12 +64,11 @@ define([
                     },
                     data: {
                         pageBlocks: archieData.blocks,
-                        scrollTop: 0,
-                        windowHeight: window.innerHeight
+                        config: archieData.config
                     },
                     decorators: {
                         lazyload: function ( node, options ) {
-                            assetManager.addPhoto( node, options.src, options.imgSizes );
+                            assetManager.addPhoto( node, options );
 
                             return {
                                 teardown: function () {}
@@ -81,14 +82,20 @@ define([
                             };
                         }
                     },
-                    onrender: function(){
+                    oncomplete: function(){
+                        assetManager.setImageSizes(archieData.config.imageSizes);
+
                         this.observe( 'scrollTop windowHeight', function(){
-                            assetManager.updateScreen( this.get('scrollTop'), this.get('windowHeight') );
+                            assetManager.updateScreen( this.get('scrollTop'), this.get('windowHeight'), this.get('windowWidth') );
                         });
                         this.set( measureScreen() );
+
                         window.addEventListener('scroll', debounce( function() { 
+
                             base.set( measureScreen() ); 
+
                         }, 100));
+
                     }
                 });
 
@@ -102,19 +109,11 @@ define([
 
     function measureScreen(){
         var top = (window.pageYOffset || document.documentElement.scrollTop);
-        return { scrollTop: top, windowHeight: window.innerHeight};
-    }
-
-    function logResponse(resp) {
-        console.log(resp);
+        return { scrollTop: top, windowHeight: window.innerHeight, windowWidth: window.innerWidth};
     }
 
     function handleRequestError(err, msg) {
         console.error('Failed: ', err, msg);
-    }
-
-    function afterRequest(resp) {
-        console.log('Finished', resp);
     }
 
     //standard debounce function as taken from underscore
@@ -138,12 +137,12 @@ define([
         console.log(el, context, config, mediator);
 
         // Load local archieml data and pass data to ractive templating
-        var pageBlocks = archieml.load(pageDataText);
-        launchApp(el,pageBlocks);
+        //var pageBlocks = archieml.load(pageDataText);
+        //launchApp(el,pageBlocks);
 
         // Load remote JSON data
-        var key = '1hy65wVx-pjwjSt2ZK7y4pRDlX9wMXFQbwKN0v3XgtXM';
-        var url = 'http://interactive.guim.co.uk/spreadsheetdata/'+key+'.json';
+        var key = '1fELDqgjhldHT-uHWxtMKz4ZjiMLbzb9MwUV6lW8TjAo';
+        var url = 'http://interactive.guim.co.uk/docsdata-test/'+key+'.json';
 
 
         reqwest({
@@ -151,9 +150,10 @@ define([
             type: 'json',
             crossOrigin: true
         })
-        .then(logResponse)
+        .then(function(data){
+            launchApp(el, data);
+        })
         .fail(handleRequestError)
-        .always(afterRequest);
         
         // Fix iOS and ie9+ viewport units
         viewportUnitsBuggyfill.init({

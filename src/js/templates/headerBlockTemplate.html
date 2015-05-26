@@ -1,6 +1,7 @@
 <header 
     class="gusto-viewport-full gusto-header"
-    style="background-image: url({{ src  }});"
+
+    decorator='lazyload:{src:{{src}},imgSizes:{{size}},srcAlt:{{src_alt}}, bgImg:true}'
 >
     <h1 class="gusto-headline gusto-restrict-inner gusto-headline-big">
         {{ headline }}

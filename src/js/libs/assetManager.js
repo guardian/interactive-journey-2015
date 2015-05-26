@@ -7,24 +7,29 @@ define([], function () {
 	var loadingMax = 4;
 	var scrollTop;
 	var windowHeight;
-	
+	var windowWidth;
+	var imgSizes = {};
 
 
-	var updateScreen = function(top, height){
+	var updateScreen = function(top, height, width){
 		scrollTop = top;
 		windowHeight = height;
+		windowWidth = width;
 		lazyLoad();
 		autoPlay();
 	}
 
-	var addPhoto = function ( node, src, imgSizes ) {
+	var addPhoto = function ( node, options) {
 
 			//creates reference to image to be loaded
 			var el = {
-				src: src.replace('https://', '').replace('http://', '').replace(/\/$/, ''),
+				src: options.src.replace('https://', '').replace('http://', '').replace(/\/$/, ''),
+				alt_src: (options.alt_src) ? alt_src.replace('https://', '').replace('http://', '').replace(/\/$/, ''): undefined,
 				node: node,
-				imgSizes: imgSizes
+				size: options.imgSizes,
+				bgImg: (options.bgImg)? true : false
 			};
+
 			//pushes images to the list
 			loadingQueue.unshift(el);
 
@@ -34,6 +39,7 @@ define([], function () {
 
 		var i = loadingQueue.length;
 		while( i -- ){
+
 			if(loadingQueue[i].node.offsetTop <= scrollTop + windowHeight*2.5 ){
 				fetchPhoto(loadingQueue[i]);
 				loadingQueue.pop();
@@ -79,27 +85,33 @@ define([], function () {
 	var fetchPhoto = function(item){
 		var image = new Image();
 
-		// var imgSize;
-		// if(windowWidth < 640){
-		// 	//load smallest image to fit small screen
-		// 	imgSize = item.imgSizes[0];
-		// } else if( windowWidth < 760 ) {
-		// 	//load medium image to fit vertical iPad layout 
-		// 	imgSize = item.imgSizes[1];
-		// } else {
-		// 	//load determine image to load by size of position for desktop layout
-		// 	var elWidth = item.node.offsetWidth;
-		// 	if(elWidth <= item.imgSizes[0]){
-		// 		imgSize = item.imgSizes[0];
-		// 	} else if(elWidth <= item.imgSizes[1] ){
-		// 		imgSize = item.imgSizes[1];
-		// 	} else {
-		// 		imgSize = item.imgSizes[2];
-		// 	}
-		// };
-		var path = "http://" + item.src; //'http://' + item.src + '/' + imgSize + '.jpg';
+		var imgSize;
+		if(windowWidth < 640){
+			//load smallest image to fit small screen
+			imgSize = imgSizes[item.size][0];
+		} else if( windowWidth < 760 ) {
+			//load medium image to fit vertical iPad layout 
+			imgSize = imgSizes[item.size][1];
+		} else {
+			//load determine image to load by size of position for desktop layout
+			var elWidth = item.node.offsetWidth;
+			if(elWidth <= imgSizes[item.size][0]){
+				imgSize = imgSizes[item.size][0];
+			} else if(elWidth <= imgSizes[item.size][1] ){
+				imgSize = imgSizes[item.size][1];
+			} else {
+				imgSize = imgSizes[item.size][2];
+			}
+		};
+
+		var path = 'http://' + item.src + '/' + imgSize + '.jpg'; //"http://" + item.src; //
 		image.onload = function() {
-            item.node.setAttribute("src", path);
+			if(item.bgImg){
+				item.node.style.backgroundImage = "url(" + path + ")";
+			} else {
+				item.node.setAttribute("src", path);
+			}
+            
 		};
 
 		image.onerror = function(err) {
@@ -110,6 +122,15 @@ define([], function () {
 		image.src = path;
 	}
 
+	var setImageSizes = function(sizes){
+		for(var key in sizes){
+			var a = sizes[key].split(',');
+            a.forEach(function(d,i){
+                a[i] = Number(d);
+            })
+        	imgSizes[key] = a;
+		}
+	}
 
 
 
@@ -118,7 +139,8 @@ define([], function () {
 	return {
 			updateScreen: updateScreen,
 			addPhoto: addPhoto,
-			setupAutoPlay: setupAutoPlay
+			setupAutoPlay: setupAutoPlay,
+			setImageSizes: setImageSizes
 	};
 
 });
