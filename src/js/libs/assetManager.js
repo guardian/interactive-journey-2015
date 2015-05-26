@@ -17,7 +17,8 @@ define([], function () {
 		windowWidth = width;
 		lazyLoad();
 		autoPlay();
-	}
+		scrollChange();
+	};
 
 	var addPhoto = function ( node, options) {
 
@@ -33,7 +34,7 @@ define([], function () {
 			//pushes images to the list
 			loadingQueue.unshift(el);
 
-	}
+	};
 
 	var lazyLoad = function(){
 
@@ -48,7 +49,7 @@ define([], function () {
 			}
 		}
 		
-	}
+	};
 	
 	var isGlobalPaused = false;
 	var mediaColltion = [];
@@ -132,6 +133,28 @@ define([], function () {
 		}
 	}
 
+	var scrollCollection = [];
+	function scrollChange(node) {
+		scrollCollection.forEach(function(node) {
+
+			var nodeHeight = node.getBoundingClientRect().height;
+			
+			if ((node.offsetTop - scrollTop) <  windowHeight  &&
+				(node.offsetTop + nodeHeight) - scrollTop > 0 )
+			{
+				
+				var heightDiff = (node.offsetTop + nodeHeight) - scrollTop;
+				var percent = 1 - (heightDiff / windowHeight);
+				node.style.backgroundColor = 'rgba(255,0,0,' + percent + ')';
+				return console.log(node, heightDiff, percent);	 
+			}
+		});	
+	}
+	
+	function setupScrollChange(node) {
+		scrollCollection.push(node);
+		
+	}
 
 
 
@@ -140,7 +163,8 @@ define([], function () {
 			updateScreen: updateScreen,
 			addPhoto: addPhoto,
 			setupAutoPlay: setupAutoPlay,
-			setImageSizes: setImageSizes
+			setImageSizes: setImageSizes,
+			setupScrollChange: setupScrollChange
 	};
 
 });

@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" prefix="op: http://media.facebook.com/op#">
+     {{> head }}
+   <body>
+
+    <article>
+        {{> header }}
+
+      <!-- Article body goes here -->
+      <p> Article content </p> 
+      <figure>
+          <video autoplay>
+            <source src="http://example.com/video.mp4" type="video/mpeg" />
+          </video>
+        </figure>    
+        
+        {{#each blocks}}
+          {{> (partial) }}
+        {{/each}}
+        
+        {{> footer }}  
+      
+    </article>
+  </body>
+</html>
