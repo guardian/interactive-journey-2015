@@ -107,7 +107,7 @@ figure {
     max-width:  map-get($breakpoints, 'phablet');
     margin: 0 auto;
     padding: 0 10px;
-    position: relative;
+
 }
 
 .gusto-restrict-outer {
@@ -224,6 +224,7 @@ figure {
     font-family: 'Guardian Text Sans Web', sans-serif;
     font-size: 0.9rem;
     text-align: left;
+
 }
 
 // Pull blocks
@@ -362,7 +363,7 @@ figure {
 
     .gusto-section-header-left {
         overflow: visible;
-        
+
     }
 
     .gusto-section-header-left .gusto-section-header {
