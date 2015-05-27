@@ -39,20 +39,44 @@
 <script>
   component.exports = {
       oncomplete : function(){
-
+        var mySwiper;
         var el = this.fragment.items[0].node;
-        if (!this.get().swipe) {
-          return;
-        }          
         var swipEl = el.querySelector('.swiper-container');
+          
+        function isNarrow() {
+          return window.innerWidth < 660;   
+        }
         
-        var mySwiper = new Swiper(swipEl, {
-          direction: 'horizontal',
-          loop: false,
-          // pagination: '.swiper-pagination',
-          nextButton: el.querySelector('.swiper-button-next'),
-          prevButton: el.querySelector('.swiper-button-prev')
-        });
+        function addSwiper() {
+          el.classList.add('swipe');
+          mySwiper = new Swiper(swipEl, {
+            direction: 'horizontal',
+            loop: false,
+            // pagination: '.swiper-pagination',
+            nextButton: el.querySelector('.swiper-button-next'),
+            prevButton: el.querySelector('.swiper-button-prev'),
+            onResize: function() {
+              console.log(window.innerWidth);
+            }
+          });
+        }
+        
+        function initSwiper() {
+          var hasClass = el.classList.contains('swipe');
+          if (isNarrow() && !hasClass) {
+            addSwiper(); 
+          }
+          
+          if (!isNarrow() && hasClass) {
+            mySwiper.destroy(true, true);
+            el.classList.remove('swipe');
+          }
+        }
+        
+        initSwiper();
+        
+        // Toggle swipe based on viewport width
+        window.addEventListener('resize', initSwiper, false);
     }
   };
   

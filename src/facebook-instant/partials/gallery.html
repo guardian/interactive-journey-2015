@@ -1,2 +1,10 @@
-!! GALLERY
-{{ block }}
+<figure class="op-slideshow" data-mode="fullscreen">
+    {{#images}}
+        <figure data-feedback="fb:likes, fb:comments">
+            <img src="{{ src }}" {{#if alt}} alt="{{alt}}" {{/if}} />
+            {{#if caption}}
+            <figcaption class="op-center">{{{ caption }}}</figcaption>
+            {{/if}}
+        </figure>
+    {{/images}}     
+</figure>

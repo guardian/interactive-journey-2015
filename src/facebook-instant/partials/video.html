@@ -1,2 +1,12 @@
-!! video
-{{ video }}
+
+<figure>
+	<video {{#if autoplay}}autoplay{{/if}}>
+        <source src="{{ mp4 }}" type="video/mpeg" />
+    </video>
+    
+	{{#if caption}}
+        <figcaption class="op-center">
+            {{ caption }}
+        </figcaption>
+	{{/if}}
+</figure>

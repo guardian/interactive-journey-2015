@@ -229,7 +229,7 @@ module.exports = function(grunt) {
     
     'compile-handlebars': {
       facebookInstant: {
-          templateData: 'src/js/data/sample.json',
+          templateData: 'temp/pageData.json',
           partials: 'src/facebook-instant/partials/*.html',
           helpers: [
             'src/facebook-instant/helpers/partial.js',
@@ -244,18 +244,16 @@ module.exports = function(grunt) {
     },
     
     archieml: {
-      options: {
-        // Task-specific options go here.
-      },
       your_target: {
-        options: {
-          // Targer-specific options go here.
-        },
         files: {
           'temp/pageData.json': 'src/js/data/pageData.txt'
         }
       },
     },
+    
+    curl: {
+      'temp/pageData.json': 'http://interactive.guim.co.uk/docsdata-test/1fELDqgjhldHT-uHWxtMKz4ZjiMLbzb9MwUV6lW8TjAo.json',
+    }  
 
   });
 
@@ -276,6 +274,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-compile-handlebars');
   grunt.loadNpmTasks('grunt-archieml');
+  grunt.loadNpmTasks('grunt-curl');
 
   // Tasks
   grunt.registerTask('build', [
@@ -306,6 +305,7 @@ module.exports = function(grunt) {
   grunt.registerTask('facebook-instant', [
 //      'archieml',
       'clean',
+      'curl',
       'compile-handlebars'
   ]);
   

@@ -1,4 +1,6 @@
 <figure>
-    <img src="{{ src }}" alt=" {{ alt }}" />
-    <figcaption class="op-center">{{ this.caption }}</figcaption>
+    <img src="{{ src }}" {{#if alt}} alt="{{alt}}" {{/if}} />
+    {{#if caption}}
+    <figcaption class="op-center">{{ caption }}</figcaption>
+    {{/if}}
 </figure>
