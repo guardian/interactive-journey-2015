@@ -107,16 +107,18 @@ figure {
     max-width:  map-get($breakpoints, 'phablet');
     margin: 0 auto;
     padding: 0 10px;
+    position: relative;
 }
 
 .gusto-restrict-outer {
     max-width: map-get($breakpoints, 'wide');
     margin: 0 auto;
     padding: 0 10px;
+    position: relative;
 }
 
 .gusto-headline {
-    margin-top: 0;
+    margin: 0;
 }
 
 .gusto-headline-big {
@@ -139,6 +141,27 @@ figure {
 .gusto-section {
     margin-top: 2rem;
     margin-bottom: 2rem;
+}
+
+.gusto-section-header {
+    position: relative;
+    padding-top: 10px;
+    max-width: 640px;
+    text-align: left;
+    p {
+        margin-top: 0;
+        line-height: 1.5;
+        font-size: 14px;
+    }
+}
+
+.gusto-section-header::before {
+    width: 120px;
+    height: 1px;
+    background: #dcdcdc;
+    content: '';
+    position: absolute;
+    top: 0;
 }
 
 
@@ -199,7 +222,7 @@ figure {
 // Figure caption
 .gusto-caption {
     font-family: 'Guardian Text Sans Web', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-align: left;
 }
 
@@ -291,9 +314,7 @@ figure {
 
 //breakpoint enhancements
 @media (min-width: 740px){
-    .interactive::before, .interactive::after {
-        width: calc((100% - 46.25rem) / 2);
-    }
+
 
     .gusto-header-content {
         max-width: 740px;
@@ -334,6 +355,22 @@ figure {
     .gusto-headline-big {
         font-size: 60px;
     }
+
+     .gusto-section-header {
+         margin-left: 170px;
+     }
+
+    .gusto-section-header-left {
+        overflow: visible;
+        
+    }
+
+    .gusto-section-header-left .gusto-section-header {
+        position: absolute;
+        bottom: 100%;
+        width: 160px;
+         margin-left: 0;
+    }
 }
 
 @media (min-width: 1300px){
@@ -359,6 +396,15 @@ figure {
 
     .gusto-headline-big {
         font-size: 72px;
+    }
+
+     .gusto-section-header {
+         margin-left: 230px;
+     }
+
+    .gusto-section-header-left .gusto-section-header {
+        width: 220px;
+
     }
 
     
