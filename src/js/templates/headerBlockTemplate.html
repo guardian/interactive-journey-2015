@@ -3,12 +3,12 @@
 
     decorator='lazyload:{src:{{src}},imgSizes:{{size}},srcAlt:{{src_alt}}, bgImg:true}'
 >
-    <h1 class="gusto-headline gusto-restrict-inner gusto-headline-big">
+    <h1 class="gusto-headline gusto-restrict-inner gusto-headline-big left-column">
         {{ headline }}
     </h1>
     
 	{{ #each copy.replace(/[\r\n]+/g, '\n').split('\n') }}
-        <p class="gusto-sub-heading gusto-restrict-inner">
+        <p class="gusto-sub-heading gusto-restrict-inner left-column">
            {{{ this.trim() }}}
         </p>
 	{{ /each }}

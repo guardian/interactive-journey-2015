@@ -6,7 +6,7 @@ $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
 @import 'bower_components/pasteup-palette/src/_palette';
 @import 'bower_components/guss-webfonts/src/_webfonts.scss';
 @import 'bower_components/guss-typography/_typography.scss';
-@import 'modules/sample';
+@import 'modules/columns';
 @import 'modules/swiper';
 @include guss-webfonts();
 @include guss-typography-defaults;
@@ -21,6 +21,8 @@ $breakpoints: (
     leftCol:          1140px,
     wide:             1300px
 );
+
+$colWidth: 160px;
 
 $outerColumnWidth: (map-get($breakpoints, 'wide') - map-get($breakpoints, 'phablet')) / 2;
 
@@ -270,4 +272,33 @@ figure {
 
 .gusto-author-copy {
     margin: 0;
+    
+}
+
+// Fun margin columns
+.left-column {
+    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'desktop')}) / 2 ) + #{$colWidth});
+    }    
+    @media only screen and (min-width: map-get($breakpoints, 'leftCol')) {
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) + #{$colWidth});
+    } 
+    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'wide')}) / 2 ) + #{$colWidth});
+    }
+}
+
+.right-column {
+    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
+        $leftCol: #{ (map-get($breakpoints, 'desktop') - map-get($breakpoints, 'phablet')) - $colWidth };
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'desktop')}) / 2 ) +  #{$leftCol} );
+    }    
+    @media only screen and (min-width: map-get($breakpoints, 'leftCol')) {
+        $leftCol: #{ (map-get($breakpoints, 'leftCol') - map-get($breakpoints, 'phablet')) - $colWidth };
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) + #{ $leftCol} );
+    } 
+    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
+        $leftCol: #{ (map-get($breakpoints, 'wide') - map-get($breakpoints, 'phablet')) - $colWidth };
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'wide')}) / 2 ) + #{$leftCol} );
+    }
 }
