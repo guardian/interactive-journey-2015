@@ -1,0 +1,24 @@
+<header>
+  <!-- Article description goes here -->
+  <h1>{{ title }}</h1>
+  <h2>standfirst</h2>
+  <details>
+      <summary>Feed Story Description</summary> 
+      {{ description }}
+  </details>
+  <time datetime="{{ pubDate }}" class="op-published">
+    {{ pubDate }}
+  </time>
+  
+  {{> (mediatype media) media }}
+            
+  {{#each authors}}
+    <address>
+        <a href="{{ this.authorlink }}" rel="facebook">
+        {{ this.author}}
+        </a>
+        <span>{{ this.authorbio }} </span>
+    </address>
+  {{/each}}
+  
+  </header>

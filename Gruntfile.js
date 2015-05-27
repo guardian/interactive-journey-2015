@@ -229,9 +229,13 @@ module.exports = function(grunt) {
     
     'compile-handlebars': {
       facebookInstant: {
-          templateData: 'temp/pageData.json',
+          templateData: 'src/js/data/sample.json',
           partials: 'src/facebook-instant/partials/*.html',
-          helpers: ['src/facebook-instant/helpers/partial.js'],
+          helpers: [
+            'src/facebook-instant/helpers/partial.js',
+            'src/facebook-instant/helpers/splitcopy.js',
+            'src/facebook-instant/helpers/mediatype.js'
+          ],
           files: [{
             src: 'src/facebook-instant/facebook-instant-base.html',
             dest: 'build/fb.html'
@@ -300,7 +304,8 @@ module.exports = function(grunt) {
   ]);
   
   grunt.registerTask('facebook-instant', [
-      'archieml',
+//      'archieml',
+      'clean',
       'compile-handlebars'
   ]);
   
