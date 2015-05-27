@@ -1,5 +1,13 @@
 <!-- Section: Photo gallert example. Start. -->
 <figure class="gusto-section gusto-section-gallery {{ class }} {{^class}}gusto-restrict-outer{{/class}} {{#swipe}} swipe {{/swipe}}">
+
+    {{ #headline }}
+    <div class='gusto-section-header gusto-restrict-inner left-column'>
+      <h2 class='gusto-headline gusto-headline-medium'>{{ headline }}</h2>
+      <p>{{ caption }}</p>
+    </div>
+    {{ /headline }}
+
     <!-- Slider main container -->
     <div class="swiper-container">
         <!-- Additional required wrapper -->
@@ -23,8 +31,8 @@
      
     </div>
 
-    {{ #caption }}
-    <figcaption class="gusto-caption gusto-restrict-outer">
+    {{ #caption && !headline }}
+    <figcaption class="gusto-caption  gusto-restrict-inner left-column">
         {{{ caption }}}
     </figcaption>
 	{{ /caption }}
