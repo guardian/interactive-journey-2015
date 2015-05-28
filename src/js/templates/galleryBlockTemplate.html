@@ -21,8 +21,12 @@
                          alt="{{ alt }}"
                          style="{{^swipe}} width: {{ 100 / columns }}%; {{/swipe}}" />
                 </div>
-            {{ /images }}        
+            {{ /images }}
+            
+          
         </div>
+        
+        <div class="swiper-pagination"></div>     
      
         
         <!-- If we need navigation buttons -->
@@ -70,7 +74,7 @@
           mySwiper = new Swiper(swipEl, {
             direction: 'horizontal',
             loop: false,
-            // pagination: '.swiper-pagination',
+            pagination: el.querySelector('.swiper-pagination'),
             nextButton: el.querySelector('.swiper-button-next'),
             prevButton: el.querySelector('.swiper-button-prev'),
             onResize: function() {
