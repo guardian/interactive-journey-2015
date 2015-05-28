@@ -22,7 +22,7 @@ $breakpoints: (
     wide:             1300px
 );
 
-$colWidth: 160px;
+$colWidth: 220px;
 
 $outerColumnWidth: (map-get($breakpoints, 'wide') - map-get($breakpoints, 'phablet')) / 2;
 
@@ -407,7 +407,7 @@ figure {
     .gusto-section-header-left .gusto-section-header {
         position: absolute;
         bottom: 100%;
-        width: 160px;
+        width: $colWidth;
         margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) );
     }
 }
