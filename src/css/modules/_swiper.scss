@@ -1,13 +1,40 @@
-.swiper-slide {
-    display: inline;
-}       
+.swiper-slide-inner {
+    display: inline-block;
+    float: left;
+    position: relative;
+    padding: 2px;
+    
+    .gusto-caption {
+          position: absolute;
+          bottom: 0;
+          padding: 10px 45px 30px;
+          color: #fff;
+          background: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0.6) 70%);
+          line-height: 1.3em;
+          width: 100%;
+          opacity: 0;
+          transition: opacity 0.3s;
+        }
+        
+        &:hover .gusto-caption {
+          opacity: 1;
+        }
+}
+.swiper-button-prev, .swiper-button-next {
+    display: none;
+}
+
+.swiper-wrapper {
+    overflow: hidden;
+}
 
 .swipe {
     
     img { width: 100% !important; }
     
-    .swiper-slide {
-        display: inline-block;
+    .swiper-slide-inner {
+        width: 100% !important;
+        padding: 0;
     }
         
     .swiper-container {
@@ -39,6 +66,7 @@
         display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
+        overflow: visible;
         
         -webkit-transform-style: preserve-3d;
         -moz-transform-style: preserve-3d;
@@ -113,7 +141,8 @@
     
     
     /* Arrows */
-    .swiper-button-prev, .swiper-button-next { 
+    .swiper-button-prev, .swiper-button-next {
+        display: block;
         position: absolute;
         top: 0;
         z-index: 10;
@@ -218,7 +247,7 @@
     }
     .swiper-container-horizontal {
         > .swiper-pagination {
-            bottom: 10px;
+            bottom: 5px;
             left: 0;
             width: 100%;
             .swiper-pagination-bullet {

@@ -300,11 +300,12 @@ figure {
 }
 
 .gusto-gallary-photo {
-    padding: 2px;
     box-sizing: border-box;
     display: inline-block;
     line-height: 0;
     vertical-align: middle;
+    width: 100%;
+    
 }
 
 .swipe .gusto-gallary-photo {
