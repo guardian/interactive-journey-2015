@@ -27,6 +27,7 @@
     background: #757575;
 	overflow: hidden;
     width: 100%;
+    padding: 0;
 }
 
 
@@ -64,6 +65,29 @@
 	margin-left: -25vw;
 }
 
+@media (min-width: 1140px){
+	.mode-0 .map-content{
+		margin-left: 180px;
+	}
+
+	.mode-2 .map-content{
+		margin-left: -180px;
+	}
+
+}
+
+
+@media (min-width: 1300px){
+	.mode-0 .map-content{
+		margin-left: 240px;
+	}
+
+	.mode-2 .map-content{
+		margin-left: -240px;
+	}
+
+}
+
 
 
 </style>
@@ -77,16 +101,18 @@ var oldY = 0;
 component.exports = {
 
 	onrender: function(){
+		var el = this.find('.gusto-section');
+
 		this.on({
 
 			mousemove: function(e){
-				var x = e.original.layerX;
+				var x = e.original.pageX - el.offsetLeft;
             	var y = e.original.layerY;
 				
 				if(Math.abs(y - oldY) < 20){
-						if(e.original.layerX < e.node.offsetWidth/3){
+						if(x < el.offsetWidth/4){
 							this.set('mode', 0)
-						} else if(e.original.layerX > 2*e.node.offsetWidth/3){
+						} else if(x> 3* el.offsetWidth/4){
 							this.set('mode', 2)
 						} else {
 							this.set('mode', 1)
