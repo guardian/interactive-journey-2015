@@ -10,10 +10,11 @@
             </h1>
             
         	{{ #each copy.replace(/[\r\n]+/g, '\n').split('\n') }}
-                <p class="gusto-sub-heading ">
+                <p class="gusto-sub-heading">
                    {{{ this.trim() }}}
                 </p>
         	{{ /each }}
         </div>
     </div>
+
 </header>

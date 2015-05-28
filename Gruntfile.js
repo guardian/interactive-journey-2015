@@ -252,7 +252,8 @@ module.exports = function(grunt) {
     },
     
     curl: {
-      'temp/pageData.json': 'http://interactive.guim.co.uk/docsdata-test/1fELDqgjhldHT-uHWxtMKz4ZjiMLbzb9MwUV6lW8TjAo.json',
+      'temp/pageData.json': 'http://interactive.guim.co.uk/docsdata-test/' +
+                            '1fELDqgjhldHT-uHWxtMKz4ZjiMLbzb9MwUV6lW8TjAo.json'
     }  
 
   });

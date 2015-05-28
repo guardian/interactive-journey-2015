@@ -1,4 +1,3 @@
-/*global archieml */
 define([
     'reqwest',
     'swiper',
@@ -18,7 +17,6 @@ define([
     'libs/bandwidth',
     'viewport-units-buggyfill',
     'viewport-units-buggyfill.hacks',
-    'libs/archieml',
     'ractive-touch'
 ], function(
     reqwest,
@@ -82,7 +80,7 @@ define([
                             };
                         },
                         scrollChange: function ( node ) {
-                            //assetManager.setupScrollChange( node );
+//                            assetManager.setupScrollChange( node );
 
                             return {
                                 teardown: function () {}
@@ -93,7 +91,11 @@ define([
                         assetManager.setImageSizes(archieData.config.imageSizes);
 
                         this.observe( 'scrollTop windowHeight', function(){
-                            assetManager.updateScreen( this.get('scrollTop'), this.get('windowHeight'), this.get('windowWidth') );
+                            assetManager.updateScreen(
+                                this.get('scrollTop'),
+                                this.get('windowHeight'),
+                                this.get('windowWidth')
+                            );
                         });
                         this.set( measureScreen() );
 
@@ -109,14 +111,18 @@ define([
        
     }
     
-    bandwidth.getSpeed(function(speed) {
-        console.log('bandwidth speed in bits per second = ', speed);
-    });
+//    bandwidth.getSpeed(function(speed) {
+//        console.log('bandwidth speed in bits per second = ', speed);
+//    });
 
 
     function measureScreen(){
         var top = (window.pageYOffset || document.documentElement.scrollTop);
-        return { scrollTop: top, windowHeight: window.innerHeight, windowWidth: window.innerWidth};
+        return {
+            scrollTop: top,
+            windowHeight: window.innerHeight,
+            windowWidth: window.innerWidth
+        };
     }
 
     function handleRequestError(err, msg) {
@@ -160,7 +166,7 @@ define([
         .then(function(data){
             launchApp(el, data);
         })
-        .fail(handleRequestError)
+        .fail(handleRequestError);
         
         // Fix iOS and ie9+ viewport units
         viewportUnitsBuggyfill.init({

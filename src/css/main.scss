@@ -6,7 +6,7 @@ $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
 @import 'bower_components/pasteup-palette/src/_palette';
 @import 'bower_components/guss-webfonts/src/_webfonts.scss';
 @import 'bower_components/guss-typography/_typography.scss';
-@import 'modules/sample';
+@import 'modules/columns';
 @import 'modules/swiper';
 @include guss-webfonts();
 @include guss-typography-defaults;
@@ -21,6 +21,8 @@ $breakpoints: (
     leftCol:          1140px,
     wide:             1300px
 );
+
+$colWidth: 160px;
 
 $outerColumnWidth: (map-get($breakpoints, 'wide') - map-get($breakpoints, 'phablet')) / 2;
 
@@ -110,6 +112,13 @@ figure {
 
 }
 
+.gusto-restrict-mid {
+    max-width: map-get($breakpoints, 'desktop');
+    margin: 0 auto;
+    padding: 0 10px;
+    position: relative;
+}
+
 .gusto-restrict-outer {
     max-width: map-get($breakpoints, 'wide');
     margin: 0 auto;
@@ -145,9 +154,10 @@ figure {
 
 .gusto-section-header {
     position: relative;
-    padding-top: 10px;
+    padding: 10px 10px 0 0;
     max-width: 640px;
     text-align: left;
+    
     p {
         margin-top: 0;
         line-height: 1.5;
@@ -309,7 +319,35 @@ figure {
 }
 
 .gusto-author-copy {
-    margin: 0;
+    margin: 0;    
+}
+
+// Fun margin columns
+.left-column {
+    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'desktop')}) / 2 ) + #{$colWidth});
+    }    
+    @media only screen and (min-width: map-get($breakpoints, 'leftCol')) {
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) + #{$colWidth});
+    } 
+    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'wide')}) / 2 ) + #{$colWidth});
+    }
+}
+
+.right-column {
+    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
+        $leftCol: #{ (map-get($breakpoints, 'desktop') - map-get($breakpoints, 'phablet')) - $colWidth };
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'desktop')}) / 2 ) +  #{$leftCol} );
+    }    
+    @media only screen and (min-width: map-get($breakpoints, 'leftCol')) {
+        $leftCol: #{ (map-get($breakpoints, 'leftCol') - map-get($breakpoints, 'phablet')) - $colWidth };
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) + #{ $leftCol} );
+    } 
+    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
+        $leftCol: #{ (map-get($breakpoints, 'wide') - map-get($breakpoints, 'phablet')) - $colWidth };
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'wide')}) / 2 ) + #{$leftCol} );
+    }
 }
 
 
@@ -370,7 +408,7 @@ figure {
         position: absolute;
         bottom: 100%;
         width: 160px;
-         margin-left: 0;
+        margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) );
     }
 }
 
@@ -387,7 +425,7 @@ figure {
     .gusto-header-content-inner {
 
         &.left {
-            left: 230px;
+            left: 180px;
         }
         &.right {
             right: 0px;
@@ -400,14 +438,10 @@ figure {
     }
 
      .gusto-section-header {
-         margin-left: 230px;
+         margin-left: 180px;
      }
 
     .gusto-section-header-left .gusto-section-header {
-        width: 220px;
-
+        margin-left: 0;
     }
-
-    
-
 }

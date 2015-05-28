@@ -2,7 +2,7 @@
 <figure class="gusto-section gusto-section-photo">
 	<div class=" {{ class }}">
 		{{ #headline }}
-		<div class='gusto-section-header'>
+		<div class='gusto-section-header gusto-restrict-inner  left-column'>
 			<h2 class='gusto-headline gusto-headline-medium'>{{ headline }}</h2>
 			<p>{{ caption }}</p>
 		</div>
@@ -11,10 +11,12 @@
 			 decorator='lazyload:{src:{{src}},imgSizes:{{size}},srcAlt:{{src_alt}} }'
 			 alt="{{ alt }}" />
 	</div>
+
 	{{ ^headline }}
-	    <figcaption class="gusto-caption gusto-restrict-inner">
+	    <figcaption class="gusto-caption gusto-restrict-inner left-column">
 	       {{ caption }}
 	    </figcaption>
     {{ /headline }}
+
 </figure>
 <!-- Section: Photo gallert example. End. -->
