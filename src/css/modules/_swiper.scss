@@ -113,29 +113,34 @@
     
     
     /* Arrows */
-    .swiper-button-prev, .swiper-button-next {
-       
+    .swiper-button-prev, .swiper-button-next { 
         position: absolute;
-        top: 50%;
-        width: 27px;
-        height: 30px;
-        margin-top: -15px;
+        top: 0;
         z-index: 10;
         cursor: pointer;
-        -moz-background-size: 27px 44px;
-        -webkit-background-size: 27px 44px;
         background-size: 27px 44px;
         background-position: center;
         background-repeat: no-repeat;
+        height: 100%;
+        vertical-align: middle;
+        padding: 0 10px;
+        
+        
         &.swiper-button-disabled {
             opacity: 0.15;
             cursor: auto;
             pointer-events: none;
         }
+        
+        svg {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
     .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
         
-        left: 10px;
+        left: 0;
         right: auto;
         &.swiper-button-black {
             
@@ -146,7 +151,7 @@
     }
     .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
         
-        right: 10px;
+        right: 0;
         left: auto;
         &.swiper-button-black {
             
