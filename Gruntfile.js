@@ -234,7 +234,8 @@ module.exports = function(grunt) {
           helpers: [
             'src/facebook-instant/helpers/partial.js',
             'src/facebook-instant/helpers/splitcopy.js',
-            'src/facebook-instant/helpers/mediatype.js'
+            'src/facebook-instant/helpers/mediatype.js',
+            'src/facebook-instant/helpers/imagesize.js'
           ],
           files: [{
             src: 'src/facebook-instant/facebook-instant-base.html',
