@@ -44,7 +44,7 @@ define([
     
     function launchApp(el, archieData){
 
-        
+        console.log(archieData)
     
         //initialize the ractive base, add data, and comonent modules
         base = new AppTemplate({
