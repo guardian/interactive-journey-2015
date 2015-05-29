@@ -18,7 +18,7 @@ define([], function () {
 		windowHeight = height;
 		windowWidth = width;
 		lazyLoad();
-//		autoPlay();
+		autoPlay();
 	};
 	
 	function addMedia(node, options) {
@@ -171,11 +171,12 @@ define([], function () {
 	
 	
 	function setupVideo(el, options) {
+		
 		mediaColltion.push({ el: el, src: options.src });
 
-//		el.addEventListener('pause', function(evt) {
-//			isGlobalPaused = true; 
-//		}, false);
+		el.addEventListener('pause', function(evt) {
+			isGlobalPaused = true; 
+		}, false);
 	}
 	
 	function fetchVideo(item) {	

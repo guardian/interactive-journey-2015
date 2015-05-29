@@ -67,11 +67,16 @@ define([
                     decorators: {
                         lazyload: function ( node, options ) {
                             assetManager.addMedia( node, options );
+                            if (options.type === 'video') {
+                                assetManager.setupVideo( node, options );
+                            }
                             return {
                                 teardown: function () {}
                             };
                         },
+                        
                         setupVideo: function ( node, options ) {
+                            console.log(node);
                             //assetManager.setupVideo( node, options );
                             return {
                                 teardown: function () {}
@@ -90,9 +95,12 @@ define([
                         });
                         
                         this.set( measureScreen() );
+                        
+                        // Wait for content to be loaded before testing bandwidth
                         setTimeout(function() {
                             bandwidth.getSpeed(assetManager.setVideoBitrate);
                         }, 2000);
+                        
                         window.addEventListener('scroll', debounce( function() { 
                             base.set( measureScreen() ); 
                         }, 100));
