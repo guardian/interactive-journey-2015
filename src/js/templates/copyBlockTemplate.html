@@ -1,6 +1,5 @@
 <!-- Section: text example. Start. -->
-<div class="gusto-section gusto-section-text gusto-restrict-inner left-column"
-	 decorator='scrollChange:{ }'>
+<div class="gusto-section gusto-section-text gusto-restrict-inner left-column">
 		{{ #each copy.replace(/[\r\n]+/g, '\n').split('\n') }}   
 			<p>{{{ this.trim() }}}</p>
 		{{ /each }}

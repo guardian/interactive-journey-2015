@@ -66,22 +66,13 @@ define([
                     },
                     decorators: {
                         lazyload: function ( node, options ) {
-                            assetManager.addPhoto( node, options );
-
+                            assetManager.addMedia( node, options );
                             return {
                                 teardown: function () {}
                             };
                         },
-                        autoPlay: function ( node ) {
-                            assetManager.setupAutoPlay( node );
-
-                            return {
-                                teardown: function () {}
-                            };
-                        },
-                        scrollChange: function ( node ) {
-//                            assetManager.setupScrollChange( node );
-
+                        setupVideo: function ( node, options ) {
+                            //assetManager.setupVideo( node, options );
                             return {
                                 teardown: function () {}
                             };
@@ -97,24 +88,18 @@ define([
                                 this.get('windowWidth')
                             );
                         });
+                        
                         this.set( measureScreen() );
-
+                        setTimeout(function() {
+                            bandwidth.getSpeed(assetManager.setVideoBitrate);
+                        }, 2000);
                         window.addEventListener('scroll', debounce( function() { 
-
                             base.set( measureScreen() ); 
-
                         }, 100));
 
                     }
                 });
-
-       
     }
-    
-//    bandwidth.getSpeed(function(speed) {
-//        console.log('bandwidth speed in bits per second = ', speed);
-//    });
-
 
     function measureScreen(){
         var top = (window.pageYOffset || document.documentElement.scrollTop);
