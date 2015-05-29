@@ -78,6 +78,13 @@ define([
                             };
                         },
                         
+                        autoPlay: function( node, options ) {
+                            //stub
+                            return {
+                                teardown: function () {}
+                            };
+                        },
+                        
                         setupVideo: function ( node, options ) {
                             console.log(node);
                             //assetManager.setupVideo( node, options );
