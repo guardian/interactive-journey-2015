@@ -3,8 +3,6 @@ define([], function () {
 	'use strict';
 	
 	var loadingQueue = [];
-	var totalLoading = 0;
-	var loadingMax = 4;
 	var scrollTop;
 	var windowHeight;
 	var windowWidth;
@@ -96,29 +94,58 @@ define([], function () {
 		});	
 	}
 	
-	var videoCDNBasePath = 'http://cdn.theguardian.tv/interactive/2015/05/28/';
+    /**
+     * Extract basepath and filename form a full video endpoint URL.
+     * @param {string} videoURL - Full CDN path to video file.
+     * @return {object} {basepath, filename}
+     */
+    function getVideoCDNBasePaths(videoURL) {
+        var regex = /(?:interactive\/mp4\/1080|interactive)\/(.+)\/(.+)_.+_.+\..+$/g;
+        var matches = regex.exec(videoURL);
+        
+        if (!matches) {
+            console.warn('Failed to find video path and filename', videoURL);
+            return;
+        }
+
+
+        var path = 'http://cdn.theguardian.tv/interactive/';
+        var oggPath = path + 'mp4/1080/' + matches[1] + '/' + matches[2];
+
+        path += matches[1] + '/' + matches[2];
+        var poster = path + '_768k_H264_poster.jpg';
+
+        return {
+            path: path,
+            oggPath: oggPath,
+            folder: matches[1],
+            filename: matches[2],
+            poster: poster 
+        };
+    }
+
 	
-	function getMP4URL(filename) {
+	function getMP4URL(path) {
 		var fileSuffix = '_488k_H264.mp4';
 		if (videoBitRate === '4M')   { fileSuffix = '_4M_H264.mp4'; }
 		if (videoBitRate === '2M')   { fileSuffix = '_2M_H264.mp4'; }
 		if (videoBitRate === '768k') { fileSuffix = '_768k_H264.mp4'; }
 		if (videoBitRate === '488k') { fileSuffix = '_488k_H264.mp4'; }
 		if (videoBitRate === '220k') { fileSuffix = '_220k_H264.mp4'; }
-		return videoCDNBasePath + filename + fileSuffix;
+		return path + fileSuffix;
 	}
 	
-	function getWebmURL(filename) {
+	function getWebmURL(path) {
 		var fileSuffix = '_488k_H264.mp4';
 		if (videoBitRate === '4M')   { fileSuffix = '_4M_vp8.webm'; }
 		if (videoBitRate === '2M')   { fileSuffix = '_2M_vp8.webm'; }
 		if (videoBitRate === '768k') { fileSuffix = '_768k_vp8.webm'; }
 		if (videoBitRate === '488k') { fileSuffix = '_488k_vp8.webm'; }
 		if (videoBitRate === '220k') { fileSuffix = '_220k_vp8.webm'; }
-		return videoCDNBasePath + filename + fileSuffix;
+		return path + fileSuffix;
 	}
 	
-	function getOggURL(filename) {
+	function getOggURL(path) {
 		var fileSuffix = '_mid.ogv';
 		if (videoBitRate === '4M')   { fileSuffix = '_xhi.ogv'; }
 		if (videoBitRate === '2M')   { fileSuffix = '_hi.ogv'; }
@@ -128,9 +155,7 @@ define([], function () {
 		
 		// Only _mid.ogv is working  so force that :(
 		fileSuffix = '_mid.ogv';
-		
-		
-		return 'http://cdn.theguardian.tv/interactive/mp4/1080/2015/05/28/' + filename + fileSuffix;
+		return path + fileSuffix;
 	}
 
 	
@@ -140,23 +165,26 @@ define([], function () {
 	 * @param {number} [bitrate=1024] - Video bitrate to use.  
 	 * @returns {object} URLs to video files.
 	 */
-	function getVideoURLS(filename) {		
+	function getVideoURLS(filePath) {		
+        var videoPaths = getVideoCDNBasePaths(filePath);
+
 		return {
-			'video/mp4': getMP4URL(filename),
-			'video/webm': getWebmURL(filename),
-			'video/ogg': getOggURL(filename),
-			'video/m3u8': 'http://multimedia.guardianapis.com/interactivevideos/video.php?file=' + filename + '&format=application/x-mpegURL&maxbitrate=2000'	
+			'video/mp4': getMP4URL(videoPaths.path),
+			'video/webm': getWebmURL(videoPaths.path),
+			'video/ogg': getOggURL(videoPaths.oggPath),
+			'video/m3u8': 'http://multimedia.guardianapis.com/interactivevideos/video.php?file='+
+                videoPaths.filename + '&format=application/x-mpegURL&maxbitrate=2000'	
 		};
 	}
 	
 	/**
-	 * Get different video poster image.
-	 * @param {string} baseURL - Path to the video on the GU CDN.
-	 * @param {number} [bitrate=1024] - Video bitrate to use.  
+	 * Get video poster image URL.
+	 * @param {string} filePath - Path to the video on the GU CDN.
 	 * @returns {string} URL to video poster image.
 	 */
-	function getVideoPosterImage(filename) {
-		return videoCDNBasePath + filename + '_' + videoBitRate + '_H264_poster.jpg';
+	function getVideoPosterImage(filePath) {
+        var videoPaths = getVideoCDNBasePaths(filePath);
+		return videoPaths.poster; 
 	}
 	
 	
@@ -171,20 +199,19 @@ define([], function () {
 	
 	
 	function setupVideo(el, options) {
-		
 		mediaColltion.push({ el: el, src: options.src });
-
-		el.addEventListener('pause', function(evt) {
+		el.addEventListener('pause', function() {
 			isGlobalPaused = true; 
 		}, false);
 	}
 	
 	function fetchVideo(item) {	
-		var filename = item.src.match(/=(.+)/);
-		if (!filename) { return; }
-		filename = filename[1];
-		
-		var videoURLs = getVideoURLS(filename);
+        if (!item.src || item.src.match('=')) { 
+            return console.warn('Skipping multimedia video.', item.src);
+        }
+
+		var videoURLs = getVideoURLS(item.src);
+        if (!videoURLs) { return; }
 		Object.keys(videoURLs).forEach(function(key) {
 			var sourceEl = document.createElement('source');
 			sourceEl.setAttribute('type', key);
@@ -192,9 +219,9 @@ define([], function () {
 			item.node.appendChild(sourceEl);
 		});
 		
-		var posterImage = getVideoPosterImage(filename);
+		var posterImage = getVideoPosterImage(item.src);
 		item.node.setAttribute('poster', posterImage);
-} 
+    } 
 
 
 	var fetchPhoto = function(item){
@@ -203,7 +230,7 @@ define([], function () {
 		var imgSize;
 
 		if (!item.size) {
-			imgSize = imgSizes['horizontal'][0];
+			imgSize = imgSizes.horizontal[0];
 		} else if(windowWidth < 640){
 			//load smallest image to fit small screen
 			imgSize = imgSizes[item.size][0];
@@ -220,7 +247,7 @@ define([], function () {
 			} else {
 				imgSize = imgSizes[item.size][2];
 			}
-		};
+		}
 
 		var path = 'http://' + item.src + '/' + imgSize + '.jpg'; //"http://" + item.src; //
 		image.onload = function() {
@@ -232,8 +259,7 @@ define([], function () {
             
 		};
 
-		image.onerror = function(err) {
-
+		image.onerror = function() {
 		};	
 
 		//load image
