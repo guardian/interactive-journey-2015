@@ -12,6 +12,9 @@ define([], function () {
 
 
 	var updateScreen = function(top, height, width){
+        if (typeof top !== 'number' || typeof height !== 'number') {
+            return;
+        }
 		scrollTop = top;
 		windowHeight = height;
 		windowWidth = width;
@@ -25,7 +28,6 @@ define([], function () {
 	}
 
 	var addPhoto = function ( node, options) {
-
 			//creates reference to image to be loaded
 			var el = {
 				type: 'image',
@@ -38,7 +40,6 @@ define([], function () {
 
 			//pushes images to the list
 			loadingQueue.unshift(el);
-
 	};
 	
 	function addVideo(node, options) {
@@ -51,23 +52,23 @@ define([], function () {
 	}
 
 	var lazyLoad = function(){
+		loadingQueue.forEach(function(item) {
+			if (item.loaded) { return; }
+                
+            var topDist = item.node.getBoundingClientRect().top;
+            if( topDist > scrollTop + windowHeight*2 ){
+                return;
+            }
 
-		var i = loadingQueue.length;
-		while( i -- ){
-			if(loadingQueue[i].node.offsetTop <= scrollTop + windowHeight*2.5 ){
-				if (loadingQueue[i].type === 'image') {
-					fetchPhoto(loadingQueue[i]);
-				}
+            if (item.type === 'image') {
+                fetchPhoto(item);
+            }
+            
+            if (item.type === 'video') {
+                fetchVideo(item);
+            }
 				
-				if (loadingQueue[i].type === 'video') {
-					fetchVideo(loadingQueue[i]);
-				}
-				
-				loadingQueue.pop();
-			} else {
-				i = 0;
-			}
-		}
+		});
 		
 	};
 	
@@ -210,6 +211,11 @@ define([], function () {
             return console.warn('Skipping multimedia video.', item.src);
         }
 
+        if (item.loaded) {
+            console.load('Already loaded video', item);
+            return;
+        }
+
 		var videoURLs = getVideoURLS(item.src);
         if (!videoURLs) { return; }
 		Object.keys(videoURLs).forEach(function(key) {
@@ -221,6 +227,10 @@ define([], function () {
 		
 		var posterImage = getVideoPosterImage(item.src);
 		item.node.setAttribute('poster', posterImage);
+
+        item.videosURLS = videoURLs;
+        item.posterImg = posterImage;
+        item.loaded = true;
     } 
 
 
@@ -229,7 +239,7 @@ define([], function () {
 
 		var imgSize;
 
-		if (!item.size) {
+		if (!item.size || typeof item.size !== "string") {
 			imgSize = imgSizes.horizontal[0];
 		} else if(windowWidth < 640){
 			//load smallest image to fit small screen
@@ -264,6 +274,8 @@ define([], function () {
 
 		//load image
 		image.src = path;
+
+        item.loaded = true;
 	};
 
 	var setImageSizes = function(sizes){
