@@ -139,6 +139,9 @@ figure {
 
 .gusto-headline-medium {
     line-height: 1;
+    font-size: 18px;
+    color: #767676;
+    margin-bottom: 5px;
 }
 
 .gusto-sub-heading {
@@ -166,19 +169,20 @@ figure {
 
 .gusto-section-header {
     position: relative;
-    padding: 10px 10px 0 0;
+    padding: 10px 10px 15px 0;
     max-width: 640px;
     text-align: left;
     
     p {
         margin-top: 0;
-        line-height: 1.5;
+        line-height: 1.25;
         font-size: 14px;
+        color: #333;
     }
 }
 
 .gusto-section-header::before {
-    width: 120px;
+    width: 110px;
     height: 1px;
     background: #dcdcdc;
     content: '';
@@ -420,6 +424,7 @@ figure {
     .gusto-section-header-left .gusto-section-header {
         position: absolute;
         bottom: 100%;
+        right: 0;
         width: $colWidth;
         margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) );
     }
