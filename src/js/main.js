@@ -69,22 +69,25 @@ define([
                     },
                     decorators: {
                         lazyload: function ( node, options ) {
-                            assetManager.addPhoto( node, options );
-
+                            assetManager.addMedia( node, options );
+                            if (options.type === 'video') {
+                                assetManager.setupVideo( node, options );
+                            }
                             return {
                                 teardown: function () {}
                             };
                         },
-                        autoPlay: function ( node ) {
-                            assetManager.setupAutoPlay( node );
-
+                        
+                        autoPlay: function( node, options ) {
+                            //stub
                             return {
                                 teardown: function () {}
                             };
                         },
-                        scrollChange: function ( node ) {
-//                            assetManager.setupScrollChange( node );
-
+                        
+                        setupVideo: function ( node, options ) {
+                            console.log(node);
+                            //assetManager.setupVideo( node, options );
                             return {
                                 teardown: function () {}
                             };
@@ -100,24 +103,21 @@ define([
                                 this.get('windowWidth')
                             );
                         });
+                        
                         this.set( measureScreen() );
-
+                        
+                        // Wait for content to be loaded before testing bandwidth
+                        setTimeout(function() {
+                            bandwidth.getSpeed(assetManager.setVideoBitrate);
+                        }, 2000);
+                        
                         window.addEventListener('scroll', debounce( function() { 
-
                             base.set( measureScreen() ); 
-
                         }, 100));
 
                     }
                 });
-
-       
     }
-    
-//    bandwidth.getSpeed(function(speed) {
-//        console.log('bandwidth speed in bits per second = ', speed);
-//    });
-
 
     function measureScreen(){
         var top = (window.pageYOffset || document.documentElement.scrollTop);

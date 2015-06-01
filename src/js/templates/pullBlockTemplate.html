@@ -8,7 +8,7 @@
         {{/heading}}
         
         {{ #src }}
-            <img class="gusto-photo gusto-photo-pull" alt="{{ alt }}" decorator='lazyload:{src:{{src}},imgSizes:[] }' />
+            <img class="gusto-photo gusto-photo-pull" alt="{{ alt }}" decorator='lazyload:{src:{{src}},imgSizes:[],  type: "image"  }' />
         {{ /src}}        
         
         {{ #each copy.replace(/[\r\n]+/g, '\n').split('\n') }}

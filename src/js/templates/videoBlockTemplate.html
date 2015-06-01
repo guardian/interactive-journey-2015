@@ -3,13 +3,9 @@
     <div class="{{ class }}">
         <video
             class="gusto-video {{ elmclass }}"
-            poster="{{ poster }}"
             preload="auto"
-            decorator='autoPlay:{ }'
+            decorator='lazyload:{src:{{src}}, type:"video" }'
             controls="controls">
-            {{#m3u8}}<source src="{{ m3u8 }}" type="video/m3u8">{{/m3u8}}
-            {{#mp4}} <source src="{{ mp4 }}" type="video/mp4">{{/mp4}}
-            {{#webm}}<source src="{{ webm }}" type="video/webm">{{/webm}}
         </video>
     </div>
     
