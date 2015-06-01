@@ -18,7 +18,7 @@ define([], function () {
 		scrollTop = top;
 		windowHeight = height;
 		windowWidth = width;
-		lazyLoad();
+        loadingQueue.forEach(lazyLoad);
 		autoPlay();
 	};
 	
@@ -51,26 +51,22 @@ define([], function () {
 		loadingQueue.unshift(el);
 	}
 
-	var lazyLoad = function(){
-		loadingQueue.forEach(function(item) {
-			if (item.loaded) { return; }
-                
-            var topDist = item.node.getBoundingClientRect().top;
-            if( topDist > scrollTop + windowHeight*2 ){
-                return;
-            }
-
-            if (item.type === 'image') {
-                fetchPhoto(item);
-            }
+	function lazyLoad(item) {
+        if (item.loaded) { return; }
             
-            if (item.type === 'video') {
-                fetchVideo(item);
-            }
-				
-		});
-		
-	};
+        var topDist = item.node.getBoundingClientRect().top;
+        if( topDist > scrollTop + windowHeight*2 ){
+            return;
+        }
+
+        if (item.type === 'image') {
+            fetchPhoto(item);
+        }
+        
+        if (item.type === 'video') {
+            fetchVideo(item);
+        }
+	}
 	
 	
 	var isGlobalPaused = false;
