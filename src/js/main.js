@@ -14,6 +14,7 @@ define([
     'rvc!templates/mapScrollBlockTemplate',
     'rvc!templates/audioBlockTemplate',
     'rvc!templates/audioPlayerTemplate',
+    'rvc!templates/shareTemplate',
     'text!data/pageData.txt',
     'libs/assetManager',
     'libs/bandwidth',
@@ -35,6 +36,7 @@ define([
     mapScrollBlockHTML,
     audioBlockHTML,
     audioPlayer,
+    shareTemplate,
     pageDataText,
     assetManager,
     bandwidth,
@@ -63,7 +65,8 @@ define([
                         mapBlock: mapBlockHTML,
                         mapScrollBlock: mapScrollBlockHTML,
                         audioBlock: audioBlockHTML,
-                        audioPlayer: audioPlayer
+                        audioPlayer: audioPlayer,
+                        shareTools: shareTemplate
                     },
                     data: {
                         pageBlocks: archieData.blocks,
