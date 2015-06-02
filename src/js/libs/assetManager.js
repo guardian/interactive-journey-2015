@@ -259,13 +259,7 @@ define([], function () {
 
 
 		if (!item.size || typeof item.size !== "string") {
-			imgSize = imgSizes.horizontal[0];
-		} else if(windowWidth < 640){
-			//load smallest image to fit small screen
-			imgSize = imgSizes[item.size][0];
-		} else if( windowWidth < 760 ) {
-			//load medium image to fit vertical iPad layout 
-			imgSize = imgSizes[item.size][1];
+			path = 'http://' + item.src;
 
 		} else {
 
@@ -289,6 +283,7 @@ define([], function () {
 			}
 			path = 'http://' + item.src + '/' + imgSize + '.jpg';
 		} 
+		console.log(path)
 
 		image.onload = function() {
 			if(item.bgImg){

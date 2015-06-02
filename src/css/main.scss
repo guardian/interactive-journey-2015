@@ -313,8 +313,8 @@ figure {
 }
 
 .gusto-pull {
-    font-family: 'Guardian Text Sans Web', sans-serif;
-    font-size: 0.8rem;
+ 
+    font-size: 16px;
     overflow: hidden;
     width: auto;
         
@@ -328,19 +328,76 @@ figure {
 }
 .gusto-pull-left {
     padding-right: 10px;
+
+    .gusto-photo-pull {
+        float: left;
+        margin: 0 4px 4px 0;
+        border-radius: 100px;
+        width: 40px;
+    }
+
+    .gusto-date-published {
+        font-family: 'Guardian Text Sans Web', sans-serif;
+        font-size: 12px;
+
+    }
+
+    .gusto-byline-share  {
+        display: none;
+    }
+
+    .gusto-photo-byline {
+        p {
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+    }
+
+
+
     @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
         float: left;
         margin-left: calc(((100vw - 660px) /2) * -1);
+
+         .gusto-photo-byline {
+            margin-top: 20px;
+
+            p {
+                border-top: 1px dotted #ccc;
+                padding: 5px 0;
+                font-size: 16px;
+            }
+        }
+        .gusto-date-published {
+            border-top: 1px dotted #ccc;
+            min-height: 45px;
+            
+        }
+
+        .gusto-byline-share {
+            border-top: 1px dotted #ccc;
+            border-bottom: 1px dotted #ccc;
+            min-height: 40px;
+            padding: 10px 0;
+            display: block;
+        }
+
+        .gusto-photo-pull {
+            width: 110px;
+            float: none;
+        }
     }
     @media only screen and (min-width: map-get($breakpoints, 'wide')) {
         margin-left: $outerColumnWidth * -1;
+        max-width: $colWidth;
     }
 }
 .gusto-pull-right {
     padding-left: 10px;
     @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
         float: right;
-        margin-right: calc(((100vw - 660px) /2) * -1);
+        margin-right: calc(((100vw - 660px) /2) * -1); 
+
     }
     @media only screen and (min-width: map-get($breakpoints, 'wide')) {
         margin-right: $outerColumnWidth * -1;
@@ -348,10 +405,7 @@ figure {
  }
 
 // Photos
-.gusto-photo-pull {
-    float: left;
-    margin: 0 4px 4px 0;
-}
+
 
 .gusto-section-photo .gusto-photo {
     width: 100%;

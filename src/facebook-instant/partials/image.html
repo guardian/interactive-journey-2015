@@ -1,6 +1,10 @@
-<figure>
-    <img src="{{ src }}/{{imagesize this}}.jpg" {{#if alt}} alt="{{alt}}" {{/if}} />
+<figure {{#if data-feedback}} data-feedback="{{data-feedback}}" {{/if}} {{#if data-mode}} data-mode="{{data-mode}}" {{/if}}>
+	{{#if src_alt}}
+		<img src="{{ src_alt }}" {{#if alt}} alt="{{alt}}" {{/if}} />
+	{{else}}
+    	<img src="{{ src }}/{{imagesize this}}.jpg" {{#if alt}} alt="{{alt}}" {{/if}} />
+	{{/if}}
     {{#if caption}}
-    <figcaption class="op-center">{{ caption }}</figcaption>
+    	<figcaption class="op-center">{{{ caption }}}</figcaption>
     {{/if}}
 </figure>

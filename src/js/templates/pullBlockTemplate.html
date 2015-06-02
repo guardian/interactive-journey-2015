@@ -7,9 +7,20 @@
         </h3>
         {{/heading}}
         
-        {{ #src }}
-            <img class="gusto-photo gusto-photo-pull" alt="{{ alt }}" decorator='lazyload:{src:{{src}}, type: "image"  }' />
-        {{ /src}}        
+        {{ #byline }}
+            <div class='gusto-photo-byline'>
+                {{ #byline_photo }}<img class="gusto-photo gusto-photo-pull" alt="{{ byline }}" decorator='lazyload:{src:{{byline_photo}}, type: "image"  }' />{{ /byline_photo }}
+                <p><a href='{{byline_link}}'>{{{byline}}}</a>, {{byline_title}}</p>
+
+            </div>
+            {{ #date_published }}<div class='gusto-date-published'>{{ date_published }}</div>{{ /date_published }}
+        {{ /byline}}
+
+        {{ #share.length > 0 }}
+            <div class='gusto-byline-share'>
+                <shareTools media='{{share}}' >
+            </div>
+        {{ /share }}        
         
         {{ #each copy.replace(/[\r\n]+/g, '\n').split('\n') }}
             <p>{{{ this.trim() }}}</p>
