@@ -1,108 +1,319 @@
-<div class="gusto-section gusto-section-600">
-	<div class='mapBorder'></div>
-	<div class='mapBorder nextBorder'></div>
-	<div class='mapBorderLine'></div>
-	<div class='mapContentWrapper' >
-						
-		<div class='mapVisual'>
-			<img src='@@assetPath@@/imgs/map_temp.svg'>
-		</div>
+<div class="gusto-section gusto-section-outer">
 
-	</div>
+	<div class='gu-graphic' id='gu-graphic-europe'>
+<div class='gu-graphic-view' id='gu-graphic-view-0' >
+<div class='gu-graphic-view-step gu-graphic-view-step-0' id='gu-graphic-view-step-0' >
+<div class='gu-graphic-view-region gu-graphic-view-region-0' id='gu-graphic-view-region-0' style='width:100%;' >
+<img class='main-background-image' src='@@assetPath@@/imgs/europe-0-0-0.png' />
+</div></div>
 </div>
+<div class='gu-graphic-view' id='gu-graphic-view-1' >
+<div class='gu-graphic-view-step gu-graphic-view-step-0' id='gu-graphic-view-step-0' >
+<div class='gu-graphic-view-region gu-graphic-view-region-0' id='gu-graphic-view-region-0' style='width:100%;' >
+<img class='main-background-image' src='@@assetPath@@/imgs/europe-1-0-0.png' />
+</div></div>
+</div>
+<div class='gu-graphic-view' id='gu-graphic-view-2' >
+<div class='gu-graphic-view-step gu-graphic-view-step-0' id='gu-graphic-view-step-0' >
+<div class='gu-graphic-view-region gu-graphic-view-region-0' id='gu-graphic-view-region-0' style='width:100%;' >
+<img class='main-background-image' src='@@assetPath@@/imgs/europe-2-0-0.png' />
+</div></div>
+</div>
+	</div>
 
 
-HEADER MAP	
 <style>
-
-.gusto-section-600 {
-	height: 400px;
-	background: #f1f1f1;
-	overflow: hidden;
-	padding: 20px 0;
+.gu-position{
+	position:absolute;
+}
+.gu-graphic {
+	position:relative;
+	height: auto%;
+	margin:0;
+}
+.gu-fadeable {
+	opacity: 0;
+}
+.gu-fade-in {
+	opacity: 1;
+	transition: opacity .5s;
+	-moz-transition: opacity .5s;
+	-ms-transition: opacity .5s;
+	-o-transition: opacity .5s;
+	-webkit-transition: opacity .5s;
+}
+.gu-graphic .gu-graphic-view-region {
+	position:relative;
+	height: auto%;
+	display: inline-block;
+	margin:0;
+	padding:0;
+	background-repeat:no-repeat;
+	background-size:100%;
+	vertical-align:top;
+}
+.gu-graphic-header {
+	position:relative;
+	height:64px;
+	border-top:2px solid #f0f0f0;
+	padding-bottom:10px;
+}
+.gu-graphic-header h1 {
+	padding:5px 0 0 0;
+	margin:0;
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:20px;
+	font-weight:600;
+	line-height: 20px;
+	color: #000;
+}
+.gu-graphic-header h2 {
+	padding:5px 0 0 0;
+	margin:0;
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:25px;
+	font-weight:600;
+	line-height: 25px;
+	color: #808080;
+}
+.gu-graphic-header #gu-progress-counter {
+	position:absolute;
+	right:0;
+	top:5px;
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:12px;
+	font-weight:400;
+	line-height: 12px;
+	color: #808080;
+}
+.gu-graphic-header #gu-progress-counter span {
+	color: #000;
+}
+.gu-graphic-header #gu-progress {
+	width:100%;
+	margin:6px 0 4px 0;
+	height: 1px;
+	background-color: #dcdcdc;
 	position: relative;
 }
-
-.mapBorder {
+.gu-graphic-header #gu-progress-inner {
+	width:0%;
+	margin:0;
+	height: 1px;
+	background-color: #000;
+	position: absolute;
+}
+.gu-graphic-footer {
+	position:relative;
+	height:34px;
+	border-top:2px solid #f0f0f0;
+	margin-top:10px;
+}
+#gu-graphic-europe .gu-graphic-footer p {
+	padding:8px 0 0 0;
+	margin:0;
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:13px;
+	line-height: 13px;
+	color: #767676;
+	display: inline-block;
+}
+.gu-graphic-footer p:nth-of-type(2) {
+	float:right;
+}
+#gu-graphic-europe p {
+	font-size:12px;
+	line-height:1.35em;
+	font-weight:normal;
+	font-style:normal;
+	margin:0;
+}
+#gu-graphic-europe p span {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-weight:600;
+	color:#000;
+}
+#gu-graphic-europe .tooltip-enabled:before,
+#gu-graphic-europe .tooltip-enabled:after {
+	visibility: hidden;
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	opacity: 0;
+	pointer-events: none;
+	font-family:'Guardian Agate Sans', Arial, sans-serif;
+}
+#gu-graphic-europe .tooltip-enabled:before {
+	position: absolute;
+	bottom: 150%;
+	left: -50%;
+	margin-left: -70px;
+	width: 160px;
+	padding: 10px;
+	background-color: #fff;
+	color: #333;
+	content: attr(data-tooltip);
+	text-align: center;
+	font-size: 14px;
+	line-height: 1.2;
+	z-index: 2;
+	border: 1px solid #dfdfdf;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 8px #dfdfdf;
+	margin-bottom: 8px;
+}
+#gu-graphic-europe .tooltip-enabled:after {
+	position: absolute;
+	bottom: 150%;
+	left: 0;
+	margin-left: -50%;
+	width: 0;
+	border-top: 9px solid #fff;
+	border-right: 9px solid transparent;
+	border-left: 9px solid transparent;
+	content: ' ';
+	font-size: 0;
+	line-height: 0;
+	z-index: 3;
+}
+#gu-graphic-europe .tooltip-enabled:hover:before,
+#gu-graphic-europe .tooltip-enabled:hover:after {
+	visibility: visible;
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	opacity: 1;
+	pointer-events: none;
+}
+#gu-graphic-europe .marker {
+	position:absolute;
+	width:10px;
+	height:10px;
+	background-color:#ff0000;
+	border: 2px solid #fff;
+	border-radius:50%;
+	margin: -5px 0 0 -5px;
+	cursor: pointer;
+}
+#gu-graphic-europe .number-marker {
+	position:absolute;
+	width:25px;
+	height:25px;
+	background-color:#ff0000;
+	border: 2px solid #fff;
+	border-radius:50%;
+	margin: -5px 0 0 -5px;
+	cursor: pointer;
+}
+#gu-graphic-europe .number-marker p {
+	position:relative;
+	width:100%;
+	color:#ffffff;
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height: 16px;
+	text-align: center;
+	padding-top: 5px;
+}
+#gu-graphic-europe .box-overlay {
+	position:absolute;
+	background-size:100%;
+	background-repeat:no-repeat;
+	white-space: nowrap;
+}
+#gu-graphic-europe .box-overlay p {
+	line-height:1.35em!important;
+}
+#gu-graphic-europe .complex-marker {
+	position:absolute;
+}
+#gu-graphic-europe .complex-marker img {
+	width:100%;
+}
+#gu-graphic-europe #gu-graphic-view-0 {
+	position:relative;
 	width: 100%;
-	height: 50%;
-	position: absolute;
-	top: 0;
-	
+	margin:0;
 }
-
-.mapBorderLine {
-	position: absolute;
-	top: 175px;
-	width: 110%;
-	left: -5%;
-	border-top: 25px #f7f7f7 dotted;
-	border-bottom: 25px #f7f7f7 dotted;
+#gu-graphic-europe #gu-graphic-view-0 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
 }
-
-.mapBorder.nextBorder {
-	top: 50%;
-
+#gu-graphic-europe #gu-graphic-view-0 .gu-graphic-view-step {
+	position:relative;
+	width: 100%;
+	height: auto%;
+	margin:0;
 }
-
-.mapContentWrapper {
-	max-width: 1300px;
-	margin: 0 auto;
-	position: relative;
-	height: inherit;
-
-
-
+#gu-graphic-europe #gu-graphic-view-1 {
+	position:relative;
+	width: 100%;
+	margin:0;
 }
-
-.mapInfo {
-	width: 220px;
-	float: left;
+#gu-graphic-europe #gu-graphic-view-1 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
 }
-
-.mapVisual {
-	width: 640px;
-	float: left;
-	margin-left: 300px;
-	background: #fff;
+#gu-graphic-europe #gu-graphic-view-1 .gu-graphic-view-step {
+	position:relative;
+	width: 100%;
+	height: auto%;
+	margin:0;
 }
-
-
-.mapVisual img {
-
+#gu-graphic-europe #gu-graphic-view-2 {
+	position:relative;
+	width: 100%;
+	margin:0;
 }
-
-
-
-
+#gu-graphic-europe #gu-graphic-view-2 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#gu-graphic-europe #gu-graphic-view-2 .gu-graphic-view-step {
+	position:relative;
+	width: 100%;
+	height: auto%;
+	margin:0;
+}
+#gu-graphic-europe #gu-graphic-view-0 {
+	display:block;
+}
+#gu-graphic-europe #gu-graphic-view-1 {
+	display:none;
+}
+#gu-graphic-europe #gu-graphic-view-2 {
+	display:none;
+}
+@media screen and (min-width: 860px) {
+.gu-graphic-header h2 {
+	font-size:25px;
+	font-weight:600;
+	line-height: 25px;
+}
+#gu-graphic-europe #gu-graphic-view-0 {
+	display:none;
+}
+#gu-graphic-europe #gu-graphic-view-1 {
+	display:block;
+}
+#gu-graphic-europe #gu-graphic-view-2 {
+	display:none;
+}
+}
+@media screen and (min-width: 1280px) {
+#gu-graphic-europe #gu-graphic-view-0 {
+	display:none;
+}
+#gu-graphic-europe #gu-graphic-view-1 {
+	display:none;
+}
+#gu-graphic-europe #gu-graphic-view-2 {
+	display:block;
+}
+}
 </style>
-
-<script>
-
-component.exports = {
-	onrender: function(){
-		var el = this.find('.mapContentWrapper');
-
-		this.observe('scrollTop', function(){
-			// var scrollTop = this.get('scrollTop');
-			// var windowHeight = this.get('windowHeight');
-			// var elTop = el.offsetTop;
-			// console.log(elTop, scrollTop, windowHeight)
-
-			// if(elTop < scrollTop + windowHeight && elTop > scrollTop + (windowHeight/2) ){
-			// 	var pos = elTop - scrollTop -  windowHeight/2;
-	
-			// 	var pct = pos/ (windowHeight/2);
-			// //	console.log(pct, pct * 600)
-			// 	this.set('position', pct * 600)
-
-			// } else {
-			// 	this.set('position', 0)
-			// }
-		})
-	}
-
-
-}
-
-</script>
