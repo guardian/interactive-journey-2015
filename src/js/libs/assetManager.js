@@ -234,6 +234,8 @@ define([], function () {
 		var image = new Image();
 
 		var imgSize;
+		var path;
+
 
 		if (!item.size || typeof item.size !== "string") {
 			imgSize = imgSizes.horizontal[0];
@@ -243,19 +245,30 @@ define([], function () {
 		} else if( windowWidth < 760 ) {
 			//load medium image to fit vertical iPad layout 
 			imgSize = imgSizes[item.size][1];
+
 		} else {
-			//load determine image to load by size of position for desktop layout
-			var elWidth = item.node.offsetWidth;
-			if(elWidth <= imgSizes[item.size][0]){
+
+			if(windowWidth < 640){
+				//load smallest image to fit small screen
 				imgSize = imgSizes[item.size][0];
-			} else if(elWidth <= imgSizes[item.size][1] ){
+			
+			} else if( windowWidth < 760 ) {
+				//load medium image to fit vertical iPad layout 
 				imgSize = imgSizes[item.size][1];
 			} else {
-				imgSize = imgSizes[item.size][2];
+				//load determine image to load by size of position for desktop layout
+				var elWidth = item.node.parentNode.offsetWidth;
+				if(elWidth <= imgSizes[item.size][0]){
+					imgSize = imgSizes[item.size][0];
+				} else if(elWidth <= imgSizes[item.size][1] ){
+					imgSize = imgSizes[item.size][1];
+				} else {
+					imgSize = imgSizes[item.size][2];
+				}
 			}
-		}
+			path = 'http://' + item.src + '/' + imgSize + '.jpg';
+		} 
 
-		var path = 'http://' + item.src + '/' + imgSize + '.jpg'; //"http://" + item.src; //
 		image.onload = function() {
 			if(item.bgImg){
 				item.node.style.backgroundImage = "url(" + path + ")";

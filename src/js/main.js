@@ -13,12 +13,12 @@ define([
     'rvc!templates/mapBlockTemplate',
     'rvc!templates/mapScrollBlockTemplate',
     'rvc!templates/audioBlockTemplate',
+    'rvc!templates/audioPlayerTemplate',
     'text!data/pageData.txt',
     'libs/assetManager',
     'libs/bandwidth',
     'viewport-units-buggyfill',
-    'viewport-units-buggyfill.hacks',
-    'ractive-touch'
+    'viewport-units-buggyfill.hacks'
 ], function(
     reqwest,
     swiper,
@@ -34,6 +34,7 @@ define([
     mapBlockHTML,
     mapScrollBlockHTML,
     audioBlockHTML,
+    audioPlayer,
     pageDataText,
     assetManager,
     bandwidth,
@@ -61,7 +62,8 @@ define([
                         headerBlock: headerBlockHTML,
                         mapBlock: mapBlockHTML,
                         mapScrollBlock: mapScrollBlockHTML,
-                        audioBlock: audioBlockHTML
+                        audioBlock: audioBlockHTML,
+                        audioPlayer: audioPlayer
                     },
                     data: {
                         pageBlocks: archieData.blocks,
