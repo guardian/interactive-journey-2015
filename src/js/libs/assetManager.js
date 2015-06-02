@@ -3,6 +3,7 @@ define([], function () {
 	'use strict';
 	
 	var loadingQueue = [];
+	var isGlobalPaused = false;
 	var scrollTop;
 	var windowHeight;
 	var windowWidth;
@@ -28,19 +29,32 @@ define([], function () {
 	}
 
 	var addPhoto = function ( node, options) {
-			//creates reference to image to be loaded
-			var el = {
-				type: 'image',
-				src: options.src.replace('https://', '').replace('http://', '').replace(/\/$/, ''),
-				alt_src: (options.alt_src) ? alt_src.replace('https://', '').replace('http://', '').replace(/\/$/, ''): undefined,
-				node: node,
-				size: options.imgSizes,
-				bgImg: (options.bgImg)? true : false
-			};
+		//creates reference to image to be loaded
+		var el = {
+			type: 'image',
+			src: options.src.replace('https://', '').replace('http://', '').replace(/\/$/, ''),
+			alt_src: (options.alt_src) ? alt_src.replace('https://', '').replace('http://', '').replace(/\/$/, ''): undefined,
+			node: node,
+			size: options.imgSizes,
+			bgImg: (options.bgImg)? true : false
+		};
 
-			//pushes images to the list
-			loadingQueue.unshift(el);
+		//pushes images to the list
+		loadingQueue.unshift(el);
 	};
+	
+	function toggleVideoPlay(event) {
+		isGlobalPaused = true;
+		
+		var vidEl = event.currentTarget;
+		if (vidEl.paused) {
+			vidEl.play();
+			vidEl.parentNode.classList.toggle('isPlaying', true);
+		} else {
+			vidEl.pause();
+			vidEl.parentNode.classList.toggle('isPlaying', false);
+		}
+	}
 	
 	function addVideo(node, options) {
 		var el = {
@@ -48,43 +62,60 @@ define([], function () {
 			src: options.src,
 			node: node
 		};
+		
+		node.addEventListener('click',toggleVideoPlay, false);
 		loadingQueue.unshift(el);
 	}
+	
 
 	function lazyLoad(item) {
-        if (item.loaded) { return; }
-            
-        var topDist = item.node.getBoundingClientRect().top;
-        if( topDist > scrollTop + windowHeight*2 ){
+        var dist = item.node.getBoundingClientRect().bottom;
+        var outOfView = (dist + windowHeight < 0); 
+
+        if (item.loaded && outOfView) {			
+            if (item.type === 'video') {
+                item.node.innerHTML = '';
+                item.node.pause();
+                item.node.load();
+                item.loaded = false;
+            }
             return;
         }
-
-        if (item.type === 'image') {
-            fetchPhoto(item);
-        }
-        
-        if (item.type === 'video') {
-            fetchVideo(item);
+            
+        var topDist = item.node.getBoundingClientRect().top;
+        var almostInView = (topDist < windowHeight * 2.5 );
+        if (almostInView && !outOfView){
+            if (item.type === 'image') {
+                fetchPhoto(item);
+            }
+            if (item.type === 'video') {
+                fetchVideo(item);
+            }
         }
 	}
-	
-	
-	var isGlobalPaused = false;
-	var mediaColltion = [];
+
 	
 	function autoPlay() {
-		if (isGlobalPaused) { return; }	
-		mediaColltion.forEach(function(node) {
-			var nodeHeight = node.el.getBoundingClientRect().height;
+		if (isGlobalPaused) { return; }
 			
-			if ((node.el.offsetTop - scrollTop) <  windowHeight / 5  &&
-				(node.el.offsetTop + nodeHeight) - scrollTop > 0 )
-			{
-				return node.el.play();		 
+		loadingQueue.forEach(function(item) {
+			if (item.type !== 'video') { return; }
+			
+			
+			var nodeHeight = item.node.getBoundingClientRect().height;
+			var top = item.node.getBoundingClientRect().top;
+
+			
+			
+			if (top < (windowHeight / 5) && top + windowHeight > 0) {
+				console.log(item);
+				item.node.parentNode.classList.toggle('isPlaying', true);
+				return item.node.play();		 
 			}
 			 
-			if (node.el.paused === false) {
-				 node.el.pause();
+			if (item.node.paused === false) {
+				 item.node.pause();
+				 item.node.parentNode.classList.toggle('isPlaying', false);
 				 // Hacky delay to differentiate user pause vs. scroll pause 
 				 setTimeout(function() { isGlobalPaused = false; }, 100);
 			 }
@@ -193,23 +224,13 @@ define([], function () {
 		if (kbps < 1024) { videoBitRate  = '488k'; }
 		if (kbps < 512)  { videoBitRate  = '220k'; }
 	}
-	
-	
-	function setupVideo(el, options) {
-		mediaColltion.push({ el: el, src: options.src });
-		el.addEventListener('pause', function() {
-			isGlobalPaused = true; 
-		}, false);
-	}
+
 	
 	function fetchVideo(item) {	
+        if (item.loaded) { return; }
+		
         if (!item.src || item.src.match('=')) { 
             return console.warn('Skipping multimedia video.', item.src);
-        }
-
-        if (item.loaded) {
-            console.load('Already loaded video', item);
-            return;
         }
 
 		var videoURLs = getVideoURLS(item.src);
@@ -301,7 +322,6 @@ define([], function () {
 	return {
 			updateScreen: updateScreen,
 			addMedia: addMedia,
-			setupVideo: setupVideo,
 			setVideoBitrate: setVideoBitrate,
 			setImageSizes: setImageSizes
 	};

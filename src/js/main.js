@@ -72,24 +72,7 @@ define([
                     decorators: {
                         lazyload: function ( node, options ) {
                             assetManager.addMedia( node, options );
-                            if (options.type === 'video') {
-                                assetManager.setupVideo( node, options );
-                            }
-                            return {
-                                teardown: function () {}
-                            };
-                        },
-                        
-                        autoPlay: function( node, options ) {
-                            //stub
-                            return {
-                                teardown: function () {}
-                            };
-                        },
-                        
-                        setupVideo: function ( node, options ) {
-                            console.log(node);
-                            //assetManager.setupVideo( node, options );
+
                             return {
                                 teardown: function () {}
                             };

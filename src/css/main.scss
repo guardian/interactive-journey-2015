@@ -160,6 +160,53 @@ figure {
     width: 100%;
     display: block;
     background: #000;
+    cursor: pointer;
+}
+
+.gusto-video-wrapper {
+    position: relative;
+    padding: 0;
+    
+    &:hover .gusto-video-cover {
+        opacity: 1;   
+    }
+}
+
+.gusto-video-cover {
+    position: absolute;
+    pointer-events: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 899999999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gust-video-play-btn {
+    width: 80px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    
+    .guPause {
+        display: none;
+    }
+}
+
+.isPlaying {
+    .guPause {
+        display: block;
+    }
+    
+    .guPlay{
+        display: none;
+    }
 }
 
 .gusto-section {

@@ -6,14 +6,15 @@
     
     .gusto-caption {
           position: absolute;
-          bottom: 0;
-          padding: 10px 45px 30px;
+          bottom: 2px;
+          padding: 70px 45px 30px;
           color: #fff;
-          background: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0.6) 70%);
+          background: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0.7) 80%);
           line-height: 1.3em;
-          width: 100%;
+          width: calc(100% - 4px);
           opacity: 0;
           transition: opacity 0.3s;
+          text-shadow: 0 0 10px #000;
         }
         
         &:hover .gusto-caption {
