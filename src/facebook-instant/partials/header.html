@@ -1,3 +1,7 @@
 <!-- header block -->
-<h1 class="">{{ this.headline }}</h1>
-{{> copy this }}
+{{#if src_alt}}
+	{{>image this}}
+{{else}}
+	<h1 class="">{{ this.headline }}</h1>
+	{{> copy this }}
+{{/if}}

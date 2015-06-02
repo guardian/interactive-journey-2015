@@ -1,0 +1,408 @@
+<style type='text/css' media='screen,print'>
+html, body {
+	padding:0;
+	-webkit-font-smoothing:antialiased;
+	margin:0;
+}
+.gu-position{
+	position:absolute;
+}
+.gu-graphic {
+	position:relative;
+	height: auto%;
+	margin:0;
+}
+.gu-fadeable {
+	opacity: 0;
+}
+.gu-fade-in {
+	opacity: 1;
+	transition: opacity .5s;
+	-moz-transition: opacity .5s;
+	-ms-transition: opacity .5s;
+	-o-transition: opacity .5s;
+	-webkit-transition: opacity .5s;
+}
+.gu-graphic .gu-graphic-view-region {
+	position:relative;
+	height: auto%;
+	display: inline-block;
+	margin:0;
+	padding:0;
+	background-repeat:no-repeat;
+	background-size:100%;
+	vertical-align:top;
+}
+.gu-graphic-header {
+	position:relative;
+	height:64px;
+	border-top:2px solid #f0f0f0;
+	padding-bottom:10px;
+}
+.gu-graphic-header h1 {
+	padding:5px 0 0 0;
+	margin:0;
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:20px;
+	font-weight:600;
+	line-height: 20px;
+	color: #000;
+}
+.gu-graphic-header h2 {
+	padding:5px 0 0 0;
+	margin:0;
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:25px;
+	font-weight:600;
+	line-height: 25px;
+	color: #808080;
+}
+.gu-graphic-header #gu-progress-counter {
+	position:absolute;
+	right:0;
+	top:5px;
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:12px;
+	font-weight:400;
+	line-height: 12px;
+	color: #808080;
+}
+.gu-graphic-header #gu-progress-counter span {
+	color: #000;
+}
+.gu-graphic-header #gu-progress {
+	width:100%;
+	margin:6px 0 4px 0;
+	height: 1px;
+	background-color: #dcdcdc;
+	position: relative;
+}
+.gu-graphic-header #gu-progress-inner {
+	width:0%;
+	margin:0;
+	height: 1px;
+	background-color: #000;
+	position: absolute;
+}
+.gu-graphic-footer {
+	position:relative;
+	height:34px;
+	border-top:2px solid #f0f0f0;
+	margin-top:10px;
+}
+#gu-graphic-mediterranean .gu-graphic-footer p {
+	padding:8px 0 0 0;
+	margin:0;
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:13px;
+	line-height: 13px;
+	color: #767676;
+	display: inline-block;
+}
+.gu-graphic-footer p:nth-of-type(2) {
+	float:right;
+}
+#gu-graphic-mediterranean p {
+	font-size:12px;
+	line-height:1.35em;
+	font-weight:normal;
+	font-style:normal;
+	margin:0;
+}
+#gu-graphic-mediterranean p span {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-weight:600;
+	color:#000;
+}
+#gu-graphic-mediterranean .tooltip-enabled:before,
+#gu-graphic-mediterranean .tooltip-enabled:after {
+	visibility: hidden;
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)';
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+	opacity: 0;
+	pointer-events: none;
+	font-family:'Guardian Agate Sans', Arial, sans-serif;
+}
+#gu-graphic-mediterranean .tooltip-enabled:before {
+	position: absolute;
+	bottom: 150%;
+	left: -50%;
+	margin-left: -70px;
+	width: 160px;
+	padding: 10px;
+	background-color: #fff;
+	color: #333;
+	content: attr(data-tooltip);
+	text-align: center;
+	font-size: 14px;
+	line-height: 1.2;
+	z-index: 2;
+	border: 1px solid #dfdfdf;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	box-shadow: 0px 0px 8px #dfdfdf;
+	margin-bottom: 8px;
+}
+#gu-graphic-mediterranean .tooltip-enabled:after {
+	position: absolute;
+	bottom: 150%;
+	left: 0;
+	margin-left: -50%;
+	width: 0;
+	border-top: 9px solid #fff;
+	border-right: 9px solid transparent;
+	border-left: 9px solid transparent;
+	content: ' ';
+	font-size: 0;
+	line-height: 0;
+	z-index: 3;
+}
+#gu-graphic-mediterranean .tooltip-enabled:hover:before,
+#gu-graphic-mediterranean .tooltip-enabled:hover:after {
+	visibility: visible;
+	-ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=100)';
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+	opacity: 1;
+	pointer-events: none;
+}
+#gu-graphic-mediterranean .marker {
+	position:absolute;
+	width:10px;
+	height:10px;
+	background-color:#ff0000;
+	border: 2px solid #fff;
+	border-radius:50%;
+	margin: -5px 0 0 -5px;
+	cursor: pointer;
+}
+#gu-graphic-mediterranean .number-marker {
+	position:absolute;
+	width:25px;
+	height:25px;
+	background-color:#ff0000;
+	border: 2px solid #fff;
+	border-radius:50%;
+	margin: -5px 0 0 -5px;
+	cursor: pointer;
+}
+#gu-graphic-mediterranean .number-marker p {
+	position:relative;
+	width:100%;
+	color:#ffffff;
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height: 16px;
+	text-align: center;
+	padding-top: 5px;
+}
+#gu-graphic-mediterranean .box-overlay {
+	position:absolute;
+	background-size:100%;
+	background-repeat:no-repeat;
+	white-space: nowrap;
+}
+#gu-graphic-mediterranean .box-overlay p {
+	line-height:1.35em!important;
+}
+#gu-graphic-mediterranean .complex-marker {
+	position:absolute;
+}
+#gu-graphic-mediterranean .complex-marker img {
+	width:100%;
+}
+#gu-graphic-mediterranean #gu-graphic-view-0 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#gu-graphic-mediterranean #gu-graphic-view-0 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#gu-graphic-mediterranean #gu-graphic-view-0 .gu-graphic-view-step {
+	position:relative;
+	width: 100%;
+	height: auto%;
+	margin:0;
+}
+#gu-graphic-mediterranean #gu-graphic-view-0 #gu-graphic-view-step-0 .gu-p0 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:14px;
+	line-height:17px;
+	font-weight:400;
+	color:#bbbbbb;
+}
+#gu-graphic-mediterranean #gu-graphic-view-0 #gu-graphic-view-step-0 .gu-p1 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:14px;
+	line-height:17px;
+	font-weight:400;
+	text-align:center;
+	color:#bbbbbb;
+}
+#gu-graphic-mediterranean #gu-graphic-view-0 #gu-graphic-view-step-0 .gu-p2 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:14px;
+	line-height:17px;
+	font-weight:400;
+	text-align:right;
+	color:#bbbbbb;
+}
+#gu-graphic-mediterranean #gu-graphic-view-1 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#gu-graphic-mediterranean #gu-graphic-view-1 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#gu-graphic-mediterranean #gu-graphic-view-1 .gu-graphic-view-step {
+	position:relative;
+	width: 100%;
+	height: auto%;
+	margin:0;
+}
+#gu-graphic-mediterranean #gu-graphic-view-1 #gu-graphic-view-step-0 .gu-p0 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	line-height:18px;
+	font-weight:400;
+	color:#bbbbbb;
+}
+#gu-graphic-mediterranean #gu-graphic-view-1 #gu-graphic-view-step-0 .gu-p1 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#bbbbbb;
+}
+#gu-graphic-mediterranean #gu-graphic-view-2 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#gu-graphic-mediterranean #gu-graphic-view-2 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#gu-graphic-mediterranean #gu-graphic-view-2 .gu-graphic-view-step {
+	position:relative;
+	width: 100%;
+	height: auto%;
+	margin:0;
+}
+#gu-graphic-mediterranean #gu-graphic-view-2 #gu-graphic-view-step-0 .gu-p0 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:400;
+	color:#bbbbbb;
+}
+#gu-graphic-mediterranean #gu-graphic-view-2 #gu-graphic-view-step-0 .gu-p1 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:400;
+	text-align:center;
+	color:#bbbbbb;
+}
+#gu-graphic-mediterranean #gu-graphic-view-2 #gu-graphic-view-step-0 .gu-p2 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:400;
+	text-align:right;
+	color:#bbbbbb;
+}
+#gu-graphic-mediterranean #gu-graphic-view-0 {
+	display:block;
+}
+#gu-graphic-mediterranean #gu-graphic-view-1 {
+	display:none;
+}
+#gu-graphic-mediterranean #gu-graphic-view-2 {
+	display:none;
+}
+@media screen and (min-width: 860px) {
+.gu-graphic-header h2 {
+	font-size:25px;
+	font-weight:600;
+	line-height: 25px;
+}
+#gu-graphic-mediterranean #gu-graphic-view-0 {
+	display:none;
+}
+#gu-graphic-mediterranean #gu-graphic-view-1 {
+	display:block;
+}
+#gu-graphic-mediterranean #gu-graphic-view-2 {
+	display:none;
+}
+}
+@media screen and (min-width: 1280px) {
+#gu-graphic-mediterranean #gu-graphic-view-0 {
+	display:none;
+}
+#gu-graphic-mediterranean #gu-graphic-view-1 {
+	display:none;
+}
+#gu-graphic-mediterranean #gu-graphic-view-2 {
+	display:block;
+}
+}
+</style>
+
+<div class='gu-graphic-view' id='gu-graphic-view-0' >
+<div class='gu-graphic-view-step gu-graphic-view-step-0' id='gu-graphic-view-step-0' >
+<div class='gu-graphic-view-region gu-graphic-view-region-0' id='gu-graphic-view-region-0' style='width:100%;' >
+<img class='main-background-image' src='img/mediterranean-0-0-0.png' />
+		<div id='gu-g1' class='gu-position' style='left:77.741935483871%;top:78.0053692007374%;'>
+			<p class='gu-p0'>Cairo</p>
+		</div>
+		<div id='gu-g2' class='gu-position' style='left:37.4193548387097%;width:8.97240423387097%;top:69.1411227006536%;'>
+			<p class='gu-p1'>Tripoli</p>
+		</div>
+		<div id='gu-g3' class='gu-position' style='right:23.8709677419355%;top:75.2194631578539%;'>
+			<p class='gu-p2'>Alexandria</p>
+		</div>
+</div></div>
+</div>
+<div class='gu-graphic-view' id='gu-graphic-view-1' >
+<div class='gu-graphic-view-step gu-graphic-view-step-0' id='gu-graphic-view-step-0' >
+<div class='gu-graphic-view-region gu-graphic-view-region-0' id='gu-graphic-view-region-0' style='width:100%;' >
+<img class='main-background-image' src='img/mediterranean-1-0-0.png' />
+		<div id='gu-g1' class='gu-position' style='left:81.2790697674419%;top:77.0512111057115%;'>
+			<p class='gu-p0'>Cairo</p>
+		</div>
+		<div id='gu-g2' class='gu-position' style='right:52.5581395348837%;top:67.7393348820355%;'>
+			<p class='gu-p1'>Tripoli</p>
+		</div>
+		<div id='gu-g3' class='gu-position' style='right:20.5813953488372%;top:74.1298381727936%;'>
+			<p class='gu-p1'>Alexandria</p>
+		</div>
+</div></div>
+</div>
+<div class='gu-graphic-view' id='gu-graphic-view-2' >
+<div class='gu-graphic-view-step gu-graphic-view-step-0' id='gu-graphic-view-step-0' >
+<div class='gu-graphic-view-region gu-graphic-view-region-0' id='gu-graphic-view-region-0' style='width:100%;' >
+<img class='main-background-image' src='img/mediterranean-2-0-0.png' />
+		<div id='gu-g1' class='gu-position' style='left:80.390625%;top:75.8130510931273%;'>
+			<p class='gu-p0'>Cairo</p>
+		</div>
+		<div id='gu-g2' class='gu-position' style='left:42.5%;width:4.74365234375%;top:66.489763256432%;'>
+			<p class='gu-p1'>Tripoli</p>
+		</div>
+		<div id='gu-g3' class='gu-position' style='right:21.484375%;top:73.1142046140839%;'>
+			<p class='gu-p2'>Alexandria</p>
+		</div>
+</div></div>
+</div>
+	

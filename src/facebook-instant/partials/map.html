@@ -1,10 +1,3 @@
-<figure class="op-slideshow" data-mode="fullscreen">
-    {{#images}}
-        <figure data-feedback="fb:likes, fb:comments">
-            <img src="{{ src }}/{{imagesize this}}.jpg" {{#if alt}} alt="{{alt}}" {{/if}} />
-            {{#if caption}}
-            <figcaption class="op-center">{{{ caption }}}</figcaption>
-            {{/if}}
-        </figure>
-    {{/images}}     
+<figure {{#if data-feedback}} data-feedback="{{data-feedback}}" {{/if}} {{#if data-mode}} data-feedback="{{data-mode}}" {{/if}}>
+    <img src="{{ src_alt }}" {{#if alt}} alt="{{alt}}" {{/if}} />
 </figure>
