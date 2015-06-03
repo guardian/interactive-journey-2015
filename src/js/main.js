@@ -49,9 +49,18 @@ define([
     //Ractive.DEBUG = false;
     var base;
     
-    function launchApp(el, archieData){
-
-        console.log(archieData)
+    function cleanData(data) {
+        data.blocks.forEach(function(block) {
+            if (block.hasOwnProperty('copy')) {
+                 block.copy = block.copy.replace(/[\r\n]+/g, '\n').split('\n');
+            }
+        });
+        return data;
+    }
+    
+    function launchApp(el, responseData){
+        var archieData = cleanData(responseData);
+        console.log(archieData);
     
         //initialize the ractive base, add data, and comonent modules
         base = new AppTemplate({
