@@ -1,4 +1,8 @@
 <figure class="op-slideshow" data-mode="fullscreen" {{#if data-feedback}} data-feedback="{{data-feedback}}" {{/if}}>
+	{{# if audio }}
+		{{>audio this.audio}} 
+	{{/if}}
+
     {{#images}}
     	{{>image this}}    
     {{/images}}     

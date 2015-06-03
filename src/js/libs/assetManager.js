@@ -69,22 +69,9 @@ define([], function () {
 	
 
 	function lazyLoad(item) {
-        var dist = item.node.getBoundingClientRect().bottom;
-        var outOfView = (dist + windowHeight < 0); 
-
-        if (item.loaded && outOfView) {			
-            if (item.type === 'video') {
-                item.node.innerHTML = '';
-                item.node.pause();
-                item.node.load();
-                item.loaded = false;
-            }
-            return;
-        }
-            
         var topDist = item.node.getBoundingClientRect().top;
         var almostInView = (topDist < windowHeight * 2.5 );
-        if (almostInView && !outOfView){
+        if (almostInView){
             if (item.type === 'image') {
                 fetchPhoto(item);
             }
@@ -101,14 +88,10 @@ define([], function () {
 		loadingQueue.forEach(function(item) {
 			if (item.type !== 'video') { return; }
 			
-			
 			var nodeHeight = item.node.getBoundingClientRect().height;
 			var top = item.node.getBoundingClientRect().top;
 
-			
-			
 			if (top < (windowHeight / 5) && top + windowHeight > 0) {
-				console.log(item);
 				item.node.parentNode.classList.toggle('isPlaying', true);
 				return item.node.play();		 
 			}
@@ -282,9 +265,8 @@ define([], function () {
 				}
 			}
 			path = 'http://' + item.src + '/' + imgSize + '.jpg';
-		} 
-	
-
+		}
+		
 		image.onload = function() {
 			if(item.bgImg){
 				item.node.style.backgroundImage = "url(" + path + ")";
