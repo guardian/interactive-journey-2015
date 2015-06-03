@@ -283,7 +283,7 @@ define([], function () {
 			}
 			path = 'http://' + item.src + '/' + imgSize + '.jpg';
 		} 
-		console.log(path)
+	
 
 		image.onload = function() {
 			if(item.bgImg){
