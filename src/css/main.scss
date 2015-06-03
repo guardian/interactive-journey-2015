@@ -232,6 +232,7 @@ figure {
 .gusto-section {
     margin-top: 2rem;
     margin-bottom: 2rem;
+    position:relative;
 }
 
 .gusto-section-header {
@@ -333,21 +334,27 @@ figure {
 }
 
 .gusto-pull {
- 
     font-size: 16px;
-    overflow: hidden;
     width: auto;
+    top: 0 !important;
+    left: 20px;
+    max-width: 660px;
+    margin: 0 auto;
+    
+    &::before {
+        content: initial !important;
+    }
         
     @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
-        width: calc((100vw - 660px )/ 2);
+        width: 210px !important;
     }
     @media only screen and (min-width: map-get($breakpoints, 'wide')) {        
         max-width: $outerColumnWidth;
     }
-    
-}
-.gusto-pull-left {
-    padding-right: 10px;
+    @media (min-width: 1300px) {
+        margin-left: calc((100% - 81.25rem) / 2) !important;
+    }
+
 
     .gusto-photo-pull {
         float: left;
@@ -359,21 +366,16 @@ figure {
     .gusto-date-published {
         font-family: 'Guardian Text Sans Web', sans-serif;
         font-size: 12px;
-
     }
-
     .gusto-byline-share  {
         display: none;
     }
-
     .gusto-photo-byline {
         p {
             font-size: 14px;
             margin-bottom: 0;
         }
     }
-
-
 
     @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
         float: left;
@@ -412,17 +414,7 @@ figure {
         max-width: $colWidth;
     }
 }
-.gusto-pull-right {
-    padding-left: 10px;
-    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
-        float: right;
-        margin-right: calc(((100vw - 660px) /2) * -1); 
 
-    }
-    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
-        margin-right: $outerColumnWidth * -1;
-    }
- }
 
 // Photos
 
@@ -438,7 +430,6 @@ figure {
 
 // Gallery
 .gusto-section-gallery {
-    overflow: hidden;
     clear: both;
     text-align: center;
 }
@@ -513,6 +504,18 @@ figure {
     .gusto-header-content {
         max-width: 980px;
     }
+    
+   .gusto-section-header {
+        position: absolute;
+        width: $colWidth;
+        margin-left: calc((100% - 61.25rem) / 2);
+        bottom: 100%;
+    }
+    
+    .gusto-restrict-inner .gusto-section-header {
+        left: 10px;
+        top: 0;
+    }
 
     .gusto-header-content-inner {
         max-width: 460px;
@@ -541,7 +544,7 @@ figure {
     }
 
      .gusto-section-header {
-         margin-left: 170px;
+         margin-left: calc((100% - 71.25rem) / 2);
      }
 
     .gusto-section-header-left {
@@ -549,13 +552,7 @@ figure {
 
     }
 
-    .gusto-section-header-left .gusto-section-header {
-        position: absolute;
-        bottom: 100%;
-        right: 0;
-        width: $colWidth;
-        margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) );
-    }
+ 
 }
 
 @media (min-width: 1300px){
@@ -589,6 +586,6 @@ figure {
      }
 
     .gusto-section-header-left .gusto-section-header {
-        margin-left: 0;
+        margin-left: calc((100% - 81.25rem) / 2 + 10px);
     }
 }
