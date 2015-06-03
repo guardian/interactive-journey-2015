@@ -3,6 +3,16 @@
     decorator='lazyload:{src:{{src}},imgSizes:{{size}},srcAlt:{{src_alt}}, bgImg:true, type: "image"}'
 >
 
+    {{#if type==='video' }}
+        <video  class="gusto-video gusto-header-video"
+                preload="none"
+                autoplay="autoplay"
+                loop="loop"
+                decorator='lazyload:{src:{{src}}, type:"video" }'>
+        </video>
+    {{/if}}
+
+
     <div class='gusto-header-content'>
         <div class="gusto-header-content-inner {{text_style}}">
             <h3 class="gusto-kicker">
