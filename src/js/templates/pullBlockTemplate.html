@@ -22,7 +22,7 @@
             </div>
         {{ /share }}        
         
-        {{ #each copy.replace(/[\r\n]+/g, '\n').split('\n') }}
+        {{ #each copy }}
             <p>{{{ this.trim() }}}</p>
         {{/each}}
     </div>

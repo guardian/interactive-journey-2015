@@ -21,7 +21,7 @@
                 {{ headline }}
             </h1>
             
-        	{{ #each copy.replace(/[\r\n]+/g, '\n').split('\n') }}
+        	{{ #each copy }}
                 <p class="gusto-sub-heading">
                    {{{ this.trim() }}}
                 </p>
