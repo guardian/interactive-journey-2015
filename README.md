@@ -7,11 +7,6 @@ If you haven't already installed the following requirements:
 * [nodejs](http://nodejs.org/download/)
 * [grunt-cli](http://gruntjs.com/getting-started) 
 * [bower](http://bower.io/)
-* [ruby](https://www.ruby-lang.org/en/documentation/installation/)
-* [sass](http://sass-lang.com/install)
-
-*Why Ruby and sass? Because [GUSS](https://github.com/guardian/guss) uses sass syntax that currently
-isn't supported by [libsass](https://github.com/sass/libsass).*
 
 Next, install all the dependency packages and start the app:
 ```bash

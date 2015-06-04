@@ -138,7 +138,15 @@ module.exports = function(grunt) {
               dest: 'build/assets/js/curl.js'
           }
         ]
-      }
+      },
+      images: { files: [
+         {
+              cwd: 'src/',
+              src: ['imgs/**/*.*'],
+              expand: true,
+              dest: 'build/assets/'
+          }
+      ]}
     },
 
     imagemin: {
@@ -243,15 +251,7 @@ module.exports = function(grunt) {
           }]
       }
     },
-    
-    archieml: {
-      your_target: {
-        files: {
-          'temp/pageData.json': 'src/js/data/pageData.txt'
-        }
-      },
-    },
-    
+
     curl: {
       'temp/pageData.json': 'http://interactive.guim.co.uk/docsdata-test/' +
                             '1fELDqgjhldHT-uHWxtMKz4ZjiMLbzb9MwUV6lW8TjAo.json'
@@ -263,7 +263,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -273,9 +273,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-replace');
   grunt.loadNpmTasks('grunt-contrib-rename');
   grunt.loadNpmTasks('grunt-bower-requirejs');
-  grunt.loadNpmTasks('grunt-newer');
   grunt.loadNpmTasks('grunt-compile-handlebars');
-  grunt.loadNpmTasks('grunt-archieml');
   grunt.loadNpmTasks('grunt-curl');
 
   // Tasks
@@ -286,12 +284,12 @@ module.exports = function(grunt) {
     'autoprefixer',
     'bowerRequirejs',
     'requirejs',
-    'copy',
-    'newer:imagemin'
+    'copy:build'
   ]);
   
   grunt.registerTask('default', [
       'build',
+      'copy:images',
       'replace:local',
       'connect',
       'watch'
@@ -299,17 +297,16 @@ module.exports = function(grunt) {
   
   grunt.registerTask('deploy', [
       'build',
+      'imagemin',
       'rename',
       'replace:prod',
       's3'
   ]);
   
   grunt.registerTask('facebook-instant', [
-//      'archieml',
       'clean',
       'curl',
       'compile-handlebars'
   ]);
-  
   
 };
