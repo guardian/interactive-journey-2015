@@ -76,6 +76,16 @@ module.exports = function(grunt) {
           baseUrl: './src/js/',
           mainConfigFile: './src/js/require.js',
           optimize: (isDev) ? 'none' : 'uglify2',
+          uglify2: {
+            compress: {
+              drop_debugger: true,
+              drop_console: true,
+              unused: true,
+              dead_code: true
+            },
+            warnings: false,
+            mangle: true
+          },
           inlineText: true,
           name: 'almond',
           out: 'build/assets/js/main.js',
