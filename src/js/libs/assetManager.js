@@ -47,10 +47,9 @@ function (
 		loadingQueue.unshift(el);
 	};
 	
-	function toggleVideoPlay(event) {
+	function toggleVideoPlay(vidEl) {
 		isGlobalPaused = true;
 		
-		var vidEl = event.currentTarget;
 		if (vidEl.paused) {
 			vidEl.play();
 			vidEl.parentNode.classList.toggle('isPlaying', true);
@@ -66,9 +65,19 @@ function (
 			src: options.src,
 			node: node
 		};
-		
-		node.addEventListener('click',toggleVideoPlay, false);
 		loadingQueue.unshift(el);
+		
+		// Add video controls
+		node.addEventListener('click',function() {
+			toggleVideoPlay(el.node);
+		}, false);
+		
+		var coverEl = node.parentNode.querySelector('.gusto-video-cover');
+		if (coverEl) {
+			coverEl.addEventListener('click',function() {
+				toggleVideoPlay(el.node);
+			}, false);
+		}
 	}
 	
 
