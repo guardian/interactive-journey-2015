@@ -1,3 +1,5 @@
+{{#if exclude==='web'}}
+{{else}}
 <!-- Section: Photo gallert example. Start. -->
 <figure class="gusto-section gusto-section-gallery {{ class }} {{^class}}gusto-restrict-outer{{/class}} {{#swipe}} swipe {{/swipe}}">
 
@@ -65,7 +67,7 @@
     
 </figure>
 <!-- Section: Photo gallert example. End. -->
-
+{{/if}}
 
 
 
@@ -73,7 +75,11 @@
   component.exports = {
       oncomplete : function(){
         var mySwiper;
-        var el = this.fragment.items[0].node;
+        var el = this.component.instance.el;
+        console.log(el, this);
+        if(!el) {  return ;}
+        
+        
         var swipEl = el.querySelector('.swiper-container');
           
         function isNarrow() {

@@ -1,8 +1,9 @@
 define([
+	'libs/autoplay',
 	'libs/polyfills'
 ],
 function (
-		
+	autoplay
 ) {
 	'use strict';
 	
@@ -14,6 +15,12 @@ function (
 	var imgSizes = {};
 	var DEFAULT_BITRATE = '488k';
 	var videoBitRate = DEFAULT_BITRATE;
+	var isAutoplaySupported = false;
+	
+	// Detect if auto-play is supported
+	autoplay.isSupported(function(result) {
+		isAutoplaySupported = result;
+	});
 
 
 	var updateScreen = function(top, height, width){
@@ -33,6 +40,11 @@ function (
 	}
 
 	var addPhoto = function ( node, options) {
+		if (!options.src) {
+			console.warn('Skipping image with no src', options);
+			return;
+		}
+		
 		//creates reference to image to be loaded
 		var el = {
 			type: 'image',
@@ -96,6 +108,7 @@ function (
 
 	
 	function autoPlay() {
+		if (!isAutoplaySupported) { return; }
 		if (isGlobalPaused) { return; }
 			
 		loadingQueue.forEach(function(item) {

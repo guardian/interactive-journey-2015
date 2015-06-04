@@ -41,7 +41,7 @@ figure {
     }
 }
 
-.interactive {
+body figure.interactive {
     margin: 0;
     position: relative;
     background: #f1f1f1;
@@ -336,7 +336,7 @@ figure {
     font-size: 16px;
     width: auto;
     top: 0 !important;
-    left: 20px;
+    padding: 20px;
     max-width: 660px;
     margin: 0 auto;
     
