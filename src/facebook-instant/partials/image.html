@@ -7,4 +7,7 @@
     {{#if caption}}
     	<figcaption class="op-center">{{{ caption }}}</figcaption>
     {{/if}}
+    {{# if audio }}
+		{{>audio this.audio}} 
+	{{/if}}
 </figure>

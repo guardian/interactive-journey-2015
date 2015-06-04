@@ -264,7 +264,8 @@ define([], function () {
 					imgSize = imgSizes[item.size][2];
 				}
 			}
-			path = 'http://' + item.src + '/' + imgSize + '.jpg';
+			var delimeter = (item.src.search('interactive.guim.co.uk') > -1) ? '' : '/';
+			path = 'http://' + item.src + delimeter + imgSize + '.jpg';
 		}
 		
 		image.onload = function() {
