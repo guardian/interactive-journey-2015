@@ -81,7 +81,6 @@ module.exports = function(grunt) {
           out: 'build/assets/js/main.js',
           generateSourceMaps: true,
           preserveLicenseComments: false,
-          useSourceUrl: true,
           include: ['main'],
           wrap: {
             start: 'define(["require"],function(require){var req=(function(){',
