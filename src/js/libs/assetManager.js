@@ -1,5 +1,9 @@
-define([], function () {
-
+define([
+	'libs/polyfills'
+],
+function (
+		
+) {
 	'use strict';
 	
 	var loadingQueue = [];

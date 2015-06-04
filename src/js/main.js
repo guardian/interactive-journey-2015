@@ -16,7 +16,6 @@ define([
     'rvc!templates/audioBlockTemplate',
     'rvc!templates/audioPlayerTemplate',
     'rvc!templates/shareTemplate',
-    'text!data/pageData.txt',
     'libs/assetManager',
     'libs/bandwidth',
     'viewport-units-buggyfill',
@@ -39,7 +38,6 @@ define([
     audioBlockHTML,
     audioPlayer,
     shareTemplate,
-    pageDataText,
     assetManager,
     bandwidth,
     viewportUnitsBuggyfill,
@@ -48,7 +46,7 @@ define([
     'use strict';
     //Ractive.DEBUG = false;
     var base;
-    
+       
     function cleanData(data) {
         data.blocks.forEach(function(block) {
             if (block.hasOwnProperty('copy')) {
@@ -87,7 +85,7 @@ define([
                     decorators: {
                         lazyload: function ( node, options ) {
                             assetManager.addMedia( node, options );
-
+                            
                             return {
                                 teardown: function () {}
                             };
@@ -118,7 +116,7 @@ define([
                     }
                 });
     }
-
+    
     function measureScreen(){
         var top = (window.pageYOffset || document.documentElement.scrollTop);
         return {
@@ -127,8 +125,8 @@ define([
             windowWidth: window.innerWidth
         };
     }
-
-    function handleRequestError(err, msg) {
+    
+     function handleRequestError(err, msg) {
         console.error('Failed: ', err, msg);
     }
 
