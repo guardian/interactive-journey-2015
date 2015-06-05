@@ -28,7 +28,8 @@ require.config({
     "viewport-units-buggyfill.hacks": "../../bower_components/viewport-units-buggyfill/viewport-units-buggyfill.hacks",
     jquery: "../../bower_components/jquery/dist/jquery",
     "jquery-ajaxtransport-xdomainrequest": "../../bower_components/jquery-ajaxtransport-xdomainrequest/jquery.xdomainrequest.min",
-    "jquery-cors": "../../bower_components/jquery-cors/src/cors"
+    "jquery-cors": "../../bower_components/jquery-cors/src/cors",
+    isMobile: "../../bower_components/isMobile/isMobile"
   },
   packages: [
 

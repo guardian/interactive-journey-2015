@@ -1,9 +1,9 @@
 define([
-	'libs/autoplay',
+	'isMobile',
 	'libs/polyfills'
 ],
 function (
-	autoplay
+	isMobile
 ) {
 	'use strict';
 	
@@ -15,13 +15,6 @@ function (
 	var imgSizes = {};
 	var DEFAULT_BITRATE = '488k';
 	var videoBitRate = DEFAULT_BITRATE;
-	var isAutoplaySupported = false;
-	
-	// Detect if auto-play is supported
-	autoplay.isSupported(function(result) {
-		isAutoplaySupported = result;
-	});
-
 
 	var updateScreen = function(top, height, width){
         if (typeof top !== 'number' || typeof height !== 'number') {
@@ -75,7 +68,8 @@ function (
 		var el = {
 			type: 'video',
 			src: options.src,
-			node: node
+			node: node,
+			bgImg: (options.bgImg)? true : false
 		};
 		loadingQueue.unshift(el);
 		
@@ -93,22 +87,23 @@ function (
 	}
 	
 
-	function lazyLoad(item) {
+	function lazyLoad(item, index) {
+		if (item.loaded) { return; }
         var topDist = item.node.getBoundingClientRect().top;
         var almostInView = (topDist < windowHeight * 2.5 );
         if (almostInView){
             if (item.type === 'image') {
-                fetchPhoto(item);
+                fetchPhoto(item, index);
             }
             if (item.type === 'video') {
-                fetchVideo(item);
+                fetchVideo(item, index);
             }
         }
 	}
 
 	
 	function autoPlay() {
-		if (!isAutoplaySupported) { return; }
+		if (isMobile.phone) { return; }
 		if (isGlobalPaused) { return; }
 			
 		loadingQueue.forEach(function(item) {
@@ -235,12 +230,19 @@ function (
 	}
 
 	
-	function fetchVideo(item) {	
-        if (item.loaded) { return; }
-		
+	function fetchVideo(item, index) {		
         if (!item.src || item.src.match('=')) { 
             return console.warn('Skipping multimedia video.', item.src);
         }
+		
+		
+		var posterImage = getVideoPosterImage(item.src);
+		if (isMobile.phone && item.bgImg) {
+			item.node.pause();
+			item.node.parentNode.style.backgroundImage = "url(" + posterImage + ")";
+			item.node.parentNode.removeChild(item.node);
+			loadingQueue.splice(index, 1);
+		}
 
 		var videoURLs = getVideoURLS(item.src);
         if (!videoURLs) { return; }
@@ -251,7 +253,6 @@ function (
 			item.node.appendChild(sourceEl);
 		});
 		
-		var posterImage = getVideoPosterImage(item.src);
 		item.node.setAttribute('poster', posterImage);
 
         item.videosURLS = videoURLs;

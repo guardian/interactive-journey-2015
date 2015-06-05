@@ -28,13 +28,13 @@
     <header
         class="gusto-header"
     >
-
-        {{#if type==='video' }}
+    
+         {{#if type==='video' }}
             <video  class="gusto-header-video"
                     preload="none"
                     autoplay="autoplay"
                     loop="loop"
-                    decorator='lazyload:{src:{{src}}, type:"video" }'>
+                    decorator='lazyload:{src:{{src}}, type:"video",  bgImg:true }'>
             </video>
         {{/if}}
 

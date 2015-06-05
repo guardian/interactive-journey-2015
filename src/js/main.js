@@ -46,7 +46,7 @@ define([
     'use strict';
     //Ractive.DEBUG = false;
     var base;
-
+    
     function cleanData(data) {
         data.blocks.forEach(function(block) {
             if (block.hasOwnProperty('copy')) {
@@ -58,63 +58,63 @@ define([
 
     function launchApp(el, responseData){
         var archieData = cleanData(responseData);
-        console.log(archieData);
-
+                
         //initialize the ractive base, add data, and comonent modules
         base = new AppTemplate({
-                    el: el,
-                    components: {
-                        copyBlock: copyBlockHTML,
-                        imageBlock: imageBlockHTML,
-                        leadBlock: leadBlockHTML,
-                        pullBlock: pullBlockHTML,
-                        galleryBlock: galleryBlockHTML,
-                        videoBlock: videoBlockHTML,
-                        headerBlock: headerBlockHTML,
-                        mapBlock: mapBlockHTML,
-                        mapHeaderBlock: mapHeaderBlockHTML,
-                        mapSeaBlock: mapSeaBlockHTML,
-                        audioBlock: audioBlockHTML,
-                        audioPlayer: audioPlayer,
-                        shareTools: shareTemplate
-                    },
-                    data: {
-                        pageBlocks: archieData.blocks,
-                        config: archieData.config
-                    },
-                    decorators: {
-                        lazyload: function ( node, options ) {
-                            assetManager.addMedia( node, options );
+            el: el,
+            components: {
+                copyBlock: copyBlockHTML,
+                imageBlock: imageBlockHTML,
+                leadBlock: leadBlockHTML,
+                pullBlock: pullBlockHTML,
+                galleryBlock: galleryBlockHTML,
+                videoBlock: videoBlockHTML,
+                headerBlock: headerBlockHTML,
+                mapBlock: mapBlockHTML,
+                mapHeaderBlock: mapHeaderBlockHTML,
+                mapSeaBlock: mapSeaBlockHTML,
+                audioBlock: audioBlockHTML,
+                audioPlayer: audioPlayer,
+                shareTools: shareTemplate
+            },
+            data: {
+                pageBlocks: archieData.blocks,
+                config: archieData.config
+            },
+            decorators: {
+                lazyload: function ( node, options ) {
+                    assetManager.addMedia( node, options );
 
-                            return {
-                                teardown: function () {}
-                            };
-                        }
-                    },
-                    oncomplete: function(){
-                        assetManager.setImageSizes(archieData.config.imageSizes);
+                    return {
+                        teardown: function () {}
+                    };
+                },
+                
+            },
+            oncomplete: function(){
+                assetManager.setImageSizes(archieData.config.imageSizes);
 
-                        this.observe( 'scrollTop windowHeight', function(){
-                            assetManager.updateScreen(
-                                this.get('scrollTop'),
-                                this.get('windowHeight'),
-                                this.get('windowWidth')
-                            );
-                        });
-
-                        this.set( measureScreen() );
-
-                        // Wait for content to be loaded before testing bandwidth
-                        setTimeout(function() {
-                            bandwidth.getSpeed(assetManager.setVideoBitrate);
-                        }, 2000);
-
-                        window.addEventListener('scroll', debounce( function() {
-                            base.set( measureScreen() );
-                        }, 100));
-
-                    }
+                this.observe( 'scrollTop windowHeight', function(){
+                    assetManager.updateScreen(
+                        this.get('scrollTop'),
+                        this.get('windowHeight'),
+                        this.get('windowWidth')
+                    );
                 });
+
+                this.set( measureScreen() );
+
+                // Wait for content to be loaded before testing bandwidth
+                setTimeout(function() {
+                    bandwidth.getSpeed(assetManager.setVideoBitrate);
+                }, 2000);
+
+                window.addEventListener('scroll', debounce( function() {
+                    base.set( measureScreen() );
+                }, 100));
+
+            }
+        });
     }
 
     function measureScreen(){
@@ -146,14 +146,7 @@ define([
         };
     }
 
-    function init(el, context, config, mediator) {
-        // DEBUG: What we get given on boot
-        console.log(el, context, config, mediator);
-
-        // Load local archieml data and pass data to ractive templating
-        //var pageBlocks = archieml.load(pageDataText);
-        //launchApp(el,pageBlocks);
-
+    function init(el) {
         // Load remote JSON data
         var key = '1fELDqgjhldHT-uHWxtMKz4ZjiMLbzb9MwUV6lW8TjAo';
         var url = 'http://interactive.guim.co.uk/docsdata-test/'+key+'.json';
