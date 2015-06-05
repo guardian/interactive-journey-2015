@@ -57,13 +57,40 @@ audio {
 .playerIsPlaying .guPause { display: block; }
 .playerIsPlaying .guPlay { display: none; }
 
-/* gallery version */
+/* variants */
 .podcastPlayer--gallery {
 	float: right;
 	padding-left: 10px;
 }
+
+.podcastPlayer--copy {
+	float: right;
+	border-left: 1px solid #ddd;
+	margin: 5px 10px 0;
+	padding-left: 10px;
+}
+
+.podcastPlayer--copy .playerBtn svg {
+	width: 60px;
+	height: 60px;
+}
+.podcastPlayer--copy .guTimer {
+	line-height: 26px;
+}
+
 /* responsive styles */
 @media (min-width: 980px){
+
+	.podcastPlayer--copy {
+		position: absolute;
+		right: 100%;
+		margin: 0;
+		padding: 0;
+		margin-right: 10px;
+		margin-top: 5px;
+		border: 0;
+	}
+
 	.podcastPlayer--gallery {
 		width: 40px;
 		position: absolute;
