@@ -341,7 +341,7 @@ body figure.interactive {
     font-family: 'Guardian Text Sans Web', sans-serif;
     font-size: 0.9rem;
     text-align: left;
-
+    color: #767676;
 }
 
 // Pull blocks
@@ -391,6 +391,10 @@ body figure.interactive {
             font-size: 14px;
             margin-bottom: 0;
         }
+    }
+
+    .byline-name {
+    font-weight: 500;
     }
 
     @media only screen and (min-width: map-get($breakpoints, 'desktop')) {

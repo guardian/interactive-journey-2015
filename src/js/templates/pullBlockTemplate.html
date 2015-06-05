@@ -10,7 +10,7 @@
         {{ #byline }}
             <div class='gusto-photo-byline'>
                 {{ #byline_photo }}<img class="gusto-photo gusto-photo-pull" alt="{{ byline }}" decorator='lazyload:{src:{{byline_photo}}, type: "image"  }' />{{ /byline_photo }}
-                <p><a href='{{byline_link}}'>{{{byline}}}</a>, {{byline_title}}</p>
+                <p><a class='byline-name' href='{{byline_link}}'>{{{byline}}}</a> {{byline_title}}</p>
 
             </div>
             {{ #date_published }}<div class='gusto-date-published'>{{ date_published }}</div>{{ /date_published }}
