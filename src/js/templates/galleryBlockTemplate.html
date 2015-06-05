@@ -1,5 +1,4 @@
-{{#if exclude==='web'}}
-{{else}}
+
 <!-- Section: Photo gallert example. Start. -->
 <figure class="gusto-section gusto-section-gallery {{ class }} {{^class}}gusto-restrict-outer{{/class}} {{#swipe}} swipe {{/swipe}}">
 
@@ -64,16 +63,22 @@
 
 </figure>
 <!-- Section: Photo gallert example. End. -->
-{{/if}}
+
 
 
 
 <script>
   component.exports = {
       oncomplete : function(){
+        var el = this.fragment.items[0].node;
+        
+        // Wrapping HTML in an {{if}} breaks fragment node using this instead
+        if (this.get('exclude') && this.get('exclude') === 'web') {
+          el.innerHTML = '';
+          return;
+        }
+        
         var mySwiper;
-        var el = this.component.instance.el;
-        console.log(el, this);
         if(!el) {  return ;}
 
 
