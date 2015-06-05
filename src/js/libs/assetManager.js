@@ -235,15 +235,6 @@ function (
             return console.warn('Skipping multimedia video.', item.src);
         }
 		
-		
-		var posterImage = getVideoPosterImage(item.src);
-		if (isMobile.phone && item.bgImg) {
-			item.node.pause();
-			item.node.parentNode.style.backgroundImage = "url(" + posterImage + ")";
-			item.node.parentNode.removeChild(item.node);
-			loadingQueue.splice(index, 1);
-		}
-
 		var videoURLs = getVideoURLS(item.src);
         if (!videoURLs) { return; }
 		Object.keys(videoURLs).forEach(function(key) {
@@ -253,6 +244,7 @@ function (
 			item.node.appendChild(sourceEl);
 		});
 		
+		var posterImage = getVideoPosterImage(item.src);
 		item.node.setAttribute('poster', posterImage);
 
         item.videosURLS = videoURLs;
@@ -328,7 +320,8 @@ function (
 			updateScreen: updateScreen,
 			addMedia: addMedia,
 			setVideoBitrate: setVideoBitrate,
-			setImageSizes: setImageSizes
+			setImageSizes: setImageSizes,
+			getVideoPosterImage: getVideoPosterImage
 	};
 
 });

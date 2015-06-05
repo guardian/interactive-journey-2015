@@ -18,6 +18,7 @@ define([
     'rvc!templates/shareTemplate',
     'libs/assetManager',
     'libs/bandwidth',
+    'isMobile',
     'viewport-units-buggyfill',
     'viewport-units-buggyfill.hacks'
 ], function(
@@ -40,6 +41,7 @@ define([
     shareTemplate,
     assetManager,
     bandwidth,
+    isMobile,
     viewportUnitsBuggyfill,
     viewportUnitsBuggyfillHacks
 ) {
@@ -79,7 +81,8 @@ define([
             },
             data: {
                 pageBlocks: archieData.blocks,
-                config: archieData.config
+                config: archieData.config,
+                isPhone: isMobile.phone
             },
             decorators: {
                 lazyload: function ( node, options ) {
@@ -89,6 +92,14 @@ define([
                         teardown: function () {}
                     };
                 },
+                posterFrame: function(node, options) {
+                    console.log(node, options);
+                    if (options.enable) {
+                        var posterImage = assetManager.getVideoPosterImage(options.src);
+                        node.style.backgroundImage = "url(" + posterImage + ")";
+                    }
+                    return { teardown: function () {} };
+                }
                 
             },
             oncomplete: function(){
