@@ -1,7 +1,7 @@
 <div class="gusto-section gusto-restrict-outer gusto-section-flex" >
 
 	<div class='gusto-section-header'>
-      <h2 class='gusto-headline gusto-headline-medium'>{{ headline }}</h2>
+      <h2 class='gusto-headline gusto-headline-border-top gusto-headline-medium'>{{ headline }}</h2>
       <p>{{ caption }}</p>
     </div>
 
@@ -433,6 +433,15 @@
 
 .gusto-section-header {
 	margin: 0 auto;
+}
+
+.gusto-headline-border-top::before {
+    width: 110px;
+    height: 1px;
+    background: #dcdcdc;
+    content: '';
+    position: absolute;
+    top: 0;
 }
 
 @media screen and (min-width: 860px) {
