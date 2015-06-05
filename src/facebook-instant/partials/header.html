@@ -2,6 +2,10 @@
 {{#if src_alt}}
 	{{>image this}}
 {{else}}
-	<h1 class="">{{ this.headline }}</h1>
+	
+	{{#if headline }}
+		<h1 class="">{{ this.headline }}</h1>
+	{{/if}}
+	
 	{{> copy this }}
 {{/if}}

@@ -1,4 +1,4 @@
-<figure class="op-slideshow" data-mode="fullscreen" {{#if data-feedback}} data-feedback="{{data-feedback}}" {{/if}}>
+<figure class="op-slideshow" {{#if data-mode}} data-mode="{{data-mode}}" {{/if}} {{#if data-feedback}} data-feedback="{{data-feedback}}" {{/if}}>
 	{{# if audio }}
 		{{>audio this.audio}} 
 	{{/if}}
