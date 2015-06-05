@@ -1,13 +1,18 @@
- {{#pageBlocks}}
-    {{#block == 'header'}}<headerBlock />{{/block}}
-    {{#block == 'copy'}}<copyBlock />{{/block}}
-    {{#block == 'image'}}<imageBlock />{{/block}}
-    {{#block == 'lead'}}<leadBlock />{{/block}}
-    {{#block == 'pull' || block == 'pullByline'}}<pullBlock />{{/block}}
-    {{#block == 'gallery'}}<galleryBlock />{{/block}}
-    {{#block == 'video'}}<videoBlock />{{/block}}
-    {{#block == 'map'}}<mapBlock />{{/block}}
-    {{#block == 'mapHeader'}}<mapHeaderBlock />{{/block}}
-    {{#block == 'mapSea'}}<mapSeaBlock />{{/block}}
-    {{#block == 'audio'}}<audioBlock />{{/block}}
-{{/pageBlocks}} 
+{{#pageBlocks}}
+    {{#if exclude==='web'}}
+    {{else}}
+    <div class="gusto-block gusto-block--{{block}}">
+        {{#block == 'header'}}<headerBlock />{{/block}}
+        {{#block == 'copy'}}<copyBlock />{{/block}}
+        {{#block == 'image'}}<imageBlock />{{/block}}
+        {{#block == 'lead'}}<leadBlock />{{/block}}
+        {{#block == 'pull' || block == 'pullByline'}}<pullBlock />{{/block}}
+        {{#block == 'gallery'}}<galleryBlock />{{/block}}
+        {{#block == 'video'}}<videoBlock />{{/block}}
+        {{#block == 'map'}}<mapBlock />{{/block}}
+        {{#block == 'mapHeader'}}<mapHeaderBlock />{{/block}}
+        {{#block == 'mapSea'}}<mapSeaBlock />{{/block}}
+        {{#block == 'audio'}}<audioBlock />{{/block}}
+    </div>
+    {{/if}}
+{{/pageBlocks}}

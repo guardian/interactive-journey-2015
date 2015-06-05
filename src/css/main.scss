@@ -8,6 +8,7 @@ $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
 @import 'bower_components/guss-typography/_typography.scss';
 @import 'modules/columns';
 @import 'modules/swiper';
+@import 'bower_components/sass-mq/mq';
 @include guss-webfonts();
 @include guss-typography-defaults;
 
@@ -44,23 +45,160 @@ figure {
 body figure.interactive {
     margin: 0;
     position: relative;
-    background: #f1f1f1;
+    background: #ebebeb;
 }
 
 .interactive * {
     box-sizing: border-box;
 }
 
-.interactive::before, .interactive::after {
-    background: rgba(0,0,0,0.025);
-    height: 100%;
-    position: absolute;
-    content: " ";
-    z-index: 0;
+/* blocks and insets */
+.gusto-block--pull,
+.gusto-block--pullByline,
+.gusto-block--copy,
+.gusto-block--image,
+.gusto-block--video,
+.gusto-block--map,
+.gusto-block--mapSea,
+.gusto-block--gallery,
+.gusto-header-content {
+    padding: 0 10px;
+    max-width: 1140px;
+    margin: auto;
+    @include mq(desktop) {
+        padding: 0;
+    }
+    @include mq(wide) {
+        max-width: 1300px;
+    }
 }
-.interactive::after {
-    right: 0;
-    top: 0;
+
+.gusto-block--copy,
+.gusto-block--video,
+.gusto-block--gallery,
+.gusto-block--map,
+.gusto-block--mapSea,
+.gusto-block--image {
+    background-color: #f1f1f1;
+    &:before,
+    &:after {
+        display: table;
+        content: '';
+        clear: both;
+    }
+}
+
+.gusto-block--gallery,
+.gusto-block--map,
+.gusto-block--mapSea,
+.gusto-block--image {
+    position: relative;
+}
+
+.gusto-block--pull,
+.gusto-block--pullByline,
+.gusto-block--copy {
+    @include mq(desktop) {
+        padding: 0 20px;
+    }
+}
+
+.gusto-block--pull,
+.gusto-block--pullByline {
+    @include mq($until: desktop) {
+        background-color: #f1f1f1;
+        &:before {
+            display: table;
+            content: '';
+        }
+    }
+    @include mq(desktop) {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+}
+
+/* left-col indenting */
+.gusto-block--copy {
+    @include mq(desktop) {
+        padding-left: 260px;
+    }
+}
+
+/* inner body */
+.gusto-inner-body {
+    max-width: 620px;
+    @include mq($until: desktop) {
+        margin: auto;
+    }
+}
+
+.gusto-inner-body--text {
+    margin: 24px auto;
+    @include mq(desktop) {
+        margin: 24px 0;
+    }
+}
+
+/* header */
+.gusto-section-header {
+    padding-top: 12px;
+    z-index: 1;
+    p {
+        margin-top: 0;
+        line-height: 1.25;
+        font-size: 14px;
+        color: #333;
+    }
+
+    @include mq(desktop) {
+        position: absolute;
+        width: $colWidth;
+        left: 0;
+        margin-left: 10px;
+        .gusto-block--gallery & {
+            bottom: 100%;
+        }
+    }
+}
+
+.gusto-header-content {
+    max-width: 620px;
+    @include mq(wide) {
+        max-width: 1300px;
+    }
+}
+
+/* blocks */
+.gusto-image--inner {
+    max-width: 620px;
+    margin: auto;
+    .gusto-photo {
+        width: 100%;
+    }
+    @include mq(desktop) {
+        margin-left: 260px;
+    }
+}
+
+.gusto-video--inner {
+    max-width: 620px;
+    margin: auto;
+    video {
+        width: 100%;
+    }
+    @include mq(desktop) {
+        margin-left: 260px;
+    }
+}
+
+.gusto-section {
+    max-width: 620px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin: auto;
+    position:relative;
 }
 
 .gusto-viewport-full {
@@ -71,7 +209,6 @@ body figure.interactive {
 .gusto-header {
     background-size: cover;
     height: 80vh;
-//    padding: 3rem 10px 1rem 10px;
     background-position: 50%;
     color: #FFF;
     position: relative;
@@ -80,9 +217,9 @@ body figure.interactive {
 
 .gusto-header-video {
     position: absolute;
+    z-index: 1;
     min-width: 100%;
     min-height: 100%;
-    z-index: -1000;
     overflow: hidden;
     width: auto !important;
 
@@ -124,27 +261,7 @@ body figure.interactive {
     height: inherit; // Fixes Safari vh bug
     margin: 0px auto;
     position: relative;
-}
-
-.gusto-restrict-inner {
-    max-width:  map-get($breakpoints, 'phablet');
-    margin: 0 auto;
-    padding: 0 10px;
-
-}
-
-.gusto-restrict-mid {
-    max-width: map-get($breakpoints, 'desktop');
-    margin: 0 auto;
-    padding: 0 10px;
-    position: relative;
-}
-
-.gusto-restrict-outer {
-    max-width: map-get($breakpoints, 'wide');
-    margin: 0 auto;
-    padding: 0 10px;
-    position: relative;
+    z-index: 1;
 }
 
 .gusto-headline {
@@ -176,11 +293,12 @@ body figure.interactive {
     margin: 0;
 }
 
-.gusto-video {
+.gusto-video video {
     width: 100%;
     display: block;
     background: #000;
     cursor: pointer;
+    z-index: 1;
 }
 
 .gusto-video-wrapper {
@@ -225,37 +343,6 @@ body figure.interactive {
 
     .guPlay{
         display: none;
-    }
-}
-
-.gusto-section {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    position:relative;
-}
-
-.gusto-section-header {
-    position: relative;
-    padding: 10px 10px 15px 0;
-    max-width: 640px;
-    text-align: left;
-
-    p {
-        margin-top: 0;
-        line-height: 1.25;
-        font-size: 14px;
-        color: #333;
-    }
-}
-
-@media (max-width: 979px) {
-    .gusto-section-header {
-        margin: auto;
-        &:after {
-          display: table;
-          content: '';
-          clear: both;
-        }
     }
 }
 
@@ -353,24 +440,21 @@ body figure.interactive {
     font-size: 16px;
     width: auto;
     top: 0 !important;
-    padding: 20px;
-    max-width: 660px;
+    max-width: 620px;
     margin: 0 auto;
 
     &::before {
         content: initial !important;
     }
 
-    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
-        width: 210px !important;
-    }
-    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
-        max-width: $outerColumnWidth;
-    }
-    @media (min-width: 1300px) {
-        margin-left: calc((100% - 81.25rem) / 2) !important;
+    @include mq(desktop) {
+        margin: 0;
+        width: 200px !important;
     }
 
+    @include mq(wide) {
+        max-width: $outerColumnWidth;
+    }
 
     .gusto-photo-pull {
         float: left;
@@ -394,14 +478,11 @@ body figure.interactive {
     }
 
     .byline-name {
-    font-weight: 500;
+        font-weight: 500;
     }
 
-    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
-        float: left;
-        margin-left: calc(((100vw - 660px) /2) * -1);
-
-         .gusto-photo-byline {
+    @include mq(desktop) {
+        .gusto-photo-byline {
             margin-top: 20px;
 
             p {
@@ -429,15 +510,10 @@ body figure.interactive {
             float: none;
         }
     }
-    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
-        margin-left: $outerColumnWidth * -1;
-        max-width: $colWidth;
-    }
 }
 
 
 // Photos
-
 
 .gusto-section-photo .gusto-photo {
     width: 100%;
@@ -449,12 +525,20 @@ body figure.interactive {
 
 
 // Gallery
-.gusto-section-gallery {
-    clear: both;
-    text-align: center;
+.gusto-block--gallery .gusto-section-header {
+    @include mq($until: desktop) {
+        overflow: hidden;
+        max-width: 620px;
+        margin: auto;
+        &:after {
+            display: table;
+            content: '';
+            clear: both;
+        }
+    }
 }
 
-.gusto-gallary-photo {
+.gusto-gallery-photo {
     box-sizing: border-box;
     display: inline-block;
     line-height: 0;
@@ -463,7 +547,7 @@ body figure.interactive {
 
 }
 
-.swipe .gusto-gallary-photo {
+.swipe .gusto-gallery-photo {
     width: 100%;
     padding: 0;
 }
@@ -478,64 +562,7 @@ body figure.interactive {
     margin: 0;
 }
 
-// Fun margin columns
-.left-column {
-    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
-        margin-left: calc(((100vw - #{map-get($breakpoints, 'desktop')}) / 2 ) + #{$colWidth});
-    }
-    @media only screen and (min-width: map-get($breakpoints, 'leftCol')) {
-        margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) + #{$colWidth});
-    }
-    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
-        margin-left: calc(((100vw - #{map-get($breakpoints, 'wide')}) / 2 ) + #{$colWidth});
-    }
-}
-
-.right-column {
-    @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
-        $leftCol: #{ (map-get($breakpoints, 'desktop') - map-get($breakpoints, 'phablet')) - $colWidth };
-        margin-left: calc(((100vw - #{map-get($breakpoints, 'desktop')}) / 2 ) +  #{$leftCol} );
-    }
-    @media only screen and (min-width: map-get($breakpoints, 'leftCol')) {
-        $leftCol: #{ (map-get($breakpoints, 'leftCol') - map-get($breakpoints, 'phablet')) - $colWidth };
-        margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) + #{ $leftCol} );
-    }
-    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
-        $leftCol: #{ (map-get($breakpoints, 'wide') - map-get($breakpoints, 'phablet')) - $colWidth };
-        margin-left: calc(((100vw - #{map-get($breakpoints, 'wide')}) / 2 ) + #{$leftCol} );
-    }
-}
-
-
-//breakpoint enhancements
-@media (min-width: 740px){
-
-
-    .gusto-header-content {
-        max-width: 740px;
-    }
-}
-
-@media (min-width: 980px){
-    .interactive::before, .interactive::after {
-        width: calc((100% - 61.25rem) / 2);
-    }
-
-    .gusto-header-content {
-        max-width: 980px;
-    }
-
-   .gusto-section-header {
-        position: absolute;
-        width: $colWidth;
-        margin-left: calc((100% - 61.25rem) / 2);
-        bottom: 100%;
-    }
-
-    .gusto-restrict-inner .gusto-section-header {
-        left: 10px;
-        top: 0;
-    }
+@include mq(desktop) {
 
     .gusto-header-content-inner {
         max-width: 460px;
@@ -547,13 +574,6 @@ body figure.interactive {
 }
 
 @media (min-width: 1140px){
-    .interactive::before, .interactive::after {
-        width: calc((100% - 71.25rem) / 2);
-    }
-
-    .gusto-header-content {
-        max-width: 1140px;
-    }
 
     .gusto-header-content-inner {
         max-width: 640px;
@@ -563,49 +583,14 @@ body figure.interactive {
         font-size: 60px;
     }
 
-     .gusto-section-header {
-         margin-left: calc((100% - 71.25rem) / 2);
-     }
-
     .gusto-section-header-left {
         overflow: visible;
-
     }
-
-
 }
 
 @media (min-width: 1300px){
-    .interactive::before, .interactive::after {
-        width: calc((100% - 81.25rem) / 2);
-    }
-
-    .gusto-header-content {
-        max-width: 1300px;
-
-    }
-
-    .gusto-header-content-inner {
-
-        &.left {
-            left: 230px;
-        }
-        &.right {
-            right: 0px;
-            min-width: 460px;
-        }
-
-    }
 
     .gusto-headline-big {
         font-size: 72px;
-    }
-
-     .gusto-section-header {
-         margin-left: 180px;
-     }
-
-    .gusto-section-header-left .gusto-section-header {
-        margin-left: calc((100% - 81.25rem) / 2 + 10px);
     }
 }

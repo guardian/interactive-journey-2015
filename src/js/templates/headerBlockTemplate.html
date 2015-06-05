@@ -1,8 +1,6 @@
-
-
 {{#if type==='image' }}
-    <header 
-        class="gusto-viewport-full gusto-header"
+    <header
+        class="gusto-header"
         decorator='lazyload:{src:{{src}},imgSizes:{{size}},srcAlt:{{src_alt}}, bgImg:true, type: "image"}'
     >
 
@@ -13,7 +11,7 @@
                 </h3>            <h1 class="gusto-headline gusto-headline-big">
                     {{ headline }}
                 </h1>
-                
+
                 {{ #each copy }}
                     <p class="gusto-sub-heading">
                        {{{ this.trim() }}}
@@ -27,12 +25,12 @@
 {{/if}}
 
 {{#if type==='video' }}
-    <header 
-        class="gusto-viewport-full gusto-header"
+    <header
+        class="gusto-header"
     >
 
         {{#if type==='video' }}
-            <video  class="gusto-video gusto-header-video"
+            <video  class="gusto-header-video"
                     preload="none"
                     autoplay="autoplay"
                     loop="loop"
@@ -48,7 +46,7 @@
                 </h3>            <h1 class="gusto-headline gusto-headline-big">
                     {{ headline }}
                 </h1>
-                
+
                 {{ #each copy }}
                     <p class="gusto-sub-heading">
                        {{{ this.trim() }}}

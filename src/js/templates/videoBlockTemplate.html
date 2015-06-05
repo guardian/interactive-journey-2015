@@ -1,13 +1,12 @@
 <!-- Section: Video showcase example. Start. -->
-<figure class="gusto-section gusto-section-full gusto-section-video">
-    <div class="{{ class }} gusto-video-wrapper">
+<figure class="gusto-video gusto-video--inner">
+    <div class="gusto-video-wrapper">
         <video
-            class="gusto-video {{ elmclass }}"
             preload="none"
             decorator='lazyload:{src:{{src}}, type:"video" }'
         >
         </video>
-        
+
         <div class="gusto-video-cover">
     		<svg class="gust-video-play-btn" x="0px" y="0px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="display:block;margin-left:auto;margin-right:auto;">
 				<circle fill="#ffbb00" cx="50" cy="50" r="50"/>
@@ -17,9 +16,9 @@
 			</svg>
         </div>
     </div>
-    
+
 	{{ #caption }}
-        <figcaption class="gusto-caption gusto-restrict-inner left-column">
+        <figcaption class="gusto-caption">
             {{{ caption }}}
         </figcaption>
 	{{ /caption }}

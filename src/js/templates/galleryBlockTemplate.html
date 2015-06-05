@@ -1,6 +1,5 @@
-
 <!-- Section: Photo gallert example. Start. -->
-<figure class="gusto-section gusto-section-gallery {{ class }} {{^class}}gusto-restrict-outer{{/class}} {{#swipe}} swipe {{/swipe}}">
+<figure class="{{#swipe}} swipe {{/swipe}}">
 
     {{ #headline }}
     <div class='gusto-section-header {{ #audio }}gusto-section-header-has-audio{{ /audio }}'>
@@ -19,7 +18,7 @@
             {{ #images }}
                 <div class="swiper-slide">
                   <figure class="swiper-slide-inner" style="width: {{ 100 / columns }}%;">
-                    <img class="gusto-photo gusto-gallary-photo"
+                    <img class="gusto-photo gusto-gallery-photo"
                          decorator='lazyload:{src:{{src}},imgSizes:{{size}},srcAlt:{{src_alt}}, type: "image" }'
                            alt="{{ alt }}" />
 
@@ -42,13 +41,13 @@
         <div class="swiper-button-prev">
           <svg x="0px" y="0px" width="15px" height="30px" viewBox="0 0 15 30">
             <g transform='rotate(180) translate(-15, -30)'>
-              <polygon fill="#FFFFFF" points="0.2,2.1 11,15 0.2,27.9 1.5,29.2 13.1,17.5 13.1,17.5 15,15.7 15,14.3 13.1,12.5 1.5,0.8 "/>
+              <polygon fill="#FFFFFF" points="0.2,2.1 11,15 0.2,27.9 1.5,29.2 13.1,17.5 13.1,17.5 15,15.7 15,14.3 13.1,12.5 1.5,0.8 " />
             </g>
           </svg>
         </div>
         <div class="swiper-button-next">
           <svg x="0px" y="0px" width="15px" height="30px" viewBox="0 0 15 30">
-            <polygon fill="#FFFFFF" points="0.2,2.1 11,15 0.2,27.9 1.5,29.2 13.1,17.5 13.1,17.5 15,15.7 15,14.3 13.1,12.5 1.5,0.8 "/>
+            <polygon fill="#FFFFFF" points="0.2,2.1 11,15 0.2,27.9 1.5,29.2 13.1,17.5 13.1,17.5 15,15.7 15,14.3 13.1,12.5 1.5,0.8 " />
           </svg>
         </div>
 
@@ -63,21 +62,17 @@
 
 </figure>
 <!-- Section: Photo gallert example. End. -->
-
-
-
-
 <script>
   component.exports = {
       oncomplete : function(){
         var el = this.fragment.items[0].node;
-        
+
         // Wrapping HTML in an {{if}} breaks fragment node using this instead
         if (this.get('exclude') && this.get('exclude') === 'web') {
           el.innerHTML = '';
           return;
         }
-        
+
         var mySwiper;
         if(!el) {  return ;}
 
@@ -120,5 +115,4 @@
         window.addEventListener('resize', initSwiper, false);
     }
   };
-
-  </script>
+</script>

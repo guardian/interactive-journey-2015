@@ -1,30 +1,27 @@
 <!-- Section: Pull. Start. -->
-<div class="gusto-section gusto-section-pull">
-    <div class="gusto-pull gusto-section-header {{ extraClasses }}">
-        {{#heading}}
-        <h3 class="gusto-headline gusto-headline-small gusto-headline-border-top">
-            {{heading}}
-        </h3>
-        {{/heading}}
-        
-        {{ #byline }}
-            <div class='gusto-photo-byline'>
-                {{ #byline_photo }}<img class="gusto-photo gusto-photo-pull" alt="{{ byline }}" decorator='lazyload:{src:{{byline_photo}}, type: "image"  }' />{{ /byline_photo }}
-                <p><a class='byline-name' href='{{byline_link}}'>{{{byline}}}</a> {{byline_title}}</p>
+<div class="gusto-pull">
+    {{#heading}}
+    <h3 class="gusto-headline gusto-headline-small gusto-headline-border-top">
+        {{heading}}
+    </h3>
+    {{/heading}}
 
-            </div>
-            {{ #date_published }}<div class='gusto-date-published'>{{ date_published }}</div>{{ /date_published }}
-        {{ /byline}}
+    {{ #byline }}
+        <div class='gusto-photo-byline'>
+            {{ #byline_photo }}<img class="gusto-photo gusto-photo-pull" alt="{{ byline }}" decorator='lazyload:{src:{{byline_photo}}, type: "image"  }' />{{ /byline_photo }}
+            <p><a class='byline-name' href='{{byline_link}}'>{{{byline}}}</a> {{byline_title}}</p>
+        </div>
+        {{ #date_published }}<div class='gusto-date-published'>{{ date_published }}</div>{{ /date_published }}
+    {{ /byline}}
 
-        {{ #share.length > 0 }}
-            <div class='gusto-byline-share'>
-                <shareTools media='{{share}}' >
-            </div>
-        {{ /share }}        
-        
-        {{ #each copy }}
-            <p>{{{ this.trim() }}}</p>
-        {{/each}}
-    </div>
+    {{ #share.length > 0 }}
+        <div class='gusto-byline-share'>
+            <shareTools media='{{share}}' >
+        </div>
+    {{ /share }}
+
+    {{ #each copy }}
+        <p>{{{ this.trim() }}}</p>
+    {{/each}}
 </div>
 <!-- Section: Pull. end. -->

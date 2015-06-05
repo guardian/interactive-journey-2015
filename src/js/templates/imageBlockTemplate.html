@@ -1,19 +1,17 @@
 <!-- Section: Photo full-width example. Start. -->
-<figure class="gusto-section gusto-section-photo">
-	<div class=" {{ class }}">
-		{{ #headline }}
-		<div class='gusto-section-header'>
-			<h2 class='gusto-headline gusto-headline-medium gusto-headline-border-top'>{{ headline }}</h2>
-			<p>{{ caption }}</p>
-		</div>
-		{{ /headline }}
-    	<img class="gusto-photo {{ elmclass }}"
-			 decorator='lazyload:{src:{{src}},imgSizes:{{size}},srcAlt:{{src_alt}}, type: "image" }'
-			 alt="{{ alt }}" />
+<figure class="gusto-image gusto-image--inner">
+	{{ #headline }}
+	<div class='gusto-section-header'>
+		<h2 class='gusto-headline gusto-headline-medium gusto-headline-border-top'>{{ headline }}</h2>
+		<p>{{ caption }}</p>
 	</div>
+	{{ /headline }}
+	<img class="gusto-photo {{ elmclass }}"
+		 decorator='lazyload:{src:{{src}},imgSizes:{{size}},srcAlt:{{src_alt}}, type: "image" }'
+		 alt="{{ alt }}" />
 
 	{{ ^headline }}
-	    <figcaption class="gusto-caption gusto-restrict-inner left-column">
+	    <figcaption class="gusto-caption gusto-inner-body">
 	       {{ caption }}
 	    </figcaption>
     {{ /headline }}
