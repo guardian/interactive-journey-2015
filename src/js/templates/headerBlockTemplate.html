@@ -25,11 +25,11 @@
 {{/if}}
 
 {{#if type==='video' }}
-    <header
-        class="gusto-header"
-    >
+
+    <header class="gusto-header" 
+        decorator='posterFrame:{src:{{src}}, enable: {{isPhone}} }'>
     
-         {{#if type==='video' }}
+         {{#if (type==='video' && !isPhone) }}
             <video  class="gusto-header-video"
                     preload="none"
                     autoplay="autoplay"
@@ -37,8 +37,7 @@
                     decorator='lazyload:{src:{{src}}, type:"video",  bgImg:true }'>
             </video>
         {{/if}}
-
-
+        
         <div class='gusto-header-content'>
             <div class="gusto-header-content-inner {{text_style}}">
                 <h3 class="gusto-kicker">
