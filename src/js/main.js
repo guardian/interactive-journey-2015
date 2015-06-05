@@ -46,7 +46,7 @@ define([
     'use strict';
     //Ractive.DEBUG = false;
     var base;
-       
+
     function cleanData(data) {
         data.blocks.forEach(function(block) {
             if (block.hasOwnProperty('copy')) {
@@ -55,11 +55,11 @@ define([
         });
         return data;
     }
-    
+
     function launchApp(el, responseData){
         var archieData = cleanData(responseData);
         console.log(archieData);
-    
+
         //initialize the ractive base, add data, and comonent modules
         base = new AppTemplate({
                     el: el,
@@ -85,7 +85,7 @@ define([
                     decorators: {
                         lazyload: function ( node, options ) {
                             assetManager.addMedia( node, options );
-                            
+
                             return {
                                 teardown: function () {}
                             };
@@ -101,22 +101,22 @@ define([
                                 this.get('windowWidth')
                             );
                         });
-                        
+
                         this.set( measureScreen() );
-                        
+
                         // Wait for content to be loaded before testing bandwidth
                         setTimeout(function() {
                             bandwidth.getSpeed(assetManager.setVideoBitrate);
                         }, 2000);
-                        
-                        window.addEventListener('scroll', debounce( function() { 
-                            base.set( measureScreen() ); 
+
+                        window.addEventListener('scroll', debounce( function() {
+                            base.set( measureScreen() );
                         }, 100));
 
                     }
                 });
     }
-    
+
     function measureScreen(){
         var top = (window.pageYOffset || document.documentElement.scrollTop);
         return {
@@ -125,7 +125,7 @@ define([
             windowWidth: window.innerWidth
         };
     }
-    
+
      function handleRequestError(err, msg) {
         console.error('Failed: ', err, msg);
     }
@@ -146,7 +146,7 @@ define([
         };
     }
 
-    function init(el, context, config, mediator) {       
+    function init(el, context, config, mediator) {
         // DEBUG: What we get given on boot
         console.log(el, context, config, mediator);
 
@@ -168,7 +168,7 @@ define([
             launchApp(el, data);
         })
         .fail(handleRequestError);
-        
+
         // Fix iOS and ie9+ viewport units
         viewportUnitsBuggyfill.init({
             hacks: viewportUnitsBuggyfillHacks,

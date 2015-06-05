@@ -1,5 +1,5 @@
 /**
- * Project: Project name 
+ * Project: Project name
  * File:    Main SCSS
  */
 $guss-webfonts-base-url: '//pasteup.guim.co.uk/fonts/';
@@ -31,12 +31,12 @@ body,
 figure {
     margin: 0;
     padding: 0;
-    
+
     // Aspect ratio breakpoints
-    @media screen and (max-aspect-ratio: 16/9) { 
+    @media screen and (max-aspect-ratio: 16/9) {
           //background: rgb(240, 255, 255) !important;
     }
-    @media screen and (min-aspect-ratio: 16/9) { 
+    @media screen and (min-aspect-ratio: 16/9) {
           //background: rgb(255, 245, 255) !important;
     }
 }
@@ -80,17 +80,17 @@ body figure.interactive {
 
 .gusto-header-video {
     position: absolute;
-    min-width: 100%; 
-    min-height: 100%; 
-    z-index: -1000; 
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1000;
     overflow: hidden;
     width: auto !important;
-    
+
     @media (min-aspect-ratio: 16/9) {
-        top: 50%; 
-        transform: translateY(-50%); 
+        top: 50%;
+        transform: translateY(-50%);
     }
-    
+
     @media (max-aspect-ratio: 16/9) {
         transform: translateX(-50%);
         left: 50%;
@@ -100,7 +100,7 @@ body figure.interactive {
 .gusto-header-content-inner {
     position: absolute;
     padding: 20px 10px;
-    
+
     &.top {
         top: 0;
     }
@@ -186,9 +186,9 @@ body figure.interactive {
 .gusto-video-wrapper {
     position: relative;
     padding: 0;
-    
+
     &:hover .gusto-video-cover {
-        opacity: 1;   
+        opacity: 1;
     }
 }
 
@@ -212,7 +212,7 @@ body figure.interactive {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    
+
     .guPause {
         display: none;
     }
@@ -222,7 +222,7 @@ body figure.interactive {
     .guPause {
         display: block;
     }
-    
+
     .guPlay{
         display: none;
     }
@@ -239,12 +239,29 @@ body figure.interactive {
     padding: 10px 10px 15px 0;
     max-width: 640px;
     text-align: left;
-    
+
     p {
         margin-top: 0;
         line-height: 1.25;
         font-size: 14px;
         color: #333;
+    }
+}
+
+@media (max-width: 979px) {
+    .gusto-section-header {
+        margin: auto;
+        &:after {
+          display: table;
+          content: '';
+          clear: both;
+        }
+    }
+}
+
+@media (min-width: 980px) {
+    .gusto-section-header-has-audio {
+        padding-left: 40px;
     }
 }
 
@@ -255,7 +272,7 @@ body figure.interactive {
         color: #333;
 }
 
-.gusto-section-header::before {
+.gusto-headline-border-top::before {
     width: 110px;
     height: 1px;
     background: #dcdcdc;
@@ -271,7 +288,7 @@ body figure.interactive {
     width: 100vw;
     margin: 0 auto;
     display: block;
-    
+
     @media screen and (min-aspect-ratio: 16/9) {
         height: 100vh;
         width: auto;
@@ -283,11 +300,11 @@ body figure.interactive {
     width: 100%;
     margin: 0 auto;
     display: block;
-    
+
     transform: translateX(-50%);
     left: 50%;
     position: relative;
-    
+
     @media screen and (min-aspect-ratio: 16/9) {
         height: auto;
         width: 100vw;
@@ -299,7 +316,7 @@ body figure.interactive {
 .gusto-edge-clip-container {
     overflow: hidden;
     width: 100%;
-    
+
     @media screen and (min-aspect-ratio: 16/9) {
         height: 100vh;
     }
@@ -314,8 +331,8 @@ body figure.interactive {
 
 .gusto-edge-clip-anim {
 //    left: 100%;
-//    animation: photoPanAnimation calc(2*60s) infinite; 
-//    transition-timing-function: ease-in-out;  
+//    animation: photoPanAnimation calc(2*60s) infinite;
+//    transition-timing-function: ease-in-out;
 }
 
 
@@ -329,7 +346,7 @@ body figure.interactive {
 
 // Pull blocks
 .gusto-section-pull {
-    margin: 0 auto;    
+    margin: 0 auto;
 }
 
 .gusto-pull {
@@ -339,15 +356,15 @@ body figure.interactive {
     padding: 20px;
     max-width: 660px;
     margin: 0 auto;
-    
+
     &::before {
         content: initial !important;
     }
-        
+
     @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
         width: 210px !important;
     }
-    @media only screen and (min-width: map-get($breakpoints, 'wide')) {        
+    @media only screen and (min-width: map-get($breakpoints, 'wide')) {
         max-width: $outerColumnWidth;
     }
     @media (min-width: 1300px) {
@@ -392,7 +409,7 @@ body figure.interactive {
         .gusto-date-published {
             border-top: 1px dotted #ccc;
             min-height: 45px;
-            
+
         }
 
         .gusto-byline-share {
@@ -433,13 +450,13 @@ body figure.interactive {
     text-align: center;
 }
 
-.gusto-gallary-photo {  
+.gusto-gallary-photo {
     box-sizing: border-box;
     display: inline-block;
     line-height: 0;
     vertical-align: middle;
     width: 100%;
-    
+
 }
 
 .swipe .gusto-gallary-photo {
@@ -450,21 +467,21 @@ body figure.interactive {
 // Author meta
 .gusto-author-photo {
   float: left;
-  margin: 0 10px 10px 0; 
+  margin: 0 10px 10px 0;
 }
 
 .gusto-author-copy {
-    margin: 0;    
+    margin: 0;
 }
 
 // Fun margin columns
 .left-column {
     @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
         margin-left: calc(((100vw - #{map-get($breakpoints, 'desktop')}) / 2 ) + #{$colWidth});
-    }    
+    }
     @media only screen and (min-width: map-get($breakpoints, 'leftCol')) {
         margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) + #{$colWidth});
-    } 
+    }
     @media only screen and (min-width: map-get($breakpoints, 'wide')) {
         margin-left: calc(((100vw - #{map-get($breakpoints, 'wide')}) / 2 ) + #{$colWidth});
     }
@@ -474,11 +491,11 @@ body figure.interactive {
     @media only screen and (min-width: map-get($breakpoints, 'desktop')) {
         $leftCol: #{ (map-get($breakpoints, 'desktop') - map-get($breakpoints, 'phablet')) - $colWidth };
         margin-left: calc(((100vw - #{map-get($breakpoints, 'desktop')}) / 2 ) +  #{$leftCol} );
-    }    
+    }
     @media only screen and (min-width: map-get($breakpoints, 'leftCol')) {
         $leftCol: #{ (map-get($breakpoints, 'leftCol') - map-get($breakpoints, 'phablet')) - $colWidth };
         margin-left: calc(((100vw - #{map-get($breakpoints, 'leftCol')}) / 2 ) + #{ $leftCol} );
-    } 
+    }
     @media only screen and (min-width: map-get($breakpoints, 'wide')) {
         $leftCol: #{ (map-get($breakpoints, 'wide') - map-get($breakpoints, 'phablet')) - $colWidth };
         margin-left: calc(((100vw - #{map-get($breakpoints, 'wide')}) / 2 ) + #{$leftCol} );
@@ -503,14 +520,14 @@ body figure.interactive {
     .gusto-header-content {
         max-width: 980px;
     }
-    
+
    .gusto-section-header {
         position: absolute;
         width: $colWidth;
         margin-left: calc((100% - 61.25rem) / 2);
         bottom: 100%;
     }
-    
+
     .gusto-restrict-inner .gusto-section-header {
         left: 10px;
         top: 0;
@@ -551,7 +568,7 @@ body figure.interactive {
 
     }
 
- 
+
 }
 
 @media (min-width: 1300px){

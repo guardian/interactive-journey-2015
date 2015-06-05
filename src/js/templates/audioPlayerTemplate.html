@@ -1,32 +1,22 @@
-<div class='podcastPlayer'>
+<div class='podcastPlayer podcastPlayer--{{block}}' on-click='triggerPlayPause'>
 	<audio decorator=''>
 		<source src="{{src}}" type="audio/mpeg">
 	</audio>
+	<div class='playerBtn {{#isPlaying}}playerIsPlaying{{/isPlaying}}'>
+		<svg x="0px" y="0px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+			<circle fill="#dfdfdf" cx="50" cy="50" r="50"/>
+			<g transform="translate(50,50)">
+				{{#percentPlayed > 0 && duration != 0}}
+					<polygon fill='#333333' points='{{ getSegmentPoints( percentPlayed, 44, 48, 0 ) }}'>
+				{{/percentPlayed}}
+			</g>
+			<circle class="svgButtonCircle" fill="#ffbb00" cx="50" cy="50" r="44"/>
+			<polygon fill="#333333" class='guPause' points="45.9,65.5 37.6,65.5 37.6,34.5 39.6,32.5 45.9,32.5 "/>
+			<polygon fill="#333333" class='guPause' points="62.4,63.5 60.4,65.5 54.1,65.5 54.1,32.5 62.4,32.5 "/>
+			<polygon fill="#333333" class='guPlay' points="72.2,49.3 38.1,35.2 36.9,36.1 36.9,63.9 38.1,64.8 72.2,50.7 "/>
+		</svg>
 
-	<div class='guAudioPlayer'>
-		<div class='playerContainer'>
-			<div class='guPlayerBtn {{#isPlaying}}playerIsPlaying{{/isPlaying}}' on-click='triggerPlayPause'>
-			
-				<svg x="0px" y="0px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" style="display:block;margin-left:auto;margin-right:auto;">
-					<circle fill="#dfdfdf" cx="50" cy="50" r="50"/>
-					<g transform="translate(50,50)">
-						{{#percentPlayed > 0 && duration != 0}}
-							<polygon fill='#333333' points='{{ getSegmentPoints( percentPlayed, 44, 48, 0 ) }}'>
-						{{/percentPlayed}}
-					</g>
-					<circle fill="#ffbb00" cx="50" cy="50" r="44"/>
-					<polygon fill="#333333" class='guPause' points="45.9,65.5 37.6,65.5 37.6,34.5 39.6,32.5 45.9,32.5 "/>
-					<polygon fill="#333333" class='guPause' points="62.4,63.5 60.4,65.5 54.1,65.5 54.1,32.5 62.4,32.5 "/>
-					<polygon fill="#333333" class='guPlay' points="72.2,49.3 38.1,35.2 36.9,36.1 36.9,63.9 38.1,64.8 72.2,50.7 "/>
-				</svg>
-
-				{{#duration != 0}}<div class='guTimer f-textSans'>{{calcTimeRemaining}}</div>{{/duration}}
-			
-			</div>
-		
-		
-		</div>
-
+		{{#duration != 0}}<div class='guTimer f-textSans'>{{calcTimeRemaining}}</div>{{/duration}}
 
 	</div>
 </div>
@@ -36,119 +26,59 @@
 <style>
 
 .podcastPlayer {
-	width: 100px;
 	display: block;
-	margin-top: 10px;
+	cursor: pointer;
+}
+
+.podcastPlayer:hover .svgButtonCircle {
+	fill: #ffcc11;
 }
 
 audio {
 	display: none;
 }
 
-.guAudioPlayer {
-	width: 100%;
-}
-
-.playerContainer {
-	display: block;
-	width: 100%;
-}
-
-.guPlayerBtn {
-	width: 50px;
-	display: block;
-	margin-left:auto;
-	margin-right:auto;
-
-}
-
-.guPlayerBtn svg {
+.playerBtn svg {
 	width: 50px;
 	height: 50px;
-	cursor: pointer;
-}
-
-.guPause {
-	display: none;
-}
-
-.playerIsPlaying .guPause {
-	display: block;
-}
-
-.playerIsPlaying .guPlay {
-	display: none;
-}
-
-.guProgressContainer {
-	max-width: 640px;
-	padding-left: 10px;
-	display: table-cell;
-	vertical-align: top;
 }
 
 .guTimer {
 	color: #767676;
 	font-size: 14px;
-	display: inline-block;
+	display: block;
 	text-align: center;
 	width: 100%;
 	font-family: 'Guardian Text Sans Web', 'Agate Sans', Arial;
 }
 
-.guListenLabel {
-	color: #767676;
-	font-size: .8rem;
-	line-height: .8rem;
-}
+/* player states */
+.guPause { display: none; }
+.playerIsPlaying .guPause { display: block; }
+.playerIsPlaying .guPlay { display: none; }
 
-.guProgressBar {
-	margin: 5px 0;
-	position: relative;
-	height: 15px;
-	background: #dfdfdf;
-	cursor: pointer;
+/* gallery version */
+.podcastPlayer--gallery {
+	float: right;
+	padding-left: 10px;
 }
-
-.guProgBarHit {
-	width: 100%;
-	height: 100%;
-	position: absolute;
-}
-
-.guProgress {
-	background: #ff9b0b;
-	position: absolute;
-	height: 15px;
-}
+/* responsive styles */
 @media (min-width: 980px){
-	.playerContainer {
-		float: left;
+	.podcastPlayer--gallery {
+		width: 40px;
+		position: absolute;
+		top: 10px;
+		left: 0;
+		padding-left: 0;
+		padding-right: 10px;
 	}
 
-	
-
-	.guPlayerBtn {
-		width: 100px;
+	.podcastPlayer--gallery .playerBtn svg {
+		width: 30px;
+		height: 30px;
 	}
-	.guPlayerBtn svg {
-		
-		height: 50px;
-	}
-
-	.guPlayerBtn svg {
-		width: 100%;
-	}
-
-	.guListenLabel {
-		font-size: 1.15rem;
-		line-height: 1.25rem;
-	}
-
-	.guProgressContainer {
-		vertical-align: middle;
-		
-		padding-right: 20px;
+	.podcastPlayer--gallery .guTimer {
+		font-size: 13px;
 	}
 }
 
@@ -162,7 +92,7 @@ var convertTime = function(time){
 					var seconds = Math.floor(time - (minutes * 60));
 					if(seconds < 10 ){
 						seconds = "0"+ seconds.toString();
-					} 
+					}
 					return minutes + ':' + seconds;
 				}
 
@@ -228,24 +158,23 @@ component.exports = {
 		//component reference
 		var that = this;
 		var isMouseDown = false;
-		var progBarEl = this.find('.guProgressBar');
 		//player reference
 		var audioPlayer = this.find('audio');
 
 		audioPlayer.onloadeddata = function(e){
 
 			that.set('canPlay', true);
-		
+
 			if(audioPlayer.duration != NaN && audioPlayer.duration != Infinity){
 				that.set('duration', audioPlayer.duration);
 			}
-			
+
 		}
 		audioPlayer.ontimeupdate = function(e){
 			if(audioPlayer.duration != NaN && audioPlayer.duration != Infinity && audioPlayer.duration != 0){
 				that.set('position', audioPlayer.currentTime)
 			}
-			
+
 
 		}
 		audioPlayer.onended = function(e){
@@ -260,7 +189,7 @@ component.exports = {
 			triggerPlayPause: function(e){
 				this.toggle('isPlaying')
 			},
-	
+
 
 
 		})

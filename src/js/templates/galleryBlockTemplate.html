@@ -4,29 +4,26 @@
 <figure class="gusto-section gusto-section-gallery {{ class }} {{^class}}gusto-restrict-outer{{/class}} {{#swipe}} swipe {{/swipe}}">
 
     {{ #headline }}
-    <div class='gusto-section-header'>
-      <h2 class='gusto-headline gusto-headline-medium'>{{ headline }}</h2>
+    <div class='gusto-section-header {{ #audio }}gusto-section-header-has-audio{{ /audio }}'>
+      {{ #audio }}<audioPlayer />{{ /audio }}
+      <h2 class='gusto-headline gusto-headline-border-top gusto-headline-medium'>{{ headline }}</h2>
       <p>{{ caption }}</p>
     </div>
     {{ /headline }}
-
-    {{ #audio_src }}
-      <audioBlock />
-    {{ /audio_src }}
 
     <!-- Slider main container -->
     <div class="swiper-container">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-            
-          
+
+
             {{ #images }}
                 <div class="swiper-slide">
                   <figure class="swiper-slide-inner" style="width: {{ 100 / columns }}%;">
                     <img class="gusto-photo gusto-gallary-photo"
                          decorator='lazyload:{src:{{src}},imgSizes:{{size}},srcAlt:{{src_alt}}, type: "image" }'
                            alt="{{ alt }}" />
-                  
+
                     {{ #caption }}
                       <figcaption class="gusto-caption">
                           {{{ caption }}}
@@ -35,13 +32,13 @@
                   </figure>
                 </div>
             {{ /images }}
-            
-          
+
+
         </div>
-        
-        <div class="swiper-pagination"></div>     
-     
-        
+
+        <div class="swiper-pagination"></div>
+
+
         <!-- If we need navigation buttons -->
         <div class="swiper-button-prev">
           <svg x="0px" y="0px" width="15px" height="30px" viewBox="0 0 15 30">
@@ -55,7 +52,7 @@
             <polygon fill="#FFFFFF" points="0.2,2.1 11,15 0.2,27.9 1.5,29.2 13.1,17.5 13.1,17.5 15,15.7 15,14.3 13.1,12.5 1.5,0.8 "/>
           </svg>
         </div>
-     
+
     </div>
 
     {{ #caption && !headline }}
@@ -63,8 +60,8 @@
         {{{ caption }}}
     </figcaption>
 	{{ /caption }}
-    
-    
+
+
 </figure>
 <!-- Section: Photo gallert example. End. -->
 {{/if}}
@@ -78,14 +75,14 @@
         var el = this.component.instance.el;
         console.log(el, this);
         if(!el) {  return ;}
-        
-        
+
+
         var swipEl = el.querySelector('.swiper-container');
-          
+
         function isNarrow() {
-          return window.innerWidth < 660;   
+          return window.innerWidth < 660;
         }
-        
+
         function addSwiper() {
           el.classList.add('swipe');
           mySwiper = new Swiper(swipEl, {
@@ -99,24 +96,24 @@
             }
           });
         }
-        
+
         function initSwiper() {
           var hasClass = el.classList.contains('swipe');
           if (isNarrow() && !hasClass) {
-            addSwiper(); 
+            addSwiper();
           }
-          
+
           if (!isNarrow() && hasClass) {
             mySwiper.destroy(true, true);
             el.classList.remove('swipe');
           }
         }
-        
+
         initSwiper();
-        
+
         // Toggle swipe based on viewport width
         window.addEventListener('resize', initSwiper, false);
     }
   };
-  
+
   </script>
