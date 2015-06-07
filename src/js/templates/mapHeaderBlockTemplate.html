@@ -1,13 +1,1051 @@
+ {{#if windowWidth< 640}}
+ 	<galleryBlock />
+ {{/if}}
+
+ {{#if windowWidth> 640}}
  <header class="gusto-header" >
 
-<p>Part 3. Europe. a map will go here.</p>
+	 	<div id="choices">
+		<div id="rc">
+		<div class='gu-graphic-bg' id='background'>
+		<div class='b' id='b-0' >
+		<div class='b-step b-step-0' id='b-step-0' >
+		<div class='b-region b-region-0' id='b-region-0' style='width:100%;' >
+		<img class='main-background-image' id='b-img-0' decorator='lazyload:{src:"@@assetPath@@/imgs/background-01.png", type: "image"}' />
+		</div></div>
+		</div>
+		<div class='b' id='b-1' >
+		<div class='b-step b-step-0' id='b-step-0' >
+		<div class='b-region b-region-0' id='b-region-0' style='width:100%;' >
+		<img class='main-background-image' id='b-img-1' decorator='lazyload:{src:"@@assetPath@@/imgs/background-02.png", type: "image"}' />
+		</div></div>
+		</div>
+		<div class='b' id='b-2' >
+		<div class='b-step b-step-0' id='b-step-0' >
+		<div class='b-region b-region-0' id='b-region-0' style='width:100%;' >
+		<img class='main-background-image' id='b-img-2' decorator='lazyload:{src:"@@assetPath@@/imgs/background-03.png", type: "image"}' />
+		</div></div>
+		</div>
+		</div>
+		<div class='gu-graphic {{#if selectedRoute == "a"}}selectedRoute {{/if}}' id='option-a'>
+		<div class='oa' id='oa-0' >
+		<div class='oa-step oa-step-0' id='oa-step-0' >
+		<div class='oa-region oa-region-0' id='oa-region-0' style='width:100%;' >
+		<img class='main-background-image' id='oa-img-0' decorator='lazyload:{src:"@@assetPath@@/imgs/option-a-0-0-0.png", type: "image"}' />
+				<div id='gu-g1' class='gu-position' style='right:21.6129032258065%;top:77.3874321059417%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Catania</span></p>
+				</div>
+				<div id='gu-g2' class='gu-position' style='left:76.1290322580645%;top:5.78340239937643%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Sweden</span></p>
+				</div>
+				<div id='gu-g3' class='gu-position' style='left:71.4516129032258%;width:8.69424143145161%;top:70.7778293637973%;'>
+					<p class='gu-p2'><span style='color:#767676;' >Italy</span></p>
+				</div>
+				<div id='gu-g4' class='gu-position' style='left:74.5161290322581%;top:44.3394183952193%;'>
+					<p class='gu-p3'><span style='color:#000000;' >Munich</span></p>
+				</div>
+				<div id='gu-g5' class='gu-position' style='right:27.9032258064516%;top:43.2378179381952%;'>
+					<p class='gu-p4'><span style='color:#000000;' >Ulm</span></p>
+				</div>
+				<div id='gu-g6' class='gu-position' style='right:29.5161290322581%;top:54.253822508436%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Milan</span></p>
+				</div>
+		</div></div>
+		</div>
+		<div class='oa' id='oa-1' >
+		<div class='oa-step oa-step-0' id='oa-step-0' >
+		<div class='oa-region oa-region-0' id='oa-region-0' style='width:100%;' >
+		<img class='main-background-image' id='oa-img-1' decorator='lazyload:{src:"@@assetPath@@/imgs/option-a-1-0-0.png", type: "image"}' />
+				<div id='gu-g1' class='gu-position' style='right:19.3023255813953%;top:79.2939817801354%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Catania</span></p>
+				</div>
+				<div id='gu-g2' class='gu-position' style='left:76.046511627907%;width:9.06783702761628%;top:12.30423855209%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Sweden</span></p>
+				</div>
+				<div id='gu-g3' class='gu-position' style='left:74.5348837209302%;width:6.26794149709302%;top:71.6770722002701%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Italy</span></p>
+				</div>
+				<div id='gu-g4' class='gu-position' style='left:76.1627906976744%;top:48.0451219653037%;'>
+					<p class='gu-p2'><span style='color:#000000;' >Munich</span></p>
+				</div>
+				<div id='gu-g5' class='gu-position' style='right:25.2325581395349%;top:47.0685950960902%;'>
+					<p class='gu-p3'><span style='color:#000000;' >Ulm</span></p>
+				</div>
+				<div id='gu-g6' class='gu-position' style='right:26.1627906976744%;top:58.7869175266521%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Milan</span></p>
+				</div>
+		</div></div>
+		</div>
+		<div class='oa' id='oa-2' >
+		<div class='oa-step oa-step-0' id='oa-step-0' >
+		<div class='oa-region oa-region-0' id='oa-region-0' style='width:100%;' >
+		<img class='main-background-image' id='oa-img-2' decorator='lazyload:{src:"@@assetPath@@/imgs/option-a-2-0-0.png", type: "image"}' />
+				<div id='gu-g1' class='gu-position' style='left:67.34375%;width:6.09245300292969%;top:4.83870967741935%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Sweden</span></p>
+				</div>
+				<div id='gu-g2' class='gu-position' style='left:66.09375%;width:4.21127319335938%;top:68.8709677419355%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Italy</span></p>
+				</div>
+				<div id='gu-g3' class='gu-position' style='right:29.375%;top:77.0967741935484%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Catania</span></p>
+				</div>
+				<div id='gu-g4' class='gu-position' style='left:66.796875%;top:44.1935483870968%;'>
+					<p class='gu-p2'><span style='color:#000000;' >Munich</span></p>
+				</div>
+				<div id='gu-g5' class='gu-position' style='right:34.453125%;top:43.2258064516129%;'>
+					<p class='gu-p3'><span style='color:#000000;' >Ulm</span></p>
+				</div>
+				<div id='gu-g6' class='gu-position' style='right:35.234375%;top:54.8387096774194%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Milan</span></p>
+				</div>
+		</div></div>
+		</div>
+		</div>
+		<div class='gu-graphic {{#if selectedRoute == "b"}}selectedRoute {{/if}}' id='option-b'>
+		<div class='ob' id='ob-0' >
+		<div class='ob-step ob-step-0' id='ob-step-0' >
+		<div class='ob-region ob-region-0' id='ob-region-0' style='width:100%;' >
+		<img class='main-background-image' id='ob-img-0' decorator='lazyload:{src:"@@assetPath@@/imgs/option-b-0-0-0.png", type: "image"}' />
+				<div id='gu-g1' class='gu-position' style='right:21.6129032258065%;top:77.3874321059417%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Catania</span></p>
+				</div>
+				<div id='gu-g2' class='gu-position' style='left:77.0967741935484%;top:21.4812089119696%;'>
+					<p class='gu-p1'><span style='color:#000000;' >Malmö</span></p>
+				</div>
+				<div id='gu-g3' class='gu-position' style='right:24.6774193548387%;top:17.3502071981293%;'>
+					<p class='gu-p2'><span style='color:#000000;' >Copenhagen</span></p>
+				</div>
+				<div id='gu-g4' class='gu-position' style='left:76.1290322580645%;top:5.78340239937643%;'>
+					<p class='gu-p3'><span style='color:#767676;' >Sweden</span></p>
+				</div>
+				<div id='gu-g5' class='gu-position' style='left:71.4516129032258%;width:8.69424143145161%;top:70.7778293637973%;'>
+					<p class='gu-p4'><span style='color:#767676;' >Italy</span></p>
+				</div>
+				<div id='gu-g6' class='gu-position' style='right:29.5161290322581%;top:54.253822508436%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Milan</span></p>
+				</div>
+		</div></div>
+		</div>
+		<div class='ob' id='ob-1' >
+		<div class='ob-step ob-step-0' id='ob-step-0' >
+		<div class='ob-region ob-region-0' id='ob-region-0' style='width:100%;' >
+		<img class='main-background-image' id='ob-img-1' decorator='lazyload:{src:"@@assetPath@@/imgs/option-b-1-0-0.png", type: "image"}' />
+				<div id='gu-g1' class='gu-position' style='right:19.3023255813953%;top:79.2939817801354%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Catania</span></p>
+				</div>
+				<div id='gu-g2' class='gu-position' style='left:78.953488372093%;top:27.3427523379777%;'>
+					<p class='gu-p1'><span style='color:#000000;' >Malmö</span></p>
+				</div>
+				<div id='gu-g3' class='gu-position' style='right:22.6744186046512%;top:23.6319502349664%;'>
+					<p class='gu-p2'><span style='color:#000000;' >Copenhagen</span></p>
+				</div>
+				<div id='gu-g4' class='gu-position' style='left:76.046511627907%;width:9.06783702761628%;top:12.30423855209%;'>
+					<p class='gu-p3'><span style='color:#767676;' >Sweden</span></p>
+				</div>
+				<div id='gu-g5' class='gu-position' style='left:74.5348837209302%;width:6.26794149709302%;top:71.6770722002701%;'>
+					<p class='gu-p3'><span style='color:#767676;' >Italy</span></p>
+				</div>
+				<div id='gu-g6' class='gu-position' style='right:26.1627906976744%;top:58.7869175266521%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Milan</span></p>
+				</div>
+		</div></div>
+		</div>
+		<div class='ob' id='ob-2' >
+		<div class='ob-step ob-step-0' id='ob-step-0' >
+		<div class='ob-region ob-region-0' id='ob-region-0' style='width:100%;' >
+		<img class='main-background-image' id='ob-img-2' decorator='lazyload:{src:"@@assetPath@@/imgs/option-b-2-0-0.png", type: "image"}' />
+				<div id='gu-g1' class='gu-position' style='left:67.34375%;width:6.09245300292969%;top:4.83870967741935%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Sweden</span></p>
+				</div>
+				<div id='gu-g2' class='gu-position' style='left:66.09375%;width:4.21127319335938%;top:68.8709677419355%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Italy</span></p>
+				</div>
+				<div id='gu-g3' class='gu-position' style='right:29.375%;top:77.0967741935484%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Catania</span></p>
+				</div>
+				<div id='gu-g4' class='gu-position' style='left:68.90625%;top:20.6451612903226%;'>
+					<p class='gu-p2'><span style='color:#000000;' >Malmö</span></p>
+				</div>
+				<div id='gu-g5' class='gu-position' style='right:32.109375%;top:17.5806451612903%;'>
+					<p class='gu-p3'><span style='color:#000000;' >Copenhagen</span></p>
+				</div>
+				<div id='gu-g6' class='gu-position' style='right:35.234375%;top:54.8387096774194%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Milan</span></p>
+				</div>
+		</div></div>
+		</div>
+		</div>
+		<div class='gu-graphic {{#if selectedRoute == "c"}}selectedRoute {{/if}}' id='option-c'>
+		<div class='oc' id='oc-0' >
+		<div class='oc-step oc-step-0' id='oc-step-0' >
+		<div class='oc-region oc-region-0' id='oc-region-0' style='width:100%;' >
+		<img class='main-background-image' id='oc-img-0' decorator='lazyload:{src:"@@assetPath@@/imgs/option-c-0-0-0.png", type: "image"}' />
+				<div id='gu-g1' class='gu-position' style='left:76.1290322580645%;top:5.78340239937643%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Sweden</span></p>
+				</div>
+				<div id='gu-g2' class='gu-position' style='left:71.4516129032258%;width:8.69424143145161%;top:70.7778293637973%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Italy</span></p>
+				</div>
+				<div id='gu-g3' class='gu-position' style='right:21.6129032258065%;top:77.3874321059417%;'>
+					<p class='gu-p2'><span style='color:#767676;' >Catania</span></p>
+				</div>
+				<div id='gu-g4' class='gu-position' style='right:38.0645161290323%;top:44.0640182809633%;'>
+					<p class='gu-p3'><span style='color:#000000;' >Paris</span></p>
+				</div>
+				<div id='gu-g5' class='gu-position' style='right:27.9032258064516%;top:52.0506215943879%;'>
+					<p class='gu-p2'><span style='color:#767676;' >Milan</span></p>
+				</div>
+		</div></div>
+		</div>
+		<div class='oc' id='oc-1' >
+		<div class='oc-step oc-step-0' id='oc-step-0' >
+		<div class='oc-region oc-region-0' id='oc-region-0' style='width:100%;' >
+		<img class='main-background-image' id='oc-img-1' decorator='lazyload:{src:"@@assetPath@@/imgs/option-c-1-0-0.png", type: "image"}' />
+				<div id='gu-g1' class='gu-position' style='right:19.3023255813953%;top:79.2939817801354%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Catania</span></p>
+				</div>
+				<div id='gu-g2' class='gu-position' style='left:76.046511627907%;width:9.06783702761628%;top:12.30423855209%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Sweden</span></p>
+				</div>
+				<div id='gu-g3' class='gu-position' style='left:74.5348837209302%;width:6.26794149709302%;top:71.6770722002701%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Italy</span></p>
+				</div>
+				<div id='gu-g4' class='gu-position' style='right:34.7674418604651%;top:47.849816591461%;'>
+					<p class='gu-p2'><span style='color:#000000;' >Paris</span></p>
+				</div>
+				<div id='gu-g5' class='gu-position' style='right:26.3953488372093%;top:55.8573369190116%;'>
+					<p class='gu-p0'><span style='color:#767676;' >Milan</span></p>
+				</div>
+		</div></div>
+		</div>
+		<div class='oc' id='oc-2' >
+		<div class='oc-step oc-step-0' id='oc-step-0' >
+		<div class='oc-region oc-region-0' id='oc-region-0' style='width:100%;' >
+		<img class='main-background-image' id='oc-img-2' decorator='lazyload:{src:"@@assetPath@@/imgs/option-c-2-0-0.png", type: "image"}' />
+				<div id='gu-g1' class='gu-position' style='right:42.890625%;top:43.2258064516129%;'>
+					<p class='gu-p0'><span style='color:#000000;' >Paris</span></p>
+				</div>
+				<div id='gu-g2' class='gu-position' style='right:29.375%;top:77.0967741935484%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Catania</span></p>
+				</div>
+				<div id='gu-g3' class='gu-position' style='left:67.34375%;width:6.09245300292969%;top:4.83870967741935%;'>
+					<p class='gu-p2'><span style='color:#767676;' >Sweden</span></p>
+				</div>
+				<div id='gu-g4' class='gu-position' style='left:66.09375%;width:4.21127319335938%;top:68.8709677419355%;'>
+					<p class='gu-p2'><span style='color:#767676;' >Italy</span></p>
+				</div>
+				<div id='gu-g5' class='gu-position' style='right:35.234375%;top:51.9354838709677%;'>
+					<p class='gu-p1'><span style='color:#767676;' >Milan</span></p>
+				</div>
+		</div></div>
+		</div>
+		</div>
+		</div>
+		<div id="lc">
+			<div id="text-block">
+				<h1 class="gusto-headline gusto-headline-big">{{headline}}</h1>
+				<p>{{{ standfirst.trim() }}}</p>
+				<div class="btn" on-click="showRoute:'b'"><span>By car straight north?</span></div>
+				<div class="btn" on-click="showRoute:'a'"><span>To Germany ... ?</span></div>
+				<div class="btn" on-click="showRoute:'c'"><span>... or to Sweden via France?</span></div>
+				<p id="result"></p>
+				{{#if selectedRoute != ''}}
+					<p>{{{ getRouteText(selectedRoute) }}}</p>
+				{{/if}}
+			</div>
+		</div>
+		</div>
 
  </header>
+ {{/if}}
 
  <style>
 
- p {
- 	color: #333;
- 	font-size: 100px;
- 	
- }
+p {
+	color: #333;
+}
+
+.gusto-headline-big {
+	color: #333;
+}
+
+/*Right Column*/
+.gu-position{
+	position:absolute;
+}
+.gu-graphic, .gu-graphic-bg {
+	position:absolute;
+	height: auto;
+	margin:0;
+}
+
+#option-c p {
+	font-size:12px;
+	line-height:1.35em;
+	font-weight:normal;
+	font-style:normal;
+	margin:0;
+}
+#option-c #oc-0 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#option-c #oc-0 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#option-c #oc-0 .oc-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+#option-c #oc-0 #oc-step-0 .gu-p0 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	color:#767676;
+}
+#option-c #oc-0 #oc-step-0 .gu-p1 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	text-align:center;
+	color:#767676;
+}
+#option-c #oc-0 #oc-step-0 .gu-p2 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#767676;
+}
+#option-c #oc-0 #oc-step-0 .gu-p3 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#000000;
+}
+#option-c #oc-1 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#option-c #oc-1 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#option-c #oc-1 .oc-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+#option-c #oc-1 #oc-step-0 .gu-p0 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#767676;
+}
+#option-c #oc-1 #oc-step-0 .gu-p1 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	text-align:center;
+	color:#767676;
+}
+#option-c #oc-1 #oc-step-0 .gu-p2 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#000000;
+}
+#option-c #oc-2 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#option-c #oc-2 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#option-c #oc-2 .oc-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+#option-c #oc-2 #oc-step-0 .gu-p0 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#000000;
+}
+#option-c #oc-2 #oc-step-0 .gu-p1 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#767676;
+}
+#option-c #oc-2 #oc-step-0 .gu-p2 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	text-align:center;
+	color:#767676;
+}
+#option-c #oc-0 {
+	display:block;
+}
+#option-c #oc-1 {
+	display:none;
+}
+#option-c #oc-2 {
+	display:none;
+}
+@media screen and (min-width: 620px) {
+.header h2 {
+	font-size:18px;
+	font-weight:600;
+	line-height: 25px;
+}
+#option-c #oc-0 {
+	display:none;
+}
+#option-c #oc-1 {
+	display:block;
+}
+#option-c #oc-2 {
+	display:none;
+}
+}
+@media screen and (min-width: 860px) {
+#option-c #oc-0 {
+	display:none;
+}
+#option-c #oc-1 {
+	display:none;
+}
+#option-c #oc-2 {
+	display:block;
+}
+}
+
+#option-a p {
+	font-size:12px;
+	line-height:1.35em;
+	font-weight:normal;
+	font-style:normal;
+	margin:0;
+}
+#option-a #oa-0 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#option-a #oa-0 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#option-a #oa-0 .oa-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+#option-a #oa-0 #oa-step-0 .gu-p0 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#767676;
+}
+#option-a #oa-0 #oa-step-0 .gu-p1 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	color:#767676;
+}
+#option-a #oa-0 #oa-step-0 .gu-p2 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	text-align:center;
+	color:#767676;
+}
+#option-a #oa-0 #oa-step-0 .gu-p3 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	color:#000000;
+}
+#option-a #oa-0 #oa-step-0 .gu-p4 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#000000;
+}
+#option-a #oa-1 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#option-a #oa-1 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#option-a #oa-1 .oa-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+#option-a #oa-1 #oa-step-0 .gu-p0 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#767676;
+}
+#option-a #oa-1 #oa-step-0 .gu-p1 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	text-align:center;
+	color:#767676;
+}
+#option-a #oa-1 #oa-step-0 .gu-p2 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	color:#000000;
+}
+#option-a #oa-1 #oa-step-0 .gu-p3 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#000000;
+}
+#option-a #oa-2 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#option-a #oa-2 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#option-a #oa-2 .oa-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+#option-a #oa-2 #oa-step-0 .gu-p0 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	text-align:center;
+	color:#767676;
+}
+#option-a #oa-2 #oa-step-0 .gu-p1 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#767676;
+}
+#option-a #oa-2 #oa-step-0 .gu-p2 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	color:#000000;
+}
+#option-a #oa-2 #oa-step-0 .gu-p3 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#000000;
+}
+#option-a #oa-0 {
+	display:block;
+}
+#option-a #oa-1 {
+	display:none;
+}
+#option-a #oa-2 {
+	display:none;
+}
+@media screen and (min-width: 620px) {
+.header h2 {
+	font-size:25px;
+	font-weight:600;
+	line-height: 25px;
+}
+#option-a #oa-0 {
+	display:none;
+}
+#option-a #oa-1 {
+	display:block;
+}
+#option-a #oa-2 {
+	display:none;
+}
+}
+@media screen and (min-width: 860px) {
+#option-a #oa-0 {
+	display:none;
+}
+#option-a #oa-1 {
+	display:none;
+}
+#option-a #oa-2 {
+	display:block;
+}
+}
+#option-b p {
+	font-size:12px;
+	line-height:1.35em;
+	font-weight:normal;
+	font-style:normal;
+	margin:0;
+}
+#option-b #ob-0 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#option-b #ob-0 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#option-b #ob-0 .ob-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+#option-b #ob-0 #ob-step-0 .gu-p0 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#767676;
+}
+#option-b #ob-0 #ob-step-0 .gu-p1 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	color:#000000;
+}
+#option-b #ob-0 #ob-step-0 .gu-p2 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#000000;
+}
+#option-b #ob-0 #ob-step-0 .gu-p3 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	color:#767676;
+}
+#option-b #ob-0 #ob-step-0 .gu-p4 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	text-align:center;
+	color:#767676;
+}
+#option-b #ob-1 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#option-b #ob-1 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#option-b #ob-1 .ob-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+#option-b #ob-1 #ob-step-0 .gu-p0 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#767676;
+}
+#option-b #ob-1 #ob-step-0 .gu-p1 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	color:#000000;
+}
+#option-b #ob-1 #ob-step-0 .gu-p2 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#000000;
+}
+#option-b #ob-1 #ob-step-0 .gu-p3 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	text-align:center;
+	color:#767676;
+}
+#option-b #ob-2 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#option-b #ob-2 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#option-b #ob-2 .ob-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+
+#background #b-0 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#background #b-0 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#background #ob-0 .b-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+#background #b-1 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#background #b-1 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#background #ob-1 .b-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+#background #b-2 {
+	position:relative;
+	width: 100%;
+	margin:0;
+}
+#background #b-2 .main-background-image {
+	position:relative;
+	width: 100%;
+	margin:0;
+	vertical-align:top;
+}
+#background #ob-2 .b-step {
+	position:relative;
+	width: 100%;
+	height: auto;
+	margin:0;
+}
+
+#option-b #ob-2 #ob-step-0 .gu-p0 {
+	font-family:'Guardian Egyptian Web', Georgia, serif;
+	font-size:16px;
+	line-height:20px;
+	font-weight:600;
+	text-align:center;
+	color:#767676;
+}
+#option-b #ob-2 #ob-step-0 .gu-p1 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#767676;
+}
+#option-b #ob-2 #ob-step-0 .gu-p2 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	color:#000000;
+}
+#option-b #ob-2 #ob-step-0 .gu-p3 {
+	font-family:'Guardian Text Sans Web', Arial, sans-serif;
+	font-size:15px;
+	text-shadow: 0 0 3px #F1F1F1, 0 0 3px #F1F1F1,
+        0 0 3px #F1F1F1, 0 0 3px #F1F1F1;
+	line-height:18px;
+	font-weight:400;
+	text-align:right;
+	color:#000000;
+}
+#background #b-0 {
+	display: block;
+}
+#background #b-1 {
+	display: none;
+}
+#background #b-2 {
+	display: none;
+}
+@media screen and (min-width: 620px) {
+.header h2 {
+	font-size:25px;
+	font-weight:600;
+	line-height: 25px;
+}
+#option-b #ob-0 {
+	display:none;
+}
+#option-b #ob-1 {
+	display:block;
+}
+#option-b #ob-2 {
+	display:none;
+}
+#background #b-0 {
+	display: none;
+}
+#background #b-1 {
+	display: block;
+}
+#background #b-2 {
+	display: none;
+}
+}
+@media screen and (min-width: 860px) {
+#option-b #ob-0 {
+	display:none;
+}
+#option-b #ob-1 {
+	display:none;
+}
+#option-b #ob-2 {
+	display:block;
+}
+#background #b-0 {
+	display: none;
+}
+#background #b-1 {
+	display: none;
+}
+#background #b-2 {
+	display: block;
+}
+}
+
+#option-a, #option-b, #option-c {
+	-webkit-transition: opacity .3s;
+    transition: opacity .3s;
+}
+
+/*Left Column*/
+
+#lc {
+	position: relative;
+	height:100%;
+	max-width:1300px;
+	padding: 10px 10px;
+}
+
+#rc {
+	position: relative;
+}
+
+
+@media screen and (min-width: 620px) {
+	#lc {
+		margin:0 auto;
+	}
+	#text-block {
+		max-width: 640px;
+	}
+}
+
+@media screen and (min-width: 980px) {
+	#lc {
+		
+
+	}
+}
+
+#lc h2 {
+	font-size:1.8em;
+	line-height: 1em;
+}
+
+#lc p, #lc .btn {
+	margin-top:1em;
+	font-size:1em;
+	line-height: 1.5em;
+}
+
+#lc .btn span {
+	font-size:18px;
+	font-weight: 600;
+	color:#005689;
+	cursor: pointer;
+	border-bottom: dotted 1px #005689;
+
+}
+
+.gu-graphic {
+	opacity:0;
+}
+
+
+.selectedRoute {
+	opacity: 1;
+}
+
+</style>
+
+
+<script>
+component.exports = {
+	data : {
+		selectedRoute: '',
+
+		getRouteText: function(option){
+			return this.get( 'option' + option).trim();
+		}
+	},
+	oncomplete: function(){
+		this.on({
+			showRoute: function(e, option){
+				console.log(option)
+				this.set('selectedRoute', option);
+			}
+		});
+		
+	}
+}
+
+</script>

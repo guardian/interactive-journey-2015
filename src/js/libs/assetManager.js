@@ -44,7 +44,7 @@ function (
 			src: options.src.replace('https://', '').replace('http://', '').replace(/\/$/, ''),
 			alt_src: (options.alt_src) ? alt_src.replace('https://', '').replace('http://', '').replace(/\/$/, ''): undefined,
 			node: node,
-			size: options.imgSizes,
+			size: (options.imgSizes)? options.imgSizes : undefined,
 			bgImg: (options.bgImg)? true : false
 		};
 
