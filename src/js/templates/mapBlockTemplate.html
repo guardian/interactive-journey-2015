@@ -1,6 +1,6 @@
 <div class='gusto-section-header map-header'>
 	<h2 class='gusto-headline gusto-headline-border-top gusto-headline-medium'>{{ headline }}</h2>
-	<p>{{{ caption }}}</p>
+	<p class='map-header-text'>{{{ caption }}}</p>
 </div>
 <!--START AI -->
 <div class='gu-graphic' id='gu-graphic-20150529_migration_arrows_responsive'>
@@ -580,6 +580,10 @@ img {
     border-bottom: 1px solid #dcdcdc;
 }
 
+.map-header-text {
+    line-height: 1.35;
+}
+
 @media screen and (min-width: 860px) {
     .gu-graphic-header h2 {
         font-size:25px;
@@ -601,7 +605,7 @@ img {
         display: none;
     }
 
-    .gusto-block--map {
+    #gu-graphic-20150529_migration_arrows_responsive {
         border-top: 1px solid #dcdcdc;
         border-bottom: 1px solid #dcdcdc;
     }
@@ -616,7 +620,48 @@ img {
     }
 }
 
-@media screen and (min-width: 1259px) {
+@media screen and (min-width: 860px) {
+
+    .gusto-section-header {
+        margin-left: 20px;
+        top: 0;
+        bottom: auto;
+        position: absolute;
+    }
+
+    #gu-graphic-20150529_migration_arrows_responsive {
+        padding-left: 240px;
+    }
+
+
+    .gusto-section-header {
+        max-width: 240px;
+    }
+
+    .map-header-text {
+        width: 240px;
+    }
+
+}
+
+@media screen and (min-width:1140px){
+
+    #gu-graphic-20150529_migration_arrows_responsive {
+        padding-left: 240px;
+    }
+
+
+    .gusto-section-header {
+        max-width: 240px;
+    }
+
+    .map-header-text {
+        width: 240px;
+    }
+
+}
+
+@media screen and (min-width: 1300px) {
     #gu-graphic-20150529_migration_arrows_responsive #gu-graphic-view-0 {
         display:none;
     }
@@ -627,17 +672,21 @@ img {
         display:block;
     }
 
-}
-
-@media screen and (min-width: 860px) {
+    #gu-graphic-20150529_migration_arrows_responsive {
+        padding-left: 280px;
+    }
 
     .gusto-section-header {
-        margin-left: 20px;
-        top: 0;
-        bottom: auto;
-        position: absolute;
+        max-width: 280px;
     }
+
+    .map-header-text {
+        width: 280px;
+    }
+
 }
+
+
 
 .westAfrica {
     background-color: #9cd7e4;

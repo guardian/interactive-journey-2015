@@ -246,6 +246,10 @@ body figure.interactive {
     overflow: hidden;
 }
 
+.gusto-header  .text-black {
+    color: #333;
+}
+
 .gusto-header-video {
     position: absolute;
     z-index: 1;
@@ -270,7 +274,7 @@ body figure.interactive {
     padding: 20px 10px;
 
     &.top {
-        top: 0;
+        top: 50px;
     }
     &.bottom {
         bottom: 0;
@@ -284,6 +288,9 @@ body figure.interactive {
     &.shadow {
         text-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
+
+   
+
 
 }
 
@@ -303,6 +310,7 @@ body figure.interactive {
     font-size: 36px;
     line-height: 1;
     margin: 0;
+    font-weight: 400;
 }
 
 .gusto-headline-medium {
@@ -316,6 +324,7 @@ body figure.interactive {
     font-weight: 500;
     font-size: 18px;
     margin: 0;
+    max-width: 460px;
 }
 
 .gusto-kicker {
@@ -657,12 +666,14 @@ body figure.interactive {
     .gusto-headline-big {
         font-size: 54px;
     }
+
+
 }
 
 @media (min-width: 1140px){
 
     .gusto-header-content-inner {
-        max-width: 640px;
+        max-width: 460px;
     }
 
     .gusto-headline-big {
@@ -672,11 +683,17 @@ body figure.interactive {
     .gusto-section-header-left {
         overflow: visible;
     }
+
+
 }
 
 @media (min-width: 1300px){
 
     .gusto-headline-big {
         font-size: 72px;
+    }
+
+    .gusto-header-content-inner.left-push {
+        left: 240px;
     }
 }
