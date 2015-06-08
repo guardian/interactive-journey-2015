@@ -196,6 +196,17 @@ body figure.interactive {
     }
 }
 
+.gusto-block--copy {
+    q {
+        background: rgba(255, 216, 108, 0.5);
+        padding: 2px 5px;
+        border-radius: 5px;
+        &:before, &:after {
+            content: none;
+        }
+    }
+}
+
 .gusto-block--copy > .gusto-inner-body {
     .podcastPlayer--copy + p { margin-top: 0; }
     p:first-child { margin-top: 0; }
