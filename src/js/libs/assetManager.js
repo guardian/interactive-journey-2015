@@ -62,7 +62,7 @@ function (
 		loadingQueue.unshift(el);
 	};
 	
-	function toggleVideoPlay(vidEl) {
+	function toggleVideoPlay(vidEl, isScrollPause) {
 		if (vidEl.paused) {
 			if (_currentlyPlayingVideo && _currentlyPlayingVideo !== vidEl) {
 				_currentlyPlayingVideo.pause();
@@ -75,7 +75,9 @@ function (
 		} else {
 			vidEl.pause();
 			vidEl.parentNode.classList.remove('isPlaying');
-			setGlobalPaused();
+            if (!isScrollPause) {
+    			setGlobalPaused();
+            }
 			_currentlyPlayingVideo = null;
 		}
 	}
@@ -138,17 +140,16 @@ function (
 		// Play video in view
 		if (videoInView && videoInView !== _currentlyPlayingVideo) {
 			if (_currentlyPlayingVideo) {
-				_currentlyPlayingVideo.pause();
+                toggleVideoPlay(_currentlyPlayingVideo);
 			}
 			
-			videoInView.node.parentNode.classList.toggle('isPlaying', true);
-			videoInView.node.play();
+            toggleVideoPlay(videoInView.node);
 			_currentlyPlayingVideo = videoInView.node;
 			return;
 		}
 		
 		if (!videoInView && _currentlyPlayingVideo) {
-			_currentlyPlayingVideo.pause();
+            toggleVideoPlay(_currentlyPlayingVideo, true);
 			_currentlyPlayingVideo = null;
 		}
 	}
