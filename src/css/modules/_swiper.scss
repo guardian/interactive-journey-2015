@@ -176,7 +176,6 @@
         background-position: center;
         background-repeat: no-repeat;
         height: 100%;
-        vertical-align: middle;
         padding: 0 10px;
         
         
@@ -187,10 +186,14 @@
         }
         
         svg {
-            position: relative;
+            position: absolute;
             top: 50%;
             transform: translateY(-50%);
         }
+    }
+    
+    .swiper-button-next svg {
+        left: 0;
     }
     .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
         
