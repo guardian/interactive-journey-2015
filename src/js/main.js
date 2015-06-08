@@ -161,6 +161,24 @@ define([
         // Load remote JSON data
         var key = '1fELDqgjhldHT-uHWxtMKz4ZjiMLbzb9MwUV6lW8TjAo';
         var url = 'http://interactive.guim.co.uk/docsdata-test/'+key+'.json';
+        
+        
+    	if (isMobile.phone) {
+    		el.classList.add('gusto-phone');
+    	}
+        
+        if (!isMobile.android.any) {
+    		el.classList.add('gusto-desktop');
+    	}
+    	
+    	if (isMobile.apple.device) {
+    		el.classList.add('gusto-iso');
+    	}
+    	
+    	if (isMobile.android.device) {
+    		el.classList.add('gusto-android');
+    	}
+        
 
 
         reqwest({

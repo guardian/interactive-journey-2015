@@ -568,6 +568,15 @@ body figure.interactive {
     transition: opacity 0.3s ease;
 }
 
+.gusto-android .gusto-video-cover,
+.gusto-global-pause .gusto-desktop  .gusto-video-cover {
+    opacity: 1;
+}
+
+ .gusto-android .isPlaying .gusto-video-cover {
+    opacity: 0;
+}
+
 .gust-video-play-btn {
     width: 80px;
     position: relative;
@@ -579,7 +588,7 @@ body figure.interactive {
     }
 }
 
-.isPlaying {
+.isPlaying {   
     .guPause {
         display: block;
     }

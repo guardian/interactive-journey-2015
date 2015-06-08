@@ -15,6 +15,16 @@ function (
 	var imgSizes = {};
 	var DEFAULT_BITRATE = '488k';
 	var videoBitRate = DEFAULT_BITRATE;
+	
+	function setGlobalPaused() {
+		isGlobalPaused = true;
+		document.querySelector('body').classList.add('gusto-global-pause');
+	}
+	
+	function removeGlobalPaused() {
+		isGlobalPaused = false;
+		document.querySelector('body').classList.remove('gusto-global-pause');
+	}
 
 	var updateScreen = function(top, height, width){
         if (typeof top !== 'number' || typeof height !== 'number') {
@@ -56,15 +66,16 @@ function (
 		if (vidEl.paused) {
 			if (_currentlyPlayingVideo && _currentlyPlayingVideo !== vidEl) {
 				_currentlyPlayingVideo.pause();
+				_currentlyPlayingVideo.parentNode.classList.remove('isPlaying');
 			}
 			vidEl.play();
-			vidEl.parentNode.classList.toggle('isPlaying', true);
-			isGlobalPaused = false;
+			vidEl.parentNode.classList.add('isPlaying');
+			removeGlobalPaused();
 			_currentlyPlayingVideo = vidEl;
 		} else {
 			vidEl.pause();
-			vidEl.parentNode.classList.toggle('isPlaying', false);
-			isGlobalPaused = true;
+			vidEl.parentNode.classList.remove('isPlaying');
+			setGlobalPaused();
 			_currentlyPlayingVideo = null;
 		}
 	}
@@ -87,7 +98,7 @@ function (
 		if (coverEl) {
 			coverEl.addEventListener('click',function() {
 				toggleVideoPlay(el.node);
-			}, false);
+			}, false);	
 		}
 	}
 	
