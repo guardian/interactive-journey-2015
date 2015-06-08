@@ -261,6 +261,12 @@
 
  <style>
 
+ .gusto-header {
+ 	height: auto;
+ 	border-top: 1px solid #dcdcdc;
+ 	border-bottom: 1px solid #dcdcdc;
+ }
+
 p {
 	color: #333;
 }
@@ -273,7 +279,14 @@ p {
 .gu-position{
 	position:absolute;
 }
-.gu-graphic, .gu-graphic-bg {
+
+.gu-graphic-bg {
+
+	height: auto;
+	margin:0;
+}
+
+.gu-graphic {
 	position:absolute;
 	height: auto;
 	margin:0;
@@ -971,35 +984,30 @@ p {
 #lc {
 	position: relative;
 	height:100%;
-	max-width:1300px;
-	padding: 10px 10px;
+	width: 100%;
+	
 }
 
 #rc {
 	position: relative;
 }
 
-
-@media screen and (min-width: 620px) {
-	#lc {
-		margin:0 auto;
-	}
-	#text-block {
-		max-width: 640px;
-	}
+#lc {
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
-@media screen and (min-width: 980px) {
-	#lc {
-		
-
-	}
+#text-block {
+	max-width: 1300px;
+	margin: 0 auto;
+	padding: 20px 0 0 20px;
 }
 
-#lc h2 {
-	font-size:1.8em;
-	line-height: 1em;
-}
+
+
+
+
 
 #lc p, #lc .btn {
 	margin-top:1em;
@@ -1016,8 +1024,25 @@ p {
 
 }
 
+@media screen and (min-width: 620px) {
+	#lc h2, #lc p {
+		max-width: 460px;
+	}
+
+
+
+}
+
+@media screen and (min-width: 980px) {
+	#lc h2, #lc p {
+		max-width: 520px;
+	}
+}
+
 .gu-graphic {
 	opacity:0;
+	top: 0;
+	left: 0;
 }
 
 

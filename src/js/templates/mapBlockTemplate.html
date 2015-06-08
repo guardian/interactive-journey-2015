@@ -203,6 +203,8 @@ img {
     width: 100%;
 }
 
+
+
 .gu-position{
     position:absolute;
 }
@@ -560,6 +562,12 @@ img {
 #gu-graphic-20150529_migration_arrows_responsive #gu-graphic-view-2 {
     display:none;
 }
+
+.gu-graphic-view {
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+}
+
 @media screen and (min-width: 860px) {
 .gu-graphic-header h2 {
     font-size:25px;
@@ -575,6 +583,30 @@ img {
 #gu-graphic-20150529_migration_arrows_responsive #gu-graphic-view-2 {
     display:none;
 }
+
+ .gusto-headline-border-top::before {
+        display: none;
+
+    }
+
+.gusto-block--map {
+    border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.gu-graphic-view {
+    border-top: none;
+    border-bottom: none;
+    }
+
+     .gu-graphic {
+        padding-left: 160px;
+    }
+
+.gusto-section-header {
+    max-width: 220px;
+}
+
 }
 @media screen and (min-width: 1259px) {
 #gu-graphic-20150529_migration_arrows_responsive #gu-graphic-view-0 {
@@ -587,13 +619,10 @@ img {
     display:block;
 }
 
-    .gusto-headline-border-top::before {
-        width: 110px;
-        height: 1px;
-        background: #dcdcdc;
-        content: '';
-        position: absolute;
-        top: 0;
+   
+
+    .gu-graphic {
+        padding-left: 220px;
     }
 }
 
@@ -606,6 +635,9 @@ img {
         position: absolute;
     }
 
+
+}
+
     .westAfrica {
         background-color: #9cd7e4;
         padding: 2px 5px;
@@ -617,6 +649,5 @@ img {
         padding: 2px 5px;
         border-radius: 5px;
     }
-}
 
 </style>
