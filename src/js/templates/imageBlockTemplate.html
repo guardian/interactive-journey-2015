@@ -1,5 +1,5 @@
 <!-- Section: Photo full-width example. Start. -->
-<figure class="gusto-image gusto-image--{{class}}">
+<figure class="gusto-image gusto-image--{{class}} {{size}}">
 	{{ #headline }}
     <div class='gusto-section-header {{ #audio }}gusto-section-header-has-audio{{ /audio }}'>
       {{ #audio }}<audioPlayer />{{ /audio }}
@@ -19,3 +19,23 @@
 
 </figure>
 <!-- Section: Photo gallert example. End. -->
+
+<script>
+
+component.exports = {
+
+	onrender: function(){
+        var img = this.find('img');
+        var width = this.find('img').getBoundingClientRect().width;
+        var size = this.get('size');
+        var height = '';
+
+        if (size === 'horizontal3x4') {
+            height = (width * 0.73) + 'px';
+        }
+
+        img.setAttribute('height', height);
+    }
+}
+
+</script>

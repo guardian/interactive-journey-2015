@@ -274,6 +274,9 @@ function (
 		
 		var posterImage = getVideoPosterImage(item.src);
 		item.node.setAttribute('poster', posterImage);
+		item.node.addEventListener('loadstart', function() {
+			item.node.removeAttribute('height');
+		}, false);
 
         item.videosURLS = videoURLs;
         item.posterImg = posterImage;
@@ -320,6 +323,8 @@ function (
 				item.node.style.backgroundImage = "url(" + path + ")";
 			} else {
 				item.node.setAttribute("src", path);
+				item.node.removeAttribute('height');
+				item.node.classList.add('loaded');
 			}
             
 		};

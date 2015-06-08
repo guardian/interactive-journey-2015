@@ -196,6 +196,7 @@ body figure.interactive {
     }
 }
 
+
 .gusto-block--copy {
     q {
         background: rgba(255, 216, 108, 0.5);
@@ -205,6 +206,11 @@ body figure.interactive {
             content: none;
         }
     }
+}
+
+
+.horizontal3x4 .gusto-photo {
+    background: #DFDFDF;
 }
 
 .gusto-block--copy > .gusto-inner-body {
