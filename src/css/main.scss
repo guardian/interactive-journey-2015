@@ -60,6 +60,7 @@ body figure.interactive {
 .gusto-block--video,
 .gusto-block--map,
 .gusto-block--mapSea,
+.gusto-block--mapHeader,
 .gusto-block--gallery,
 .gusto-header-content {
     padding: 0 10px;
@@ -77,6 +78,7 @@ body figure.interactive {
 .gusto-block--gallery,
 .gusto-block--map,
 .gusto-block--mapSea,
+.gusto-block--mapHeader,
 .gusto-block--image,
 .gusto-block--video {
     background-color: #f1f1f1;
@@ -85,6 +87,7 @@ body figure.interactive {
 .gusto-block--gallery,
 .gusto-block--map,
 .gusto-block--mapSea,
+.gusto-block--mapHeader,
 .gusto-block--image {
     &:before,
     &:after {
@@ -97,6 +100,7 @@ body figure.interactive {
 .gusto-block--gallery,
 .gusto-block--map,
 .gusto-block--mapSea,
+.gusto-block--mapHeader,
 .gusto-block--image {
     position: relative;
 }

@@ -3,7 +3,7 @@
  {{/if}}
 
  {{#if windowWidth> 640}}
- <header class="gusto-header" >
+ <div class="gu-map-header-graphic" >
 
 	 	<div id="choices">
 		<div id="rc">
@@ -243,9 +243,7 @@
 		</div>
 		<div id="lc">
 			<div id="text-block">
-				<h3 class="gusto-kicker">
-                    {{ kicker }}
-                </h3> 
+	
 				<h1 class="gusto-headline gusto-headline-big">{{headline}}</h1>
 				<p>{{{ standfirst.trim() }}}</p>
 				<div class="btn" on-click="showRoute:'b'"><span>By car straight north?</span></div>
@@ -263,7 +261,7 @@
 		</div>
 		</div>
 
- </header>
+ </div>
  {{/if}}
 
  <style>
@@ -285,6 +283,10 @@ p {
 
 }
 
+.gu-map-header-graphic {
+	border-top: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+}
 
 
 /*Right Column*/
@@ -1047,7 +1049,12 @@ p {
 
 @media screen and (min-width: 980px) {
 	#lc h2, #lc p {
-		max-width: 520px;
+		max-width: 460px;
+
+	}
+
+	.gu-map-header-graphic .gusto-headline-big {
+		font-size: 48px;
 
 	}
 }
@@ -1064,12 +1071,12 @@ p {
 }
 
 .selectedRouteText {
-	max-width: 280px;
+	max-width: 220px;
 
 	background-color:rgba(255,255,255, 0.5);
 	position: absolute;
 	top:100px;
-	right: 5%;
+	right: 20px;
 	border-radius: 2px;
 	padding: 10px;
 }
