@@ -1,3 +1,6 @@
 module.exports =  function() {
-  return this.block;
+	if(this['facebook-ignore'] === 'true'){
+		return 'blank';
+	}
+	return this.block;
 };

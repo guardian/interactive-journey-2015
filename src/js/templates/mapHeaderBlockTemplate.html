@@ -243,16 +243,23 @@
 		</div>
 		<div id="lc">
 			<div id="text-block">
+				<h3 class="gusto-kicker">
+                    {{ kicker }}
+                </h3> 
 				<h1 class="gusto-headline gusto-headline-big">{{headline}}</h1>
 				<p>{{{ standfirst.trim() }}}</p>
 				<div class="btn" on-click="showRoute:'b'"><span>By car straight north?</span></div>
 				<div class="btn" on-click="showRoute:'a'"><span>To Germany ... ?</span></div>
 				<div class="btn" on-click="showRoute:'c'"><span>... or to Sweden via France?</span></div>
-				<p id="result"></p>
-				{{#if selectedRoute != ''}}
-					<p>{{{ getRouteText(selectedRoute) }}}</p>
-				{{/if}}
+		
+				
 			</div>
+
+			{{#if selectedRoute != ''}}
+				<div class='selectedRouteText'>
+					<p>{{{ getRouteText(selectedRoute) }}}</p>
+				</div>
+			{{/if}}
 		</div>
 		</div>
 
@@ -261,8 +268,9 @@
 
  <style>
 
- .gusto-header {
+ .gusto-block--mapHeader .gusto-header.gusto-header {
  	height: auto;
+ 	max-height: 80vh;
  	border-top: 1px solid #dcdcdc;
  	border-bottom: 1px solid #dcdcdc;
  }
@@ -271,9 +279,13 @@ p {
 	color: #333;
 }
 
-.gusto-headline-big {
-	color: #333;
+.gusto-block--mapHeader .gusto-header .gusto-kicker, .gusto-block--mapHeader .gusto-header .gusto-headline-big {
+
+		color: #333;
+
 }
+
+
 
 /*Right Column*/
 .gu-position{
@@ -1036,6 +1048,7 @@ p {
 @media screen and (min-width: 980px) {
 	#lc h2, #lc p {
 		max-width: 520px;
+
 	}
 }
 
@@ -1048,6 +1061,24 @@ p {
 
 .selectedRoute {
 	opacity: 1;
+}
+
+.selectedRouteText {
+	max-width: 280px;
+
+	background-color:rgba(255,255,255, 0.5);
+	position: absolute;
+	top:100px;
+	right: 5%;
+	border-radius: 2px;
+	padding: 10px;
+}
+
+#lc .selectedRouteText p {
+	
+	margin: 0;
+	margin-top: 0;
+	font-size: 14px;
 }
 
 </style>
