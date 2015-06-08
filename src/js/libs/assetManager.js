@@ -53,14 +53,19 @@ function (
 	};
 	
 	function toggleVideoPlay(vidEl) {
-		isGlobalPaused = true;
-		
 		if (vidEl.paused) {
+			if (_currentlyPlayingVideo && _currentlyPlayingVideo !== vidEl) {
+				_currentlyPlayingVideo.pause();
+			}
 			vidEl.play();
 			vidEl.parentNode.classList.toggle('isPlaying', true);
+			isGlobalPaused = false;
+			_currentlyPlayingVideo = vidEl;
 		} else {
 			vidEl.pause();
 			vidEl.parentNode.classList.toggle('isPlaying', false);
+			isGlobalPaused = true;
+			_currentlyPlayingVideo = null;
 		}
 	}
 	
@@ -101,29 +106,40 @@ function (
         }
 	}
 
-	
+	var _currentlyPlayingVideo = null;
+		
 	function autoPlay() {
 		if (isMobile.phone) { return; }
-		if (isGlobalPaused) { return; }
-			
-		loadingQueue.forEach(function(item) {
+		
+		var videoInView;
+		loadingQueue.some(function(item) {
+			if (!item.bgImg && isGlobalPaused) { return; }
 			if (item.type !== 'video') { return; }
-			
-			var nodeHeight = item.node.getBoundingClientRect().height;
 			var top = item.node.getBoundingClientRect().top;
-
-			if (top < (windowHeight / 5) && top + windowHeight > 0) {
-				item.node.parentNode.classList.toggle('isPlaying', true);
-				return item.node.play();		 
+			var bottom = item.node.getBoundingClientRect().bottom;
+			if (top < (windowHeight / 4) && bottom > 0) {
+				videoInView = item;
+				return true;
 			}
-			 
-			if (item.node.paused === false) {
-				 item.node.pause();
-				 item.node.parentNode.classList.toggle('isPlaying', false);
-				 // Hacky delay to differentiate user pause vs. scroll pause 
-				 setTimeout(function() { isGlobalPaused = false; }, 100);
-			 }
-		});	
+		});
+		
+		
+		// Play video in view
+		if (videoInView && videoInView !== _currentlyPlayingVideo) {
+			if (_currentlyPlayingVideo) {
+				_currentlyPlayingVideo.pause();
+			}
+			
+			videoInView.node.parentNode.classList.toggle('isPlaying', true);
+			videoInView.node.play();
+			_currentlyPlayingVideo = videoInView.node;
+			return;
+		}
+		
+		if (!videoInView && _currentlyPlayingVideo) {
+			_currentlyPlayingVideo.pause();
+			_currentlyPlayingVideo = null;
+		}
 	}
 	
     /**
