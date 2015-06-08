@@ -113,9 +113,10 @@ body figure.interactive {
 .gusto-block--pullByline {
     @include mq($until: desktop) {
         background-color: #f1f1f1;
-        &:before {
+        &:before, &:after {
             display: table;
             content: '';
+            clear: both;
         }
     }
     @include mq(desktop) {
