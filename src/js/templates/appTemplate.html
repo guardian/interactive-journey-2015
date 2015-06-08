@@ -1,7 +1,7 @@
 {{#pageBlocks}}
     {{#if exclude==='web'}}
     {{else}}
-    <div class="gusto-block gusto-block--{{block}}">
+    <div class="gusto-block gusto-block--{{block}} {{#class}}gusto-block--{{class}}{{/if}}">
         {{#block == 'header'}}<headerBlock />{{/block}}
         {{#block == 'copy'}}<copyBlock />{{/block}}
         {{#block == 'image'}}<imageBlock />{{/block}}

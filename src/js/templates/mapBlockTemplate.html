@@ -596,7 +596,9 @@ img {
         display:none;
     }
 
-     .map-header::before {
+
+ .map-header .gusto-headline-border-top::before {
+
         display: none;
     }
 
@@ -610,9 +612,6 @@ img {
         border-bottom: none;
     }
 
-    .gu-graphic {
-        padding-left: 160px;
-    }
 
     .gusto-section-header {
         max-width: 220px;
@@ -630,9 +629,16 @@ img {
         display:block;
     }
 
-    .gu-graphic {
-        padding-left: 220px;
-    }
+}
+
+@media screen and (min-width: 860px) {
+
+    .gusto-section-header {
+        margin-left: 20px;
+        top: 0;
+        bottom: auto;
+        position: absolute;
+
 }
 
 .westAfrica {
