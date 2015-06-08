@@ -516,14 +516,26 @@ body figure.interactive {
     }
 }
 
-.gusto-video--supporting {
+.gusto-block--video {
+    .gusto-video--supporting {
+        max-width: 620px;
+        margin: auto;
+        video {
+            max-height: 600px
+        }
+    }
     @include mq(desktop) {
-        float: left;
-        width: 240px;
+        &.gusto-block--supporting {
+            margin-bottom: -20px;
+            .gusto-video--supporting {
+                float: left;
+                width: 220px;
+                margin-left: 20px;
+            }
+        }
     }
 
 }
-
 .gusto-video--outer {
     .gusto-caption {
         max-width: 620px;
