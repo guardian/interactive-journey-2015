@@ -286,7 +286,7 @@ body figure.interactive {
         right: 0;
     }
     &.shadow {
-        text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        text-shadow: 0 0 10px rgba(0,0,0,0.75);
     }
 
    
@@ -310,7 +310,7 @@ body figure.interactive {
     font-size: 36px;
     line-height: 1;
     margin: 0;
-    font-weight: 400;
+
 }
 
 .gusto-headline-medium {
@@ -331,7 +331,10 @@ body figure.interactive {
     font-weight: 200;
     font-size: 24px;
     margin: 0;
+    margin-bottom: 5px;
 }
+
+
 
 
 @media (min-width: 980px) {
@@ -670,6 +673,20 @@ body figure.interactive {
 
 }
 
+.gusto-title-header {
+
+        max-width: 860px;
+
+        .gusto-headline-big {
+            font-size: 48px;
+        }
+
+        .gusto-sub-heading {
+            font-size: 16px;
+        }
+
+}
+
 @media (min-width: 1140px){
 
     .gusto-header-content-inner {
@@ -684,6 +701,21 @@ body figure.interactive {
         overflow: visible;
     }
 
+    .gusto-title-header {
+
+        max-width: 860px;
+
+        .gusto-headline-big {
+            font-size: 120px;
+        }
+
+        .gusto-sub-heading {
+            line-height: 1.35;
+            font-size: 24px;
+            max-width: 600px;
+        }
+    }
+
 
 }
 
@@ -694,6 +726,6 @@ body figure.interactive {
     }
 
     .gusto-header-content-inner.left-push {
-        left: 240px;
+        left: 250px;
     }
 }
