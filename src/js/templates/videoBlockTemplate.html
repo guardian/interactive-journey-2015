@@ -24,3 +24,16 @@
 	{{ /caption }}
 </figure>
 <!-- Section: Photo gallert example. End. -->
+
+
+<script>
+component.exports = {
+
+	onrender: function(){
+        var vid = this.find('video');
+        var width = vid.getBoundingClientRect().width;
+        var height = (width * 0.5625) + 'px';
+        vid.setAttribute('height', height);
+    }
+}
+</script>
