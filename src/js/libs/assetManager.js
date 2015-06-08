@@ -62,7 +62,7 @@ function (
 		loadingQueue.unshift(el);
 	};
 	
-	function toggleVideoPlay(vidEl, isScrollPause) {
+	function toggleVideoPlay(vidEl, globalPause) {
 		if (vidEl.paused) {
 			if (_currentlyPlayingVideo && _currentlyPlayingVideo !== vidEl) {
 				_currentlyPlayingVideo.pause();
@@ -70,15 +70,17 @@ function (
 			}
 			vidEl.play();
 			vidEl.parentNode.classList.add('isPlaying');
-			removeGlobalPaused();
 			_currentlyPlayingVideo = vidEl;
+			if (globalPause) {
+				removeGlobalPaused();
+			}
 		} else {
 			vidEl.pause();
 			vidEl.parentNode.classList.remove('isPlaying');
-            if (!isScrollPause) {
+			_currentlyPlayingVideo = null;
+            if (globalPause) {
     			setGlobalPaused();
             }
-			_currentlyPlayingVideo = null;
 		}
 	}
 	
@@ -93,13 +95,13 @@ function (
 		
 		// Add video controls
 		node.addEventListener('click',function() {
-			toggleVideoPlay(el.node);
+			toggleVideoPlay(el.node, true);
 		}, false);
 		
 		var coverEl = node.parentNode.querySelector('.gusto-video-cover');
 		if (coverEl) {
 			coverEl.addEventListener('click',function() {
-				toggleVideoPlay(el.node);
+				toggleVideoPlay(el.node, true);
 			}, false);	
 		}
 	}
@@ -140,16 +142,17 @@ function (
 		// Play video in view
 		if (videoInView && videoInView !== _currentlyPlayingVideo) {
 			if (_currentlyPlayingVideo) {
+				// Stop current video
                 toggleVideoPlay(_currentlyPlayingVideo);
 			}
 			
+			// Start new video
             toggleVideoPlay(videoInView.node);
-			_currentlyPlayingVideo = videoInView.node;
 			return;
 		}
 		
 		if (!videoInView && _currentlyPlayingVideo) {
-            toggleVideoPlay(_currentlyPlayingVideo, true);
+            toggleVideoPlay(_currentlyPlayingVideo);
 			_currentlyPlayingVideo = null;
 		}
 	}
