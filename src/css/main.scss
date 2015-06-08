@@ -143,11 +143,15 @@ body figure.interactive {
 
 .gusto-inner-body--text {
     margin: 0 auto;
-    overflow: auto;
     position: relative;
     z-index: 1;
     @include mq(desktop) {
         margin: 0;
+    }
+    &:after {
+        content: '';
+        display: table;
+        clear: both;
     }
 }
 
@@ -194,6 +198,13 @@ body figure.interactive {
 
 .gusto-block--copy > .gusto-inner-body {
     .podcastPlayer--copy + p { margin-top: 0; }
+    p:first-child { margin-top: 0; }
+    p:last-child { margin-bottom: 0; }
+    padding-top: 12px;
+    padding-bottom: 12px;
+    .gusto-block--copy + & {
+        padding-top: 0;
+    }
 }
 
 .gusto-section {
@@ -600,7 +611,7 @@ body figure.interactive {
     }
 }
 
-.isPlaying {   
+.isPlaying {
     .guPause {
         display: block;
     }
