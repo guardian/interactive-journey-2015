@@ -74,12 +74,18 @@ body figure.interactive {
 }
 
 .gusto-block--copy,
-.gusto-block--video,
+.gusto-block--gallery,
+.gusto-block--map,
+.gusto-block--mapSea,
+.gusto-block--image,
+.gusto-block--video {
+    background-color: #f1f1f1;
+}
+
 .gusto-block--gallery,
 .gusto-block--map,
 .gusto-block--mapSea,
 .gusto-block--image {
-    background-color: #f1f1f1;
     &:before,
     &:after {
         display: table;
@@ -107,9 +113,10 @@ body figure.interactive {
 .gusto-block--pullByline {
     @include mq($until: desktop) {
         background-color: #f1f1f1;
-        &:before {
+        &:before, &:after {
             display: table;
             content: '';
+            clear: both;
         }
     }
     @include mq(desktop) {
@@ -135,9 +142,12 @@ body figure.interactive {
 }
 
 .gusto-inner-body--text {
-    margin: 24px auto;
+    margin: 0 auto;
+    overflow: auto;
+    position: relative;
+    z-index: 1;
     @include mq(desktop) {
-        margin: 24px 0;
+        margin: 0;
     }
 }
 
@@ -180,6 +190,10 @@ body figure.interactive {
     @include mq(desktop) {
         margin-left: 260px;
     }
+}
+
+.gusto-block--copy > .gusto-inner-body {
+    .podcastPlayer--copy + p { margin-top: 0; }
 }
 
 .gusto-section {
@@ -282,15 +296,6 @@ body figure.interactive {
     margin: 0;
 }
 
-.isPlaying {
-    .guPause {
-        display: block;
-    }
-
-    .guPlay{
-        display: none;
-    }
-}
 
 @media (min-width: 980px) {
     .gusto-section-header-has-audio {
@@ -429,7 +434,7 @@ body figure.interactive {
 
     @include mq(desktop) {
         .gusto-photo-byline {
-            margin-top: 20px;
+            padding-top: 24px;
 
             p {
                 border-top: 1px dotted #ccc;
@@ -511,6 +516,14 @@ body figure.interactive {
     }
 }
 
+.gusto-video--supporting {
+    @include mq(desktop) {
+        float: left;
+        width: 240px;
+    }
+
+}
+
 .gusto-video--outer {
     .gusto-caption {
         max-width: 620px;
@@ -566,7 +579,15 @@ body figure.interactive {
     }
 }
 
+.isPlaying {
+    .guPause {
+        display: block;
+    }
 
+    .guPlay{
+        display: none;
+    }
+}
 
 // Author meta
 .gusto-author-photo {

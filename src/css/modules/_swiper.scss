@@ -16,6 +16,29 @@
           opacity: 0;
           transition: opacity 0.3s;
           text-shadow: 0 0 10px #000;
+          
+          @media (max-width: 320px){
+            padding: 10px 20px;
+            font-size: 12px;
+            background: rgba(0, 0, 0, 0.9);
+            background: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0.9) 80%);
+            width: 100%;
+            bottom: 0;
+          }
+          
+          @media (max-width: 660px){
+            padding: 20px 30px;
+            font-size: 13px;
+            background: rgba(0, 0, 0, 0.9);
+            background: linear-gradient(to bottom, transparent 0, rgba(0, 0, 0, 0.9) 80%);
+            width: 100%;
+            bottom: 0;
+          }
+          
+          @media (max-width: 940px){
+              padding: 20px 30px;
+              font-size: 13px;
+          }
         }
         
         &:hover .gusto-caption {
@@ -153,7 +176,6 @@
         background-position: center;
         background-repeat: no-repeat;
         height: 100%;
-        vertical-align: middle;
         padding: 0 10px;
         
         
@@ -164,10 +186,14 @@
         }
         
         svg {
-            position: relative;
+            position: absolute;
             top: 50%;
             transform: translateY(-50%);
         }
+    }
+    
+    .swiper-button-next svg {
+        left: 0;
     }
     .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
         
