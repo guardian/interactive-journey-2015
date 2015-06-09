@@ -62,6 +62,7 @@ body figure.interactive {
 .gusto-block--mapSea,
 .gusto-block--mapHeader,
 .gusto-block--gallery,
+.gusto-block--membership,
 .gusto-header-content {
     padding: 0 10px;
     max-width: 1140px;
@@ -80,6 +81,7 @@ body figure.interactive {
 .gusto-block--mapSea,
 .gusto-block--mapHeader,
 .gusto-block--image,
+.gusto-block--membership,
 .gusto-block--video {
     background-color: #f1f1f1;
 }
@@ -128,6 +130,10 @@ body figure.interactive {
         left: 0;
         right: 0;
     }
+}
+
+.gusto-block--membership {
+    padding-top: 84px;
 }
 
 /* left-col indenting */
@@ -293,7 +299,7 @@ body figure.interactive {
         text-shadow: 0 0 10px rgba(0,0,0,0.75);
     }
 
-   
+
 
 
 }
