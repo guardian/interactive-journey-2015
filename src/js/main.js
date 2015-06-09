@@ -16,6 +16,7 @@ define([
     'rvc!templates/audioBlockTemplate',
     'rvc!templates/audioPlayerTemplate',
     'rvc!templates/shareTemplate',
+    'rvc!templates/membershipBlockTemplate',
     'libs/assetManager',
     'libs/bandwidth',
     'isMobile',
@@ -39,6 +40,7 @@ define([
     audioBlockHTML,
     audioPlayer,
     shareTemplate,
+    membershipBlockHTML,
     assetManager,
     bandwidth,
     isMobile,
@@ -48,7 +50,7 @@ define([
     'use strict';
     //Ractive.DEBUG = false;
     var base;
-    
+
     function cleanData(data) {
         data.blocks.forEach(function(block) {
             if (block.hasOwnProperty('copy')) {
@@ -60,7 +62,7 @@ define([
 
     function launchApp(el, responseData){
         var archieData = cleanData(responseData);
-                
+
         //initialize the ractive base, add data, and comonent modules
         base = new AppTemplate({
             el: el,
@@ -77,6 +79,7 @@ define([
                 mapSeaBlock: mapSeaBlockHTML,
                 audioBlock: audioBlockHTML,
                 audioPlayer: audioPlayer,
+                membershipBlock: membershipBlockHTML,
                 shareTools: shareTemplate
             },
             data: {
@@ -100,7 +103,7 @@ define([
                     }
                     return { teardown: function () {} };
                 }
-                
+
             },
             oncomplete: function(){
                 assetManager.setImageSizes(archieData.config.imageSizes);
@@ -166,24 +169,24 @@ define([
         // Load remote JSON data
         var key = '1fELDqgjhldHT-uHWxtMKz4ZjiMLbzb9MwUV6lW8TjAo';
         var url = 'http://interactive.guim.co.uk/docsdata-test/'+key+'.json';
-        
-        
+
+
     	if (isMobile.phone) {
     		el.classList.add('gusto-phone');
     	}
-        
+
         if (!isMobile.android.any) {
     		el.classList.add('gusto-desktop');
     	}
-    	
+
     	if (isMobile.apple.device) {
     		el.classList.add('gusto-iso');
     	}
-    	
+
     	if (isMobile.android.device) {
     		el.classList.add('gusto-android');
     	}
-        
+
 
 
         reqwest({
