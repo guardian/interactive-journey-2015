@@ -124,6 +124,11 @@ define([
                     base.set( measureScreen() );
                 }, 100));
 
+                 var footer = document.querySelector('.l-footer');
+                if(footer){
+                    footer.setAttribute('style','display:block;');
+                }
+
             }
         });
     }
