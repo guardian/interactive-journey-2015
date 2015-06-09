@@ -42,6 +42,16 @@ figure {
     }
 }
 
+
+figure.interactive .byline-name {
+    color: #005689;
+    text-decoration: none;
+    &:hover, &:active {
+        text-decoration: underline;
+    } 
+}
+
+
 body figure.interactive {
     margin: 0;
     position: relative;
