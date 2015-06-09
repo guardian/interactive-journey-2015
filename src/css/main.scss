@@ -453,19 +453,34 @@ body figure.interactive {
 
     .gusto-photo-pull {
         float: left;
-        margin: 0 4px 4px 0;
+        margin: 10px 4px 4px 0;
         border-radius: 100px;
         width: 40px;
+        display: block;
     }
+
+    .gusto-byline-share {
+            border-top: 1px dotted #ccc;
+            border-bottom: 1px dotted #ccc;
+            min-height: 40px;
+            padding: 10px 0;
+            display: block;
+        }
 
     .gusto-date-published {
         font-family: 'Guardian Text Sans Web', sans-serif;
         font-size: 12px;
     }
-    .gusto-byline-share  {
-        display: none;
-    }
+
+     .gusto-date-published {
+            border-top: 1px dotted #ccc;
+            min-height: 45px;
+
+        }
+
     .gusto-photo-byline {
+        padding-bottom: 5px;
+        overflow: auto;
         p {
             font-size: 14px;
             margin-bottom: 0;

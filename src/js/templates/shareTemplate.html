@@ -66,7 +66,7 @@
 				        }else if(platform === "facebook"){
 				            shareWindow =
 				                facebookBaseUrl +
-				                encodeURIComponent(shareUrl) ;
+				                encodeURIComponent(shareUrl) + "&redirect_uri=http://www.theguardian.com";
 				        }else if(platform === "mail"){
 				            shareWindow =
 				                "mailto:" +
