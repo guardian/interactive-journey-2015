@@ -48,7 +48,7 @@ define([
     viewportUnitsBuggyfillHacks
 ) {
     'use strict';
-    //Ractive.DEBUG = false;
+    Ractive.DEBUG = false;
     var base;
 
     function cleanData(data) {
@@ -96,7 +96,6 @@ define([
                     };
                 },
                 posterFrame: function(node, options) {
-                    console.log(node, options);
                     if (options.enable) {
                         var posterImage = assetManager.getVideoPosterImage(options.src);
                         node.style.backgroundImage = "url(" + posterImage + ")";

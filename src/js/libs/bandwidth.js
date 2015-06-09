@@ -31,7 +31,6 @@ define([], function() {
 		var err = null;
 		
 		loadScript(url, function () {
-			// console.log('probably should just ignore Unexpected SyntaxError');
 			var endTime = new Date().getTime();
 			var loadTime = endTime - startTime;
 			var loadSeconds = loadTime * 0.001;
@@ -66,8 +65,6 @@ define([], function() {
 			var fileSizeDiff = fileSizeLarge - fileSizeSmall;
 			var rate = fileSizeDiff/loadSecondsDiff;
 
-			console.log('estimated bandwidth: ' + (rate/1024) + 'kilobits/s');
-			console.log('estimated latency: ' + loadSecondsSmall);
 
 			var ratekbps = Math.round(rate/1024);
 			ratekbps = Math.min(ratekbps, 10000);
