@@ -5,5 +5,13 @@
 
     {{#images}}
     	{{>image this}}    
-    {{/images}}     
+    {{/images}}
+
+    {{#if caption }}
+    	{{#if exclude-caption}}
+
+    	{{else}}
+    		<figcaption class="op-center">{{{ caption }}}</figcaption>
+    	{{/if}}
+    {{/if}}     
 </figure>
