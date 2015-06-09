@@ -1,6 +1,6 @@
 <div class="shareButtons">
 	{{#each media}}
-		<button on-click="share:{{this}},{{photo}}" class="share-{{this}}"></button>
+		<button on-click="share:{{this}}" class="share-{{this}}"></button>
 	{{/each}}
 </div>
 
@@ -49,11 +49,11 @@
 			   			var shareWindow;
 				        var twitterBaseUrl = "http://twitter.com/share?text=";
 				        var facebookBaseUrl = "https://www.facebook.com/dialog/feed?display=popup&app_id=741666719251986&link=";
-				        var articleUrl = "http://www.theguardian.com/politics/ng-interactive/2015/may/07/general-election-2015-voters-voices"
-				        var urlsuffix = url.toString() ? "#p" + url : "";
-				        var shareUrl = articleUrl + urlsuffix;
+				        var articleUrl = "http://www.theguardian.com/world/ng-interactive/2015/jun/09/a-migrants-journey-from-syria-to-sweden-interactive"
+			
+				        var shareUrl = articleUrl ;
 
-				        var message = this.get('shareMessage')
+				        var message = 'The Journey: A Syrian refugee sets his sights on Sweden - and freedom'
 
 				        var shareImage = "http://media.guim.co.uk/b93f5ac5cb86e8bb1a46ab672ca89ea46ff16fe1/0_0_3543_2362/2000.jpg";
 
@@ -66,10 +66,7 @@
 				        }else if(platform === "facebook"){
 				            shareWindow =
 				                facebookBaseUrl +
-				                encodeURIComponent(shareUrl) +
-				                "&picture=" +
-				                encodeURIComponent(shareImage) +
-				                "&redirect_uri=http://www.theguardian.com";
+				                encodeURIComponent(shareUrl) ;
 				        }else if(platform === "mail"){
 				            shareWindow =
 				                "mailto:" +
