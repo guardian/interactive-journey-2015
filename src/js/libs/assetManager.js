@@ -172,7 +172,7 @@ function (
         }
 
 
-        var path = 'http://cdn.theguardian.tv/interactive/';
+        var path = 'https://cdn.theguardian.tv/interactive/';
         var oggPath = path + 'mp4/1080/' + matches[1] + '/' + matches[2];
 
         path += matches[1] + '/' + matches[2];
@@ -235,7 +235,7 @@ function (
 			'video/mp4': getMP4URL(videoPaths.path),
 			'video/webm': getWebmURL(videoPaths.path),
 			'video/ogg': getOggURL(videoPaths.oggPath),
-			'video/m3u8': 'http://multimedia.guardianapis.com/interactivevideos/video.php?file='+
+			'video/m3u8': 'https://multimedia.guardianapis.com/interactivevideos/video.php?file='+
                 videoPaths.filename + '&format=application/x-mpegURL&maxbitrate=2000'	
 		};
 	}
@@ -295,7 +295,7 @@ function (
 
 
 		if (!item.size || typeof item.size !== "string") {
-			path = 'http://' + item.src;
+			path = 'https://' + item.src;
 
 		} else {
 
@@ -318,7 +318,7 @@ function (
 				}
 			}
 			var delimeter = (item.src.search('interactive.guim.co.uk') > -1) ? '' : '/';
-			path = 'http://' + item.src + delimeter + imgSize + '.jpg';
+			path = 'https://' + item.src + delimeter + imgSize + '.jpg';
 		}
 		
 		image.onload = function() {

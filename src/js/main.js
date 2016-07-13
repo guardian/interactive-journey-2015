@@ -167,7 +167,7 @@ define([
     function init(el) {
         // Load remote JSON data
         var key = '1fELDqgjhldHT-uHWxtMKz4ZjiMLbzb9MwUV6lW8TjAo';
-        var url = 'http://interactive.guim.co.uk/docsdata-test/'+key+'.json';
+        var url = 'https://interactive.guim.co.uk/docsdata-test/'+key+'.json';
 
 
     	if (isMobile.phone) {
